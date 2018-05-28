@@ -1,0 +1,136 @@
+fileFormatVersion: 2
+guid: 5e1e46fa7a2564ba6a1820b56e06c32b
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Backing
+    100002: BottomButton
+    100004: Camera
+    100006: //RootNode
+    100008: iPhone
+    100010: Lamp
+    100012: Screen
+    100014: Slider
+    100016: TopButton
+    100018: Wrapping
+    400000: Backing
+    400002: BottomButton
+    400004: Camera
+    400006: //RootNode
+    400008: iPhone
+    400010: Lamp
+    400012: Screen
+    400014: Slider
+    400016: TopButton
+    400018: Wrapping
+    2000000: Camera
+    2100000: No Name
+    2100002: Screen
+    2100004: Black
+    2100006: Camera
+    2100008: Indent
+    2100010: BlackHomeButton
+    2100012: WhiteHomeButton
+    2300000: Backing
+    2300002: BottomButton
+    2300004: iPhone
+    2300006: Screen
+    2300008: Slider
+    2300010: TopButton
+    2300012: Wrapping
+    3300000: Backing
+    3300002: BottomButton
+    3300004: iPhone
+    3300006: Screen
+    3300008: Slider
+    3300010: TopButton
+    3300012: Wrapping
+    4300000: Backing
+    4300002: Screen
+    4300004: Slider
+    4300006: TopButton
+    4300008: BottomButton
+    4300010: Wrapping
+    4300012: iPhone
+    10800000: Lamp
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
