@@ -8,8 +8,8 @@ public class GameManager : MonoBehaviour
 
 	public static GameManager instance;
 	public enum GamePhase { Afternoon, Dusk, Night, Latenight, Dawn, End }
-	public GamePhase currPhase;
-	public float currPhaseTime;
+	[HideInInspector] public GamePhase currPhase;
+	[HideInInspector] public float currPhaseTime;
 
 	public event Action<GamePhase> OnPhaseLoad;
 	public event Action<GamePhase> OnPhaseUnload;
