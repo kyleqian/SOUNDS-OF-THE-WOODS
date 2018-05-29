@@ -1186,6 +1186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   light: {fileID: 108870837636004642}
+  currBattery: 10000
 --- !u!114 &114926391890228164
 MonoBehaviour:
   m_ObjectHideFlags: 1
