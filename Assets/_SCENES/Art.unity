@@ -358,8 +358,8 @@ WindZone:
   m_Enabled: 1
   m_Mode: 0
   m_Radius: 20
-  m_WindMain: 0.09
-  m_WindTurbulence: 0.73
+  m_WindMain: 0
+  m_WindTurbulence: 0.6
   m_WindPulseMagnitude: 0.5
   m_WindPulseFrequency: 0.01
 --- !u!4 &267710015
@@ -670,7 +670,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 2389710, guid: c63ea781a273235439e583799176c846, type: 2}
       propertyPath: m_SelectedEditorRenderState
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 13687634, guid: c63ea781a273235439e583799176c846, type: 2}
@@ -1318,7 +1318,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 910347721}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dd6d4281e5d7cd44d8c6e38bc2c1b8d8, type: 3}
   m_Name: 
@@ -1341,7 +1341,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 910347721}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bd70d448b18cfbc46af26466f752332c, type: 3}
   m_Name: 
