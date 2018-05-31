@@ -8,10 +8,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/_SCENES/Test.unity
     guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 0
-    path: Assets/_SCENES/Art.unity
-    guid: 4b62697c8037a4f239952d9aa99677ae
   - enabled: 1
     path: Assets/_SCENES/ArtKyle.unity
-    guid: 2fb893aa132794d20969bc75dede1110
+    guid: 4b04839647b2a4279848e12853c35222
   m_configObjects: {}
