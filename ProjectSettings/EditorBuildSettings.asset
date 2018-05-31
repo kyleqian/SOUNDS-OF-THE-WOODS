@@ -12,6 +12,6 @@ EditorBuildSettings:
     path: Assets/_SCENES/Art.unity
     guid: 4b62697c8037a4f239952d9aa99677ae
   - enabled: 1
-    path: Assets/_SCENES/ArtKyle.unity
-    guid: 2fb893aa132794d20969bc75dede1110
+    path: Assets/_SCENES/Art_Kyle.unity
+    guid: 3fc3392234bbb4404a9c9da99728f18f
   m_configObjects: {}
