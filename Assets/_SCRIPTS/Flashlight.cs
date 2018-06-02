@@ -2,7 +2,7 @@
 
 public class Flashlight : MonoBehaviour
 {
-	[SerializeField] Light light;
+	[SerializeField] Light lightSource;
 
 	public float currBattery;
 
@@ -15,15 +15,15 @@ public class Flashlight : MonoBehaviour
 
 		if (OVRInput.GetDown(OVRInput.Button.One))
 		{
-			light.enabled = !light.enabled;
+            lightSource.enabled = !lightSource.enabled;
 		}
 
-		if (light.enabled)
+        if (lightSource.enabled)
 		{
 			currBattery--;
 			if (currBattery <= 0)
 			{
-				light.enabled = false;
+                lightSource.enabled = false;
 			}
 		}
 	}

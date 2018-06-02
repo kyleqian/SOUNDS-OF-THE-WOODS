@@ -1,24 +1,37 @@
 ﻿using System;
 using UnityEngine;
 
+public enum GamePhase
+{
+    Afternoon, Dusk, Night, Latenight, Dawn, End
+}
+
 public class GameManager : MonoBehaviour
 {
-	[SerializeField] float minPhaseLengthInSeconds;
-	[SerializeField] float maxPhaseLengthInSeconds;
+    public static GameManager Instance;
+    
+    public event Action<GamePhase> PhaseLoaded;
+    public event Action<GamePhase> PhaseUnloaded;
 
-	public static GameManager instance;
-	public enum GamePhase { Afternoon, Dusk, Night, Latenight, Dawn, End }
-	[HideInInspector] public GamePhase currPhase;
-	[HideInInspector] public float currPhaseTime;
+    public GamePhase CurrPhase { get; private set; }
+    public float CurrPhaseTime { get; private set; }
 
-	public event Action<GamePhase> OnPhaseLoad;
-	public event Action<GamePhase> OnPhaseUnload;
+    [SerializeField] float minPhaseLengthInSeconds;
+    [SerializeField] float maxPhaseLengthInSeconds;
 
 	float[] phaseLengths;
 
 	void Awake()
 	{
-		instance = this;
+		if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        else
+        {
+            Instance = this;
+        }
 
 		for (int i = 0; i < Enum.GetNames(typeof(GamePhase)).Length; ++i)
 		{
@@ -26,39 +39,73 @@ public class GameManager : MonoBehaviour
 		}
 
 		// No limit for .End
-		phaseLengths[phaseLengths.Length - 1] = Mathf.Infinity;
+        phaseLengths[(int)GamePhase.End] = Mathf.Infinity;
 	}
 
-	void Update()
+    void OnEnable()
+    {
+        PhaseLoaded += OnPhaseLoad;
+        PhaseUnloaded += OnPhaseUnload;
+    }
+
+    void OnDisable()
+    {
+        PhaseLoaded -= OnPhaseLoad;
+        PhaseUnloaded -= OnPhaseUnload;
+    }
+
+    void Update()
 	{
 		// Advance time
-		currPhaseTime += Time.deltaTime;
-		if (currPhaseTime >= phaseLengths[(int)currPhase])
+		CurrPhaseTime += Time.deltaTime;
+		if (CurrPhaseTime >= phaseLengths[(int)CurrPhase])
 		{
-			PhaseTransition();
-		}
+            CurrPhaseTime = 0;
+            PhaseTransition();
+        }
+    }
+
+    void PhaseTransition()
+    {
+		PhaseUnloaded(CurrPhase);
+		PhaseLoaded(++CurrPhase);
 	}
 
-	void PhaseTransition()
-	{
-		currPhaseTime = 0;
-		OnPhaseUnload(currPhase);
-		OnPhaseLoad(++currPhase);
+    void OnPhaseLoad(GamePhase phase)
+    {
+        switch (phase)
+        {
+            case GamePhase.Afternoon:
+                break;
+            case GamePhase.Dusk:
+                break;
+            case GamePhase.Night:
+                break;
+            case GamePhase.Latenight:
+                break;
+            case GamePhase.Dawn:
+                break;
+            case GamePhase.End:
+                break;
+        }
+    }
 
-		switch (currPhase)
-		{
-			case GamePhase.Afternoon:
-				break;
-			case GamePhase.Dusk:
-				break;
-			case GamePhase.Night:
-				break;
-			case GamePhase.Latenight:
-				break;
-			case GamePhase.Dawn:
-				break;
-			case GamePhase.End:
-				break;
-		}
-	}
+    void OnPhaseUnload(GamePhase phase)
+    {
+        switch (phase)
+        {
+            case GamePhase.Afternoon:
+                break;
+            case GamePhase.Dusk:
+                break;
+            case GamePhase.Night:
+                break;
+            case GamePhase.Latenight:
+                break;
+            case GamePhase.Dawn:
+                break;
+            case GamePhase.End:
+                break;
+        }
+    }
 }
