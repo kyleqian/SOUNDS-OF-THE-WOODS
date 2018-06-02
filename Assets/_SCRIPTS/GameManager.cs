@@ -28,10 +28,7 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-        else
-        {
-            Instance = this;
-        }
+        Instance = this;
 
 		for (int i = 0; i < Enum.GetNames(typeof(GamePhase)).Length; ++i)
 		{

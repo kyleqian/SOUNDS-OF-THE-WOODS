@@ -515,14 +515,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1838250590176588}
-  m_LocalRotation: {x: 0.038901176, y: -0.13474728, z: -0.00529423, w: -0.99010193}
+  m_LocalRotation: {x: -0.039082304, y: 0.094903894, z: 0.0037287802, w: 0.994712}
   m_LocalPosition: {x: 0, y: 1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4865178229803390}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -4.5, y: -344.5, z: 0}
+  m_LocalEulerAnglesHint: {x: -4.5, y: 10.9, z: 0}
 --- !u!4 &4523290909179746
 Transform:
   m_ObjectHideFlags: 1
@@ -1210,7 +1210,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1549832362719444}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 646b5bc27a658f447b1d929fd5ffbd70, type: 3}
   m_Name: 
@@ -1498,7 +1498,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9fc6768772f449c8a8c91a3d0131ec6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  light: {fileID: 108870837636004642}
+  lightSource: {fileID: 108870837636004642}
   currBattery: 10000
 --- !u!114 &114926391890228164
 MonoBehaviour:
