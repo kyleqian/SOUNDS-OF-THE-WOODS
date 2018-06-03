@@ -6,7 +6,7 @@ public enum GamePhase
     Afternoon, Dusk, Night, Latenight, Dawn, End
 }
 
-public class GameManager : MonoBehaviour
+public class GameManager : ManagerBase
 {
     public static GameManager Instance;
     
@@ -30,7 +30,9 @@ public class GameManager : MonoBehaviour
         }
         Instance = this;
 
-		for (int i = 0; i < Enum.GetNames(typeof(GamePhase)).Length; ++i)
+        int numPhases = Enum.GetNames(typeof(GamePhase)).Length;
+        phaseLengths = new float[numPhases];
+        for (int i = 0; i < numPhases; ++i)
 		{
 			phaseLengths[i] = UnityEngine.Random.Range(minPhaseLengthInSeconds, maxPhaseLengthInSeconds);
 		}
@@ -38,18 +40,6 @@ public class GameManager : MonoBehaviour
 		// No limit for .End
         phaseLengths[(int)GamePhase.End] = Mathf.Infinity;
 	}
-
-    void OnEnable()
-    {
-        PhaseLoaded += OnPhaseLoad;
-        PhaseUnloaded += OnPhaseUnload;
-    }
-
-    void OnDisable()
-    {
-        PhaseLoaded -= OnPhaseLoad;
-        PhaseUnloaded -= OnPhaseUnload;
-    }
 
     void Update()
 	{
@@ -66,9 +56,10 @@ public class GameManager : MonoBehaviour
     {
 		PhaseUnloaded(CurrPhase);
 		PhaseLoaded(++CurrPhase);
+        Debug.Log("Transition to: " + CurrPhase.ToString());
 	}
 
-    void OnPhaseLoad(GamePhase phase)
+    protected override void OnPhaseLoad(GamePhase phase)
     {
         switch (phase)
         {
@@ -87,7 +78,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void OnPhaseUnload(GamePhase phase)
+    protected override void OnPhaseUnload(GamePhase phase)
     {
         switch (phase)
         {

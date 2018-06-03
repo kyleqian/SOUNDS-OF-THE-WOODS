@@ -1,20 +1,8 @@
 ﻿using UnityEngine;
 
-public class CreatureManager : MonoBehaviour
+public class CreatureManager : ManagerBase
 {
-    void OnEnable()
-    {
-        GameManager.Instance.PhaseLoaded += OnPhaseLoad;
-        GameManager.Instance.PhaseUnloaded += OnPhaseUnload;
-    }
-
-    void OnDisable()
-    {
-        GameManager.Instance.PhaseLoaded -= OnPhaseLoad;
-        GameManager.Instance.PhaseUnloaded -= OnPhaseUnload;
-    }
-
-    void OnPhaseLoad(GamePhase phase)
+    protected override void OnPhaseLoad(GamePhase phase)
     {
         switch (phase)
         {
@@ -33,7 +21,7 @@ public class CreatureManager : MonoBehaviour
         }
     }
 
-    void OnPhaseUnload(GamePhase phase)
+    protected override void OnPhaseUnload(GamePhase phase)
     {
         switch (phase)
         {
