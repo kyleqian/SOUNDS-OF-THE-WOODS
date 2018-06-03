@@ -5,24 +5,42 @@ public class Friendly : CreatureBase
     protected override void ChangeState(CreatureState state)
     {
         currState = state;
-        switch (state)
+        switch (currState)
         {
             case CreatureState.Default:
                 // Play animation
 
-                // Move?
-
                 break;
             case CreatureState.Shocked:
                 // Play animation
-                
-                // Stop moving
-                
+
                 break;
             case CreatureState.Fleeing:
                 // Play animation
 
-                // Move?
+                break;
+        }
+    }
+
+    void Update()
+    {
+        switch (currState)
+        {
+            case CreatureState.Default:
+                // Move around
+
+                break;
+            case CreatureState.Shocked:
+                // Revert back to Default if shocked for too long
+                // without fleeing
+                shockTimer += Time.deltaTime;
+                if (shockTimer >= SECONDS_TO_UNSHOCK)
+                {
+                    ChangeState(CreatureState.Default);
+                }
+                break;
+            case CreatureState.Fleeing:
+                // Move/scale
 
                 break;
         }
