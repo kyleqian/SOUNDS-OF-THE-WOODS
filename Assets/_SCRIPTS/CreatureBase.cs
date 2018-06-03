@@ -9,6 +9,8 @@ public abstract class CreatureBase : MonoBehaviour
 {
     protected const float SECONDS_TO_SHOCK = 0.5f;
     protected const float SECONDS_TO_FLEE = 2f;
+    protected const float SECONDS_TO_UNSHOCK = 1f;
+    protected float shockTimer;
     protected CreatureState currState;
 
     public virtual void Spawn(Vector3 location)
@@ -52,6 +54,10 @@ public abstract class CreatureBase : MonoBehaviour
             if (currState == CreatureState.Default)
             {
                 ChangeState(CreatureState.Shocked);
+            }
+            else if (currState == CreatureState.Shocked)
+            {
+                shockTimer = 0;
             }
         }
     }
