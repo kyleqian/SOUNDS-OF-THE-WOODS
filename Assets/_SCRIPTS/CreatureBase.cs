@@ -7,6 +7,7 @@ public enum CreatureState
 
 public abstract class CreatureBase : MonoBehaviour
 {
+    public bool spawned;
     protected const float SECONDS_TO_SHOCK = 0.5f;
     protected const float SECONDS_TO_FLEE = 2f;
     protected const float SECONDS_TO_UNSHOCK = 1f;
@@ -15,26 +16,21 @@ public abstract class CreatureBase : MonoBehaviour
 
     public virtual void Spawn(Vector3 location)
     {
-        // Initialize location
-        transform.position = location;
-
         // Change state to Default
         ChangeState(CreatureState.Default);
 
-        // Enable GameObject
-        gameObject.SetActive(true);
+        // Set to spawned
+        spawned = true;
 
-        // Fade in
-        // TODO
+        // Fade in/activation/initial position should be handled by subclass implementation
     }
 
     public virtual void Despawn()
     {
-        // Fade out
-        // TODO
+        // Set to despawned
+        spawned = false;
 
-        // Disable GameObject when faded out
-        // TODO
+        // Fade out/deactivation should be handled by subclass implementation
     }
 
     // Called by flashlight with value indicating how long

@@ -29,7 +29,7 @@ public class GameManager : ManagerBase
         }
         Instance = this;
 
-        int numPhases = Enum.GetNames(typeof(GamePhase)).Length;
+        int numPhases = Enum.GetValues(typeof(GamePhase)).Length;
         PhaseLengths = new float[numPhases];
         for (int i = 0; i < numPhases; ++i)
 		{
