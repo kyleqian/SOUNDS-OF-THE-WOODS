@@ -139,6 +139,7 @@ public class EffectsManager : ManagerBase
                 // Initial lighting
                 Lighting lighting = lightingReference[phase];
                 Lighting nextLighting = lightingReference[phase + 1];
+
                 UpdateLightingImmediate(lighting);
                 UpdateLightingOverTime(nextLighting);
                 break;
