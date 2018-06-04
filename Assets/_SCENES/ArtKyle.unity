@@ -6206,6 +6206,12 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1205953342 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114365119197897246, guid: 3b721fcfc022d4101a4b20c90be59774,
+    type: 2}
+  m_PrefabInternal: {fileID: 910347720}
+  m_Script: {fileID: 11500000, guid: 7fceaeb339b971b429c4cc600acabd13, type: 3}
 --- !u!1 &1239482234
 GameObject:
   m_ObjectHideFlags: 0
@@ -7282,6 +7288,21 @@ Prefab:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 114733852601313958, guid: eb778728cbe6648008b434524124154e,
+        type: 2}
+      propertyPath: skyboxMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: c63160917ab3648cbb1bafa7e34840a4, type: 2}
+    - target: {fileID: 114733852601313958, guid: eb778728cbe6648008b434524124154e,
+        type: 2}
+      propertyPath: bloomEffect
+      value: 
+      objectReference: {fileID: 1205953342}
+    - target: {fileID: 114733852601313958, guid: eb778728cbe6648008b434524124154e,
+        type: 2}
+      propertyPath: directionalLight
+      value: 
+      objectReference: {fileID: 1248987485}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: eb778728cbe6648008b434524124154e, type: 2}
   m_IsPrefabParent: 0

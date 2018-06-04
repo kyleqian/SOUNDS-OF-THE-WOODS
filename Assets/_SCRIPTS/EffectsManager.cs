@@ -84,10 +84,10 @@ public class EffectsManager : ManagerBase
     protected override void OnPhaseLoad(GamePhase phase)
     {
         LightingCondition lightingCondition = lighting[phase];
-
         switch (phase)
         {
             case GamePhase.Afternoon:
+                // Initial lighting
                 RenderSettings.ambientSkyColor = lightingCondition.ambientSkyColor;
                 skyboxMaterial.SetColor("_Tint", lightingCondition.skyboxColor);
                 bloomEffect.bloomThreshold = lightingCondition.bloomThreshold;
