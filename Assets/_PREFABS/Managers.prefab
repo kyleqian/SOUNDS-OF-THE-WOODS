@@ -205,3 +205,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a5c4c47e0662490e9580ff4a6b03a62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skyboxMaterial: {fileID: 2100000, guid: c63160917ab3648cbb1bafa7e34840a4, type: 2}
+  bloomEffect: {fileID: 0}
+  directionalLight: {fileID: 0}

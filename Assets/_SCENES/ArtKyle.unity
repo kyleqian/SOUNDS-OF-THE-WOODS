@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1248987485}
-  m_IndirectSpecularColor: {r: 0.43304157, g: 0.7610615, b: 0.8704971, a: 1}
+  m_IndirectSpecularColor: {r: 0.78586864, g: 0.7763966, b: 0.45105314, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4315,85 +4315,25 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4513603691493882, guid: 3b721fcfc022d4101a4b20c90be59774, type: 2}
       propertyPath: m_LocalRotation.x
-      value: -0.006842207
+      value: 0.013089582
       objectReference: {fileID: 0}
     - target: {fileID: 4513603691493882, guid: 3b721fcfc022d4101a4b20c90be59774, type: 2}
       propertyPath: m_LocalRotation.y
-      value: -0.8524304
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4513603691493882, guid: 3b721fcfc022d4101a4b20c90be59774, type: 2}
       propertyPath: m_LocalRotation.z
-      value: 0.011158913
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4513603691493882, guid: 3b721fcfc022d4101a4b20c90be59774, type: 2}
       propertyPath: m_LocalRotation.w
-      value: -0.5226768
+      value: 0.99991435
       objectReference: {fileID: 0}
     - target: {fileID: 4513603691493882, guid: 3b721fcfc022d4101a4b20c90be59774, type: 2}
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114623558341544728, guid: 3b721fcfc022d4101a4b20c90be59774,
-        type: 2}
-      propertyPath: useDepthCorrection
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114623558341544728, guid: 3b721fcfc022d4101a4b20c90be59774,
-        type: 2}
-      propertyPath: mode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114623558341544728, guid: 3b721fcfc022d4101a4b20c90be59774,
-        type: 2}
-      propertyPath: saturation
-      value: 0.85
-      objectReference: {fileID: 0}
-    - target: {fileID: 4144043311757672, guid: 3b721fcfc022d4101a4b20c90be59774, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4144043311757672, guid: 3b721fcfc022d4101a4b20c90be59774, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4144043311757672, guid: 3b721fcfc022d4101a4b20c90be59774, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -56.27
-      objectReference: {fileID: 0}
-    - target: {fileID: 4513603691493882, guid: 3b721fcfc022d4101a4b20c90be59774, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -243.03
-      objectReference: {fileID: 0}
-    - target: {fileID: 4513603691493882, guid: 3b721fcfc022d4101a4b20c90be59774, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114314084124101916, guid: 3b721fcfc022d4101a4b20c90be59774,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114365119197897246, guid: 3b721fcfc022d4101a4b20c90be59774,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4513603691493882, guid: 3b721fcfc022d4101a4b20c90be59774, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114365119197897246, guid: 3b721fcfc022d4101a4b20c90be59774,
-        type: 2}
-      propertyPath: bloomThreshold
-      value: 0.69
-      objectReference: {fileID: 0}
-    - target: {fileID: 114623558341544728, guid: 3b721fcfc022d4101a4b20c90be59774,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 114192620301467722, guid: 3b721fcfc022d4101a4b20c90be59774, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3b721fcfc022d4101a4b20c90be59774, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &913515460
@@ -7288,11 +7228,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
-    - target: {fileID: 114733852601313958, guid: eb778728cbe6648008b434524124154e,
-        type: 2}
-      propertyPath: skyboxMaterial
-      value: 
-      objectReference: {fileID: 2100000, guid: c63160917ab3648cbb1bafa7e34840a4, type: 2}
     - target: {fileID: 114733852601313958, guid: eb778728cbe6648008b434524124154e,
         type: 2}
       propertyPath: bloomEffect
