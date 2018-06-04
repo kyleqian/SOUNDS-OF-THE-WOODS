@@ -73,6 +73,7 @@ public class EffectsManager : ManagerBase
             0.5f
         );
 
+        lighting = new Dictionary<GamePhase, LightingCondition>();
         lighting.Add(GamePhase.Afternoon, afternoonLighting);
         lighting.Add(GamePhase.Dusk, duskLighting);
         lighting.Add(GamePhase.Night, nightLighting);
