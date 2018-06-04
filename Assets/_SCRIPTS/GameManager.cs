@@ -39,6 +39,9 @@ public class GameManager : ManagerBase
 
 		// No limit for .End
         phaseLengths[(int)GamePhase.End] = Mathf.Infinity;
+
+        // Fire events for loading .Afternoon
+        PhaseLoaded(CurrPhase);
 	}
 
     void Update()

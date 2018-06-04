@@ -1,15 +1,16 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.ImageEffects;
 
 public class EffectsManager : ManagerBase
 {
     struct LightingCondition
     {
-        Color32 ambientSkyColor;
-        Color32 skyboxColor;
-        float bloomThreshold;
-        Color32 directionalLightColor;
-        float directionalLightIntensity;
+        public readonly Color32 ambientSkyColor;
+        public readonly Color32 skyboxColor;
+        public readonly float bloomThreshold;
+        public readonly Color32 directionalLightColor;
+        public readonly float directionalLightIntensity;
 
         public LightingCondition(Color32 ambientSkyColor, Color32 skyboxColor,
                                 float bloomThreshold, Color32 directionalLightColor,
@@ -22,6 +23,10 @@ public class EffectsManager : ManagerBase
             this.directionalLightIntensity = directionalLightIntensity;
         }
     }
+
+    [SerializeField] Material skyboxMaterial;
+    [SerializeField] Bloom bloomEffect;
+    [SerializeField] Light directionalLight;
 
     Dictionary<GamePhase, LightingCondition> lighting;
 
@@ -77,9 +82,16 @@ public class EffectsManager : ManagerBase
 
     protected override void OnPhaseLoad(GamePhase phase)
     {
+        LightingCondition lightingCondition = lighting[phase];
+
         switch (phase)
         {
             case GamePhase.Afternoon:
+                RenderSettings.ambientSkyColor = lightingCondition.ambientSkyColor;
+                skyboxMaterial.SetColor("_Tint", lightingCondition.skyboxColor);
+                bloomEffect.bloomThreshold = lightingCondition.bloomThreshold;
+                directionalLight.color = lightingCondition.directionalLightColor;
+                directionalLight.intensity = lightingCondition.directionalLightIntensity;
                 break;
             case GamePhase.Dusk:
                 break;
