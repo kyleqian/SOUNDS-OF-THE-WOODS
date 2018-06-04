@@ -7,7 +7,7 @@ public enum CreatureState
 
 public abstract class CreatureBase : MonoBehaviour
 {
-    public bool spawned;
+    public bool Spawned { get; private set; }
     protected const float SECONDS_TO_SHOCK = 0.5f;
     protected const float SECONDS_TO_FLEE = 2f;
     protected const float SECONDS_TO_UNSHOCK = 1f;
@@ -20,7 +20,7 @@ public abstract class CreatureBase : MonoBehaviour
         ChangeState(CreatureState.Default);
 
         // Set to spawned
-        spawned = true;
+        Spawned = true;
 
         // Fade in/activation/initial position should be handled by subclass implementation
     }
@@ -28,7 +28,7 @@ public abstract class CreatureBase : MonoBehaviour
     public virtual void Despawn()
     {
         // Set to despawned
-        spawned = false;
+        Spawned = false;
 
         // Fade out/deactivation should be handled by subclass implementation
     }
