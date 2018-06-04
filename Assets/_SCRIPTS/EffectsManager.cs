@@ -87,6 +87,14 @@ public class EffectsManager : ManagerBase
         lightingReference.Add(GamePhase.Dawn, dawnLighting);
     }
 
+    void StopActiveCoroutine()
+    {
+        if (activeCoroutine != null)
+        {
+            StopCoroutine(activeCoroutine);
+        }
+    }
+
     void UpdateLightingImmediate(Lighting lighting)
     {
         RenderSettings.ambientSkyColor = lighting.ambientSkyColor;
@@ -98,10 +106,7 @@ public class EffectsManager : ManagerBase
 
     void UpdateLightingOverTime(Lighting lighting)
     {
-        if (activeCoroutine != null)
-        {
-            StopCoroutine(activeCoroutine);
-        }
+        StopActiveCoroutine();
         activeCoroutine = StartCoroutine(_UpdateLightingOverTime(lighting));
     }
 
@@ -156,8 +161,10 @@ public class EffectsManager : ManagerBase
                 UpdateLightingOverTime(nextLighting);
                 break;
             case GamePhase.Dawn:
+                StopActiveCoroutine();
                 break;
             case GamePhase.End:
+                StopActiveCoroutine();
                 break;
         }
     }
