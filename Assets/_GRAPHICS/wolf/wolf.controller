@@ -5,7 +5,7 @@ AnimatorController:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: bunny
+  m_Name: wolf
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: flee
@@ -112,7 +112,7 @@ AnimatorState:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: fleeing
-  m_Speed: 1
+  m_Speed: 1.5
   m_CycleOffset: 0
   m_Transitions: []
   m_StateMachineBehaviours: []
@@ -124,7 +124,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: f416ffdb150c74d79a025f1f5b8cf257, type: 2}
+  m_Motion: {fileID: 7400000, guid: 8d8c7430ea5b34bf7901f050e7d2fc24, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -150,7 +150,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: f3b214e82655441d18d98f1697fc2a6a, type: 2}
+  m_Motion: {fileID: 7400000, guid: 8d8c7430ea5b34bf7901f050e7d2fc24, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -177,7 +177,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: e435a28a96c284e859c2d584d84a0ec6, type: 2}
+  m_Motion: {fileID: 7400000, guid: 61e11fe3463fa4ff193626658b116086, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
