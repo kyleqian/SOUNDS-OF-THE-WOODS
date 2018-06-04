@@ -34,14 +34,14 @@ public class EffectsManager : ManagerBase
 
     void Awake()
     {
-        InitializeLightingConditions();
+        InitializeLightingReference();
 
         // Make in-memory copy of Material so we don't overwrite the original
         tempSkyboxMaterial = new Material(RenderSettings.skybox);
         RenderSettings.skybox = tempSkyboxMaterial;
     }
 
-    void InitializeLightingConditions()
+    void InitializeLightingReference()
     {
         Lighting afternoonLighting = new Lighting(
             new Color32(180, 231, 162, 255),
