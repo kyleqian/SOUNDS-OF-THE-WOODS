@@ -15,11 +15,10 @@ public class GameManager : ManagerBase
 
     public GamePhase CurrPhase { get; private set; }
     public float CurrPhaseTime { get; private set; }
+    public float[] PhaseLengths { get; private set; }
 
     [SerializeField] float minPhaseLengthInSeconds;
     [SerializeField] float maxPhaseLengthInSeconds;
-
-	float[] phaseLengths;
 
 	void Awake()
 	{
@@ -31,14 +30,14 @@ public class GameManager : ManagerBase
         Instance = this;
 
         int numPhases = Enum.GetNames(typeof(GamePhase)).Length;
-        phaseLengths = new float[numPhases];
+        PhaseLengths = new float[numPhases];
         for (int i = 0; i < numPhases; ++i)
 		{
-			phaseLengths[i] = UnityEngine.Random.Range(minPhaseLengthInSeconds, maxPhaseLengthInSeconds);
+			PhaseLengths[i] = UnityEngine.Random.Range(minPhaseLengthInSeconds, maxPhaseLengthInSeconds);
 		}
 
 		// No limit for .End
-        phaseLengths[(int)GamePhase.End] = Mathf.Infinity;
+        PhaseLengths[(int)GamePhase.End] = Mathf.Infinity;
     }
 
     void Start()
@@ -51,7 +50,7 @@ public class GameManager : ManagerBase
 	{
 		// Advance time
 		CurrPhaseTime += Time.deltaTime;
-		if (CurrPhaseTime >= phaseLengths[(int)CurrPhase])
+		if (CurrPhaseTime >= PhaseLengths[(int)CurrPhase])
 		{
             CurrPhaseTime = 0;
             PhaseTransition();

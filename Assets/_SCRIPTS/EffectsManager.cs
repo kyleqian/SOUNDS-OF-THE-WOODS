@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.ImageEffects;
 
@@ -7,32 +8,37 @@ public class EffectsManager : ManagerBase
     struct Lighting
     {
         public readonly Color32 ambientSkyColor;
-        public readonly Color32 skyboxColor;
+        public readonly Color32 skyboxTintColor;
         public readonly float bloomThreshold;
         public readonly Color32 directionalLightColor;
         public readonly float directionalLightIntensity;
 
-        public Lighting(Color32 ambientSkyColor, Color32 skyboxColor,
+        public Lighting(Color32 ambientSkyColor, Color32 skyboxTintColor,
                                 float bloomThreshold, Color32 directionalLightColor,
                                 float directionalLightIntensity)
         {
             this.ambientSkyColor = ambientSkyColor;
-            this.skyboxColor = skyboxColor;
+            this.skyboxTintColor = skyboxTintColor;
             this.bloomThreshold = bloomThreshold;
             this.directionalLightColor = directionalLightColor;
             this.directionalLightIntensity = directionalLightIntensity;
         }
     }
 
-    [SerializeField] Material skyboxMaterial;
     [SerializeField] Bloom bloomEffect;
     [SerializeField] Light directionalLight;
 
+    Material tempSkyboxMaterial;
     Dictionary<GamePhase, Lighting> lightingReference;
+    Coroutine activeCoroutine;
 
     void Awake()
     {
         InitializeLightingConditions();
+
+        // Make in-memory copy of Material so we don't overwrite the original
+        tempSkyboxMaterial = new Material(RenderSettings.skybox);
+        RenderSettings.skybox = tempSkyboxMaterial;
     }
 
     void InitializeLightingConditions()
@@ -81,30 +87,72 @@ public class EffectsManager : ManagerBase
         lightingReference.Add(GamePhase.Dawn, dawnLighting);
     }
 
-    void UpdateLighting()
+    void UpdateLightingImmediate(Lighting lighting)
     {
-        
+        RenderSettings.ambientSkyColor = lighting.ambientSkyColor;
+        tempSkyboxMaterial.SetColor("_Tint", lighting.skyboxTintColor);
+        bloomEffect.bloomThreshold = lighting.bloomThreshold;
+        directionalLight.color = lighting.directionalLightColor;
+        directionalLight.intensity = lighting.directionalLightIntensity;
+    }
+
+    void UpdateLightingOverTime(Lighting lighting)
+    {
+        if (activeCoroutine != null)
+        {
+            StopCoroutine(activeCoroutine);
+        }
+        activeCoroutine = StartCoroutine(_UpdateLightingOverTime(lighting));
+    }
+
+    IEnumerator _UpdateLightingOverTime(Lighting lighting)
+    {
+        float phaseLength = GameManager.Instance.PhaseLengths[(int)GameManager.Instance.CurrPhase];
+        Lighting initialLighting = new Lighting(
+            RenderSettings.ambientSkyColor,
+            tempSkyboxMaterial.GetColor("_Tint"),
+            bloomEffect.bloomThreshold,
+            directionalLight.color,
+            directionalLight.intensity
+        );
+
+        while (GameManager.Instance.CurrPhaseTime < phaseLength)
+        {
+            float lerpFactor = GameManager.Instance.CurrPhaseTime / phaseLength;
+            Lighting lerpedLighting = new Lighting(
+                Color32.Lerp(initialLighting.ambientSkyColor, lighting.ambientSkyColor, lerpFactor),
+                Color32.Lerp(initialLighting.skyboxTintColor, lighting.skyboxTintColor, lerpFactor),
+                Mathf.Lerp(initialLighting.bloomThreshold, lighting.bloomThreshold, lerpFactor),
+                Color32.Lerp(initialLighting.directionalLightColor, lighting.directionalLightColor, lerpFactor),
+                Mathf.Lerp(initialLighting.directionalLightIntensity, lighting.directionalLightIntensity, lerpFactor)
+            );
+            UpdateLightingImmediate(lerpedLighting);
+            yield return null;
+        }
     }
 
     protected override void OnPhaseLoad(GamePhase phase)
     {
-        Lighting lightingCondition = lightingReference[phase];
         switch (phase)
         {
             case GamePhase.Afternoon:
                 // Initial lighting
-                RenderSettings.ambientSkyColor = lightingCondition.ambientSkyColor;
-                skyboxMaterial.SetColor("_Tint", lightingCondition.skyboxColor);
-                bloomEffect.bloomThreshold = lightingCondition.bloomThreshold;
-                directionalLight.color = lightingCondition.directionalLightColor;
-                directionalLight.intensity = lightingCondition.directionalLightIntensity;
-
+                Lighting lighting = lightingReference[phase];
+                Lighting nextLighting = lightingReference[phase + 1];
+                UpdateLightingImmediate(lighting);
+                UpdateLightingOverTime(nextLighting);
                 break;
             case GamePhase.Dusk:
+                nextLighting = lightingReference[phase + 1];
+                UpdateLightingOverTime(nextLighting);
                 break;
             case GamePhase.Night:
+                nextLighting = lightingReference[phase + 1];
+                UpdateLightingOverTime(nextLighting);
                 break;
             case GamePhase.Latenight:
+                nextLighting = lightingReference[phase + 1];
+                UpdateLightingOverTime(nextLighting);
                 break;
             case GamePhase.Dawn:
                 break;
