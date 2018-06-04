@@ -14,8 +14,8 @@ public class EffectsManager : ManagerBase
         public readonly float directionalLightIntensity;
 
         public Lighting(Color32 ambientSkyColor, Color32 skyboxTintColor,
-                                float bloomThreshold, Color32 directionalLightColor,
-                                float directionalLightIntensity)
+                        float bloomThreshold, Color32 directionalLightColor,
+                        float directionalLightIntensity)
         {
             this.ambientSkyColor = ambientSkyColor;
             this.skyboxTintColor = skyboxTintColor;
@@ -28,7 +28,7 @@ public class EffectsManager : ManagerBase
     [SerializeField] Bloom bloomEffect;
     [SerializeField] Light directionalLight;
 
-    Material tempSkyboxMaterial;
+    Material copySkyboxMaterial;
     Dictionary<GamePhase, Lighting> lightingReference;
     Coroutine activeCoroutine;
 
@@ -37,8 +37,8 @@ public class EffectsManager : ManagerBase
         InitializeLightingReference();
 
         // Make in-memory copy of Material so we don't overwrite the original
-        tempSkyboxMaterial = new Material(RenderSettings.skybox);
-        RenderSettings.skybox = tempSkyboxMaterial;
+        copySkyboxMaterial = new Material(RenderSettings.skybox);
+        RenderSettings.skybox = copySkyboxMaterial;
     }
 
     void InitializeLightingReference()
@@ -90,7 +90,7 @@ public class EffectsManager : ManagerBase
     void UpdateLightingImmediate(Lighting lighting)
     {
         RenderSettings.ambientSkyColor = lighting.ambientSkyColor;
-        tempSkyboxMaterial.SetColor("_Tint", lighting.skyboxTintColor);
+        copySkyboxMaterial.SetColor("_Tint", lighting.skyboxTintColor);
         bloomEffect.bloomThreshold = lighting.bloomThreshold;
         directionalLight.color = lighting.directionalLightColor;
         directionalLight.intensity = lighting.directionalLightIntensity;
@@ -110,7 +110,7 @@ public class EffectsManager : ManagerBase
         float phaseLength = GameManager.Instance.PhaseLengths[(int)GameManager.Instance.CurrPhase];
         Lighting initialLighting = new Lighting(
             RenderSettings.ambientSkyColor,
-            tempSkyboxMaterial.GetColor("_Tint"),
+            copySkyboxMaterial.GetColor("_Tint"),
             bloomEffect.bloomThreshold,
             directionalLight.color,
             directionalLight.intensity
