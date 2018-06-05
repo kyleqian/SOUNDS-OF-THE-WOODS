@@ -44,8 +44,8 @@ public class CreatureManager : ManagerBase
             creaturePools[type] = new CreatureBase[creatureCounts[(int)type]];
             for (int i = 0; i < creatureCounts[(int)type]; ++i)
             {
-                GameObject newCreature = Instantiate(creaturePrefabs[(int)type]);
-                creaturePools[type][i] = newCreature.GetComponent<CreatureBase>();
+                var newCreature = Instantiate(creaturePrefabs[(int)type]);
+                creaturePools[type][i] = newCreature.GetComponentInChildren<CreatureBase>();
                 newCreature.SetActive(false);
             }
         }
@@ -54,6 +54,12 @@ public class CreatureManager : ManagerBase
     // TODO: Deal with spawning more than there are in reserve
     public void SpawnCreatures(CreatureType type, int count)
     {
+        // Max count if negative number
+        if (count < 0)
+        {
+            count = creatureCounts[(int)type];
+        }
+
         for (int i = 0; i < count; ++i)
         {
             // Find an unspawned creature of that type
@@ -73,6 +79,12 @@ public class CreatureManager : ManagerBase
     // TODO: Possibly do a proportion instead of raw count?
     public void DespawnCreatures(CreatureType type, int count)
     {
+        // Max count if negative number
+        if (count < 0)
+        {
+            count = creatureCounts[(int)type];
+        }
+
         for (int i = 0; i < count; ++i)
         {
             // Find a spawned creature of that type
@@ -94,14 +106,25 @@ public class CreatureManager : ManagerBase
         switch (phase)
         {
             case GamePhase.Afternoon:
+                SpawnCreatures(CreatureType.Squirrel, 1);
+                SpawnCreatures(CreatureType.Deer, 1);
                 break;
             case GamePhase.Dusk:
+                SpawnCreatures(CreatureType.Bunny, 1);
+                SpawnCreatures(CreatureType.Raccoon, 1);
+                SpawnCreatures(CreatureType.Wolf, 1);
                 break;
             case GamePhase.Night:
+                SpawnCreatures(CreatureType.Crow, 1);
                 break;
             case GamePhase.Latenight:
+                SpawnCreatures(CreatureType.Shapeshifter, 1);
+                SpawnCreatures(CreatureType.Decoy, 1);
+                SpawnCreatures(CreatureType.Reverse, 1);
                 break;
             case GamePhase.Dawn:
+                SpawnCreatures(CreatureType.Squirrel, 1);
+                SpawnCreatures(CreatureType.Deer, 1);
                 break;
             case GamePhase.End:
                 break;
@@ -113,14 +136,23 @@ public class CreatureManager : ManagerBase
         switch (phase)
         {
             case GamePhase.Afternoon:
+                DespawnCreatures(CreatureType.Squirrel, -1);
+                DespawnCreatures(CreatureType.Deer, -1);
                 break;
             case GamePhase.Dusk:
                 break;
             case GamePhase.Night:
                 break;
             case GamePhase.Latenight:
+                DespawnCreatures(CreatureType.Crow, -1);
+                DespawnCreatures(CreatureType.Wolf, -1);
+                DespawnCreatures(CreatureType.Shapeshifter, -1);
+                DespawnCreatures(CreatureType.Reverse, -1);
+                DespawnCreatures(CreatureType.Decoy, -1);
                 break;
             case GamePhase.Dawn:
+                DespawnCreatures(CreatureType.Raccoon, -1);
+                DespawnCreatures(CreatureType.Bunny, -1);
                 break;
             case GamePhase.End:
                 break;
