@@ -9,7 +9,7 @@ public class Friendly : CreatureBase
         ChangeState(CreatureState.Default);
 
         // Enable GameObject
-        transform.parent.gameObject.SetActive(true);
+        parentObject.SetActive(true);
 
         // Fade in
 
@@ -25,27 +25,7 @@ public class Friendly : CreatureBase
         // Fade out
 
         // After fade out, disable GameObject
-        transform.parent.gameObject.SetActive(false);
-    }
-
-    protected override void ChangeState(CreatureState state)
-    {
-        currState = state;
-        switch (currState)
-        {
-            case CreatureState.Default:
-                // Play animation
-
-                break;
-            case CreatureState.Shocked:
-                // Play animation
-
-                break;
-            case CreatureState.Fleeing:
-                // Play animation
-
-                break;
-        }
+        parentObject.SetActive(false);
     }
 
     void Update()
