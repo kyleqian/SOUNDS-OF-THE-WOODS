@@ -194,6 +194,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba0b0d6bcdd43453abcf5b2438c52855, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  creatureTypes: 000000000100000002000000030000000400000005000000060000000700000008000000
+  creatureCounts: 020000000200000002000000020000000200000002000000010000000100000001000000
+  creaturePrefabs:
+  - {fileID: 1673749904540684, guid: 501a584f322274b4ca9d49de5bb54358, type: 2}
+  - {fileID: 1953938111382922, guid: 4a462fbb96e2b4ad4819f8830445962e, type: 2}
+  - {fileID: 1922916310952712, guid: b68b82e8e7660477ab16dc073e947a6d, type: 2}
+  - {fileID: 1248653675379164, guid: 198cd411fdc4b4c30b64c09e3dd4e069, type: 2}
+  - {fileID: 1810098575000752, guid: 8bad1f4317fda41ffb6d48b8c8f87127, type: 2}
+  - {fileID: 1814799860120330, guid: f7e5c580ad6bb43d88b39a17012b674c, type: 2}
+  - {fileID: 1538019346500574, guid: b172010d4ebcb4603964e764b118a5e4, type: 2}
+  - {fileID: 1575785504054730, guid: 3ae2f15a3c0ae4a4ead7069e14badbf6, type: 2}
+  - {fileID: 1035534318135214, guid: 67a5e40098c5343f7aec48857763642e, type: 2}
 --- !u!114 &114733852601313958
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -205,6 +217,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a5c4c47e0662490e9580ff4a6b03a62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skyboxMaterial: {fileID: 2100000, guid: c63160917ab3648cbb1bafa7e34840a4, type: 2}
   bloomEffect: {fileID: 0}
   directionalLight: {fileID: 0}

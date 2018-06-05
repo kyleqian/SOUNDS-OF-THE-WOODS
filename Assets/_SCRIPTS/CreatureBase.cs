@@ -14,24 +14,25 @@ public abstract class CreatureBase : MonoBehaviour
     protected float shockTimer;
     protected CreatureState currState;
 
-    public virtual void Spawn(Vector3 location)
+    public virtual void Spawn()
     {
-        // Change state to Default
         ChangeState(CreatureState.Default);
-
-        // Set to spawned
         Spawned = true;
 
-        // Fade in/activation/initial position should be handled by subclass implementation
+        // Fade in/activate/set initial position
+        SpawnVisual();
     }
 
     public virtual void Despawn()
     {
-        // Set to despawned
         Spawned = false;
 
-        // Fade out/deactivation should be handled by subclass implementation
+        // Fade out/deactivate
+        DespawnVisual();
     }
+
+    protected abstract void SpawnVisual();
+    protected abstract void DespawnVisual();
 
     // Called by flashlight with value indicating how long
     // the creature has been continuously looked at
