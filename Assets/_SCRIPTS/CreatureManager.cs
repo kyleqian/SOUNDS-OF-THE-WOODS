@@ -44,8 +44,9 @@ public class CreatureManager : ManagerBase
             creaturePools[type] = new CreatureBase[creatureCounts[(int)type]];
             for (int i = 0; i < creatureCounts[(int)type]; ++i)
             {
-                creaturePools[type][i] = Instantiate(creaturePrefabs[(int)type]).GetComponent<CreatureBase>();
-                creaturePools[type][i].gameObject.SetActive(false);
+                GameObject newCreature = Instantiate(creaturePrefabs[(int)type]);
+                creaturePools[type][i] = newCreature.GetComponent<CreatureBase>();
+                newCreature.SetActive(false);
             }
         }
     }
