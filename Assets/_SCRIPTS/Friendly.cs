@@ -9,7 +9,7 @@ public class Friendly : CreatureBase
         ChangeState(CreatureState.Default);
 
         // Enable GameObject
-        gameObject.SetActive(true);
+        transform.parent.gameObject.SetActive(true);
 
         // Fade in
 
@@ -25,7 +25,7 @@ public class Friendly : CreatureBase
         // Fade out
 
         // After fade out, disable GameObject
-        gameObject.SetActive(false);
+        transform.parent.gameObject.SetActive(false);
     }
 
     protected override void ChangeState(CreatureState state)
