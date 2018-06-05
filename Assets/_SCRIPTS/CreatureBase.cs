@@ -8,16 +8,19 @@ public enum CreatureState
 public abstract class CreatureBase : MonoBehaviour
 {
     public bool Spawned { get; private set; }
+
     const float SECONDS_TO_SHOCK = 0.5f;
     const float SECONDS_TO_FLEE = 2f;
     protected const float SECONDS_TO_UNSHOCK = 1f;
     protected float shockTimer;
     protected CreatureState currState;
     protected GameObject parentObject;
+    protected Animator animator;
 
     protected void Awake()
     {
         parentObject = transform.parent.gameObject;
+        animator = GetComponent<Animator>();
     }
 
     public virtual void Spawn()
@@ -80,16 +83,13 @@ public abstract class CreatureBase : MonoBehaviour
         switch (currState)
         {
             case CreatureState.Default:
-                // Play animation
-
+                animator.SetTrigger("idle");
                 break;
             case CreatureState.Shocked:
-                // Play animation
-
+                animator.SetTrigger("shocked");
                 break;
             case CreatureState.Fleeing:
-                // Play animation
-
+                animator.SetTrigger("flee");
                 break;
         }
     }
