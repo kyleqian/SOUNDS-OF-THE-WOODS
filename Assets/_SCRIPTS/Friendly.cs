@@ -2,6 +2,16 @@
 
 public class Friendly : CreatureBase
 {
+    protected override void SpawnVisual()
+    {
+        
+    }
+
+    protected override void DespawnVisual()
+    {
+        
+    }
+
     protected override void ChangeState(CreatureState state)
     {
         currState = state;
