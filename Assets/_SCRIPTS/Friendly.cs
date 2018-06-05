@@ -4,12 +4,28 @@ public class Friendly : CreatureBase
 {
     protected override void SpawnVisual()
     {
-        
+        // Initialize at some location
+
+        ChangeState(CreatureState.Default);
+
+        // Enable GameObject
+        gameObject.SetActive(true);
+
+        // Fade in
+
     }
 
     protected override void DespawnVisual()
     {
-        
+        if (currState != CreatureState.Fleeing)
+        {
+            ChangeState(CreatureState.Fleeing);
+        }
+
+        // Fade out
+
+        // After fade out, disable GameObject
+        gameObject.SetActive(false);
     }
 
     protected override void ChangeState(CreatureState state)

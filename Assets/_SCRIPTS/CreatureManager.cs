@@ -13,18 +13,18 @@ public class CreatureManager : ManagerBase
     // Because Unity can't serialize Dictionaries...
     // `creatureTypes` is the key
     // `creatureCount` and `creaturePrefabs` are the values
-    [SerializeField] CreatureType[] creatureTypes; // PUT IN ORDER!
+    [SerializeField] CreatureType[] creatureTypes;
     [SerializeField] int[] creatureCounts;
     [SerializeField] GameObject[] creaturePrefabs;
 
-    Dictionary<CreatureType, GameObject[]> creaturePools;
+    Dictionary<CreatureType, CreatureBase[]> creaturePools;
 
     void Awake()
     {
-        Array _creatureTypes = Enum.GetValues(typeof(CreatureType));
-
         // Check that all types are in the right order
         // A lil hacky yes
+        Array _creatureTypes = Enum.GetValues(typeof(CreatureType));
+
         Assert.IsTrue(creatureTypes.Length == _creatureTypes.Length);
         for (int i = 0; i < creatureTypes.Length; ++i)
         {
@@ -33,16 +33,58 @@ public class CreatureManager : ManagerBase
         Assert.IsTrue(creatureCounts.Length == _creatureTypes.Length);
         Assert.IsTrue(creaturePrefabs.Length == _creatureTypes.Length);
 
-        // Set up pools
-        creaturePools = new Dictionary<CreatureType, GameObject[]>();
+        InitializeCreaturePools();
+    }
+
+    void InitializeCreaturePools()
+    {
+        creaturePools = new Dictionary<CreatureType, CreatureBase[]>();
         foreach (CreatureType type in creatureTypes)
         {
-            creaturePools[type] = new GameObject[creatureCounts[(int)type]];
+            creaturePools[type] = new CreatureBase[creatureCounts[(int)type]];
             for (int i = 0; i < creatureCounts[(int)type]; ++i)
             {
-                creaturePools[type][i] = Instantiate(creaturePrefabs[(int)type]);
-                creaturePools[type][i].SetActive(false);
+                creaturePools[type][i] = Instantiate(creaturePrefabs[(int)type]).GetComponent<CreatureBase>();
+                creaturePools[type][i].gameObject.SetActive(false);
             }
+        }
+    }
+
+    // TODO: Deal with spawning more than there are in reserve
+    public void SpawnCreatures(CreatureType type, int count)
+    {
+        for (int i = 0; i < count; ++i)
+        {
+            // Find an unspawned creature of that type
+            var unspawnedCreature = Array.Find(creaturePools[type], c => !c.Spawned);
+
+            // Break early if found none
+            if (unspawnedCreature == null)
+            {
+                break;
+            }
+
+            // Spawn it
+            unspawnedCreature.Spawn();
+        }
+    }
+
+    // TODO: Possibly do a proportion instead of raw count?
+    public void DespawnCreatures(CreatureType type, int count)
+    {
+        for (int i = 0; i < count; ++i)
+        {
+            // Find a spawned creature of that type
+            var spawnedCreature = Array.Find(creaturePools[type], c => c.Spawned);
+
+            // Break early if found none
+            if (spawnedCreature == null)
+            {
+                break;
+            }
+
+            // Despawn it
+            spawnedCreature.Despawn();
         }
     }
 

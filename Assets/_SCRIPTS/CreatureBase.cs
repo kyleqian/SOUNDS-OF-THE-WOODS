@@ -16,19 +16,28 @@ public abstract class CreatureBase : MonoBehaviour
 
     public virtual void Spawn()
     {
-        ChangeState(CreatureState.Default);
-        Spawned = true;
+        if (Spawned)
+        {
+            return;
+        }
 
         // Fade in/activate/set initial position
         SpawnVisual();
+
+        Spawned = true;
     }
 
     public virtual void Despawn()
     {
-        Spawned = false;
-
+        if (!Spawned)
+        {
+            return;
+        }
+        
         // Fade out/deactivate
         DespawnVisual();
+
+        Spawned = false;
     }
 
     protected abstract void SpawnVisual();
