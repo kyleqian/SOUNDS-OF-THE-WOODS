@@ -46,6 +46,7 @@ public class Squirrel : CreatureBase
         {
             case CreatureState.Default:
                 // Move around
+                
 
                 break;
             case CreatureState.Shocked:
