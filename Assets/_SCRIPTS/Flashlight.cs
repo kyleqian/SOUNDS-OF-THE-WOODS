@@ -12,7 +12,7 @@ public class Flashlight : MonoBehaviour
     [SerializeField] string layerMaskName;
     int layerMask;
 
-    // TODO: DOES THIS WORK?
+    // TODO: Does this work as creatures Spawn and Despawn?
     int prevCreatureId;
     float prevCreatureLookDuration;
 
@@ -68,6 +68,11 @@ public class Flashlight : MonoBehaviour
     // TODO: Efficient to call this every frame?
     void DetectCreatures()
     {
+        if (!lightSource.enabled)
+        {
+            return;
+        }
+
         //Debug.DrawRay(transform.position, transform.forward);
 
         RaycastHit hit;

@@ -4,7 +4,7 @@ public class Bunny : CreatureBase
 {
     protected override void SpawnVisual()
     {
-        //choose random location at X distance from player
+        // Choose random location at X distance from player
 
 
         ChangeState(CreatureState.Default);
@@ -15,7 +15,6 @@ public class Bunny : CreatureBase
         // Fade in
         SpriteRenderer s = transform.GetChild(0).GetComponent<SpriteRenderer>();
         StartCoroutine(Fade(s, 0, 1, null));
-
     }
 
     protected override void DespawnVisual()
