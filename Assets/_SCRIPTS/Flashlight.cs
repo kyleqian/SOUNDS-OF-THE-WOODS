@@ -47,6 +47,9 @@ public class Flashlight : MonoBehaviour
     void DetectCreatures()
     {
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.position, out hit, ))
+        if (Physics.Raycast(transform.position, transform.forward, out hit, layerMask))
+        {
+            Debug.DrawRay(transform.position, transform.forward);
+        }
     }
 }
