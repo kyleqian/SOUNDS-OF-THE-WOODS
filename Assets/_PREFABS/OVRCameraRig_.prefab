@@ -221,7 +221,7 @@ GameObject:
   - component: {fileID: 4217555651003788}
   - component: {fileID: 212672992508670982}
   m_Layer: 0
-  m_Name: bar
+  m_Name: BatteryBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -324,7 +324,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1891508691496508
 GameObject:
   m_ObjectHideFlags: 0
@@ -1502,7 +1502,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lightSource: {fileID: 108870837636004642}
-  currBattery: 10000
+  maxBattery: 10000
+  batterySprite: {fileID: 212672992508670982}
+  layerMaskName: Hitbox
 --- !u!114 &114926391890228164
 MonoBehaviour:
   m_ObjectHideFlags: 1

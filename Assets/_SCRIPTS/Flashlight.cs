@@ -2,16 +2,15 @@
 
 public class Flashlight : MonoBehaviour
 {
-    public float CurrBattery { get; private set; }
     [SerializeField] Light lightSource;
+
+    public float CurrBattery { get; private set; }
+    [SerializeField] float maxBattery;
+    [SerializeField] SpriteRenderer batteryBar;
+    Color green, red;
+
     [SerializeField] string layerMaskName;
     int layerMask;
-
-    public float MaxBattery = 10000;
-
-    public SpriteRenderer sprite;
-
-    Color green, red;
 
     void Awake()
     {
@@ -51,16 +50,15 @@ public class Flashlight : MonoBehaviour
             }
             else
             {
-                setSprite();
+                SetBatterySprite();
             }
-
         }
     }
 
-    void setSprite()
+    void SetBatterySprite()
     {
-        sprite.size = new Vector2(0.1f, Mathf.Lerp(0, 0.3f, CurrBattery / MaxBattery));
-        sprite.color = Color.Lerp(red, green, CurrBattery / MaxBattery);
+        batteryBar.size = new Vector2(0.1f, Mathf.Lerp(0, 0.3f, CurrBattery / maxBattery));
+        batteryBar.color = Color.Lerp(red, green, CurrBattery / maxBattery);
     }
 
     void DetectCreatures()
