@@ -86,7 +86,8 @@ public abstract class CreatureBase : MonoBehaviour
     }
 
     protected void Lookat(){
-        transform.LookAt(Vector3.zero);
+         Vector3 relativePos = Vector3.zero - transform.position;
+        transform.rotation=Quaternion.LookRotation(relativePos, Vector3.up);
     }
 
     protected virtual void ChangeState(CreatureState state)

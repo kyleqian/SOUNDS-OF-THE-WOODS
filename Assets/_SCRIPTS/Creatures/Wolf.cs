@@ -6,10 +6,11 @@ public class Wolf : CreatureBase
     {
         //choose random location at X distance from player
         Vector3 pos = randomGroundPosition();
-        if (UnityEngine.Random.value > 0.5f)
+        if (UnityEngine.Random.value > 0.3f)
         {
             pos = new Vector3(pos.x * 1.5f, 0, pos.z * 1.5f);
         }
+        transform.position=pos;
 
         ChangeState(CreatureState.Default);
 
