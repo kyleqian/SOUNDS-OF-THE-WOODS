@@ -17,7 +17,7 @@ public class Deer : CreatureBase
         StartCoroutine(Fade(s, 0, 1, null));
 
     }
-
+ 
     protected override void DespawnVisual()
     {
         if (currState != CreatureState.Fleeing)
