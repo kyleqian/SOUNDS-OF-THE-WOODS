@@ -41,6 +41,7 @@ public class CreatureManager : ManagerBase
         creaturePools = new Dictionary<CreatureType, List<CreatureBase>>();
         foreach (CreatureType type in creatureTypes)
         {
+            creaturePools[type] = new List<CreatureBase>();
             for (int i = 0; i < creatureCounts[(int)type]; ++i)
             {
                 InstantiateCreature(type);

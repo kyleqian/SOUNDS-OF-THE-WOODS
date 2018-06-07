@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.ImageEffects;
 
-public class    EffectsManager : ManagerBase
+public class EffectsManager : ManagerBase
 {
     struct Lighting
     {
