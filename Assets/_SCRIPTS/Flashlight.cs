@@ -68,11 +68,11 @@ public class Flashlight : MonoBehaviour
     // TODO: Efficient to call this every frame?
     void DetectCreatures()
     {
+        //Debug.DrawRay(transform.position, transform.forward);
+
         RaycastHit hit;
         if (Physics.Raycast(transform.position, transform.forward, out hit, layerMask))
         {
-            Debug.DrawRay(transform.position, transform.forward);
-
             GameObject creature = hit.collider.gameObject;
             int creatureId = creature.GetInstanceID();
 
@@ -87,7 +87,8 @@ public class Flashlight : MonoBehaviour
             }
 
             // Inform creature how long you've been looking at it
-            creature.GetComponent<CreatureBase>().ISeeYou(prevCreatureLookDuration);
+            // TODO
+            creature.GetComponentInParent<CreatureBase>().ISeeYou(prevCreatureLookDuration);
 
             prevCreatureId = creatureId;
         }
