@@ -1,4 +1,6 @@
 ﻿using UnityEngine;
+using System;
+using System.Collections;
 
 public enum CreatureState
 {
@@ -8,14 +10,13 @@ public enum CreatureState
 public abstract class CreatureBase : MonoBehaviour
 {
     public bool Spawned { get; private set; }
-     const float SECONDS_TO_SHOCK = 0.5f;
+    const float SECONDS_TO_SHOCK = 0.5f;
     const float SECONDS_TO_FLEE = 2f;
     protected const float SECONDS_TO_UNSHOCK = 1f;
     protected float shockTimer;
     protected CreatureState currState;
     protected GameObject parentObject;
     protected Animator animator;
-
 
     protected void Awake()
     {
@@ -92,5 +93,18 @@ public abstract class CreatureBase : MonoBehaviour
                 animator.SetTrigger("flee");
                 break;
         }
+    }
+
+    protected IEnumerator Fade(SpriteRenderer s, float alpha1, float alpha2, Action after)
+    {
+        s.color = new Color(1, 1, 1, alpha1);
+        float maxTime = 1f;
+        for (float i = 0; i < maxTime; i += Time.deltaTime)
+        {
+            s.color = Color.Lerp(new Color(1, 1, 1, alpha1), new Color(1, 1, 1, alpha2), i / maxTime);
+            yield return null;
+        }
+        if (after != null)
+            after();
     }
 }
