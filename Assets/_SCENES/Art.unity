@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1248987485}
-  m_IndirectSpecularColor: {r: 0.3242259, g: 0.43892452, b: 0.5563009, a: 1}
+  m_IndirectSpecularColor: {r: 0.3246962, g: 0.4395015, b: 0.5566215, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -482,6 +482,21 @@ Prefab:
         type: 2}
       propertyPath: m_isInputParsingRequired
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114930946308149682, guid: 34a43f8ff03154cd0a6d893eabd9f357,
+        type: 2}
+      propertyPath: m_text
+      value: click touchpad to start
+      objectReference: {fileID: 0}
+    - target: {fileID: 114930946308149682, guid: 34a43f8ff03154cd0a6d893eabd9f357,
+        type: 2}
+      propertyPath: m_fontSize
+      value: 3.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 114930946308149682, guid: 34a43f8ff03154cd0a6d893eabd9f357,
+        type: 2}
+      propertyPath: m_textInfo.characterCount
+      value: 23
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 34a43f8ff03154cd0a6d893eabd9f357, type: 2}

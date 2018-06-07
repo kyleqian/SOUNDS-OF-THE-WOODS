@@ -364,7 +364,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: press touchpad to start
+  m_text: click touchpad to start
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9f7dda4075f80409b802ab31cab3a2eb, type: 2}
   m_sharedMaterial: {fileID: 21405560567932894, guid: 9f7dda4075f80409b802ab31cab3a2eb,
@@ -392,7 +392,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 3.35
+  m_fontSize: 3.45
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
