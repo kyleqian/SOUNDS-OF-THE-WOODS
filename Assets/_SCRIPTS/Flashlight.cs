@@ -68,6 +68,11 @@ public class Flashlight : MonoBehaviour
     // TODO: Efficient to call this every frame?
     void DetectCreatures()
     {
+        if (!lightSource.enabled)
+        {
+            return;
+        }
+
         //Debug.DrawRay(transform.position, transform.forward);
 
         RaycastHit hit;
