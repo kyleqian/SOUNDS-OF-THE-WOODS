@@ -89,6 +89,8 @@ public abstract class CreatureBase : MonoBehaviour
 
     protected virtual void ChangeState(CreatureState state)
     {
+        Debug.Log("Change state to: " + state);
+
         currState = state;
         switch (currState)
         {
