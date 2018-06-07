@@ -12,7 +12,7 @@ public abstract class CreatureBase : MonoBehaviour
     public bool Spawned { get; private set; }
     const float SECONDS_TO_SHOCK = 0.5f;
     const float SECONDS_TO_FLEE = 2f;
-    protected const float SECONDS_TO_UNSHOCK = 1f;
+    protected const float SECONDS_TO_UNSHOCK = 3f; // Has to be greater than SECONDS_TO_FLEE
     protected float shockTimer;
     protected CreatureState currState;
     protected Animator animator;
