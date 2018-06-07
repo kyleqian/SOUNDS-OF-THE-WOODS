@@ -76,7 +76,7 @@ public abstract class CreatureBase : MonoBehaviour
         }
     }
 
-    protected Vector3 randomGroundPosition()
+    protected Vector3 RandomGroundPosition()
     {
         float x = UnityEngine.Random.Range(-7, 7);
         float z;
@@ -85,9 +85,10 @@ public abstract class CreatureBase : MonoBehaviour
         return new Vector3(x, 0, z);
     }
 
-    protected void Lookat(){
-         Vector3 relativePos = Vector3.zero - transform.position;
-        transform.rotation=Quaternion.LookRotation(relativePos, Vector3.up);
+    protected void Lookat()
+    {
+        Vector3 relativePos = Vector3.zero - transform.position;
+        transform.rotation = Quaternion.LookRotation(relativePos, Vector3.up);
     }
 
     protected virtual void ChangeState(CreatureState state)
@@ -113,12 +114,16 @@ public abstract class CreatureBase : MonoBehaviour
     {
         s.color = new Color(1, 1, 1, alpha1);
         float maxTime = 1f;
+
         for (float i = 0; i < maxTime; i += Time.deltaTime)
         {
             s.color = Color.Lerp(new Color(1, 1, 1, alpha1), new Color(1, 1, 1, alpha2), i / maxTime);
             yield return null;
         }
+
         if (after != null)
+        {
             after();
+        }
     }
 }

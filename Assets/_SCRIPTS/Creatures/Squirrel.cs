@@ -4,9 +4,9 @@ public class Squirrel : CreatureBase
 {
     protected override void SpawnVisual()
     {
-        //choose random location at X distance from player
-        Vector3 pos = randomGroundPosition();
-        if (UnityEngine.Random.value > 0.5f)
+        // Choose random location at X distance from player
+        Vector3 pos = RandomGroundPosition();
+        if (Random.value > 0.5f)
         {
             pos = new Vector3(pos.x * 0.7f, 0, pos.z * 0.7f);
         }
@@ -20,7 +20,6 @@ public class Squirrel : CreatureBase
         // Fade in
         SpriteRenderer s = transform.GetChild(0).GetComponent<SpriteRenderer>();
         StartCoroutine(Fade(s, 0, 1, null));
-
     }
 
     protected override void DespawnVisual()

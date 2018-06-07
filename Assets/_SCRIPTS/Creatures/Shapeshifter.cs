@@ -4,8 +4,8 @@ public class Shapeshifter : CreatureBase
 {
     protected override void SpawnVisual()
     {
-        //choose random location at X distance from player
-        transform.position = randomGroundPosition();
+        // Choose random location at X distance from player
+        transform.position = RandomGroundPosition();
 
         ChangeState(CreatureState.Default);
 
@@ -15,7 +15,6 @@ public class Shapeshifter : CreatureBase
         // Fade in
         SpriteRenderer s = transform.GetChild(0).GetComponent<SpriteRenderer>();
         StartCoroutine(Fade(s, 0, 1, null));
-
     }
 
     protected override void DespawnVisual()

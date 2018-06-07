@@ -12,7 +12,7 @@ public class Flashlight : MonoBehaviour
     [SerializeField] string layerMaskName;
     int layerMask;
 
-    // TODO: DOES THIS WORK?
+    // TODO: Does this work as creatures Spawn and Despawn?
     int prevCreatureId;
     float prevCreatureLookDuration;
 

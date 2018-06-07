@@ -14,10 +14,10 @@ public class CreatureManager : ManagerBase
     // `creatureTypes` is the key
     // `creatureCount` and `creaturePrefabs` are the values
     [SerializeField] CreatureType[] creatureTypes;
-    [SerializeField] int[] creatureCounts;
+    [SerializeField] int[] creatureCounts; // Determines initial Instantiation numbers
     [SerializeField] GameObject[] creaturePrefabs;
 
-    Dictionary<CreatureType, CreatureBase[]> creaturePools;
+    Dictionary<CreatureType, List<CreatureBase>> creaturePools;
 
     void Awake()
     {
@@ -38,20 +38,25 @@ public class CreatureManager : ManagerBase
 
     void InitializeCreaturePools()
     {
-        creaturePools = new Dictionary<CreatureType, CreatureBase[]>();
+        creaturePools = new Dictionary<CreatureType, List<CreatureBase>>();
         foreach (CreatureType type in creatureTypes)
         {
-            creaturePools[type] = new CreatureBase[creatureCounts[(int)type]];
             for (int i = 0; i < creatureCounts[(int)type]; ++i)
             {
-                var newCreature = Instantiate(creaturePrefabs[(int)type]);
-                creaturePools[type][i] = newCreature.GetComponentInChildren<CreatureBase>();
-                newCreature.SetActive(false);
+                InstantiateCreature(type);
             }
         }
     }
 
-    // TODO: Deal with spawning more than there are in reserve
+    CreatureBase InstantiateCreature(CreatureType type)
+    {
+        var newCreature = Instantiate(creaturePrefabs[(int)type]);
+        var newCreatureComponent = newCreature.GetComponent<CreatureBase>();
+        creaturePools[type].Add(newCreatureComponent);
+        newCreature.SetActive(false);
+        return newCreatureComponent;
+    }
+
     public void SpawnCreatures(CreatureType type, int count)
     {
         // Max count if negative number
@@ -63,12 +68,13 @@ public class CreatureManager : ManagerBase
         for (int i = 0; i < count; ++i)
         {
             // Find an unspawned creature of that type
-            var unspawnedCreature = Array.Find(creaturePools[type], c => !c.Spawned);
+            var unspawnedCreature = creaturePools[type].Find(c => !c.Spawned);
 
-            // Break early if found none
+            // Add to pool if not enough creatures in reserve
             if (unspawnedCreature == null)
             {
-                break;
+                unspawnedCreature = InstantiateCreature(type);
+                creatureCounts[(int)type]++;
             }
 
             // Spawn it
@@ -88,7 +94,7 @@ public class CreatureManager : ManagerBase
         for (int i = 0; i < count; ++i)
         {
             // Find a spawned creature of that type
-            var spawnedCreature = Array.Find(creaturePools[type], c => c.Spawned);
+            var spawnedCreature = creaturePools[type].Find(c => c.Spawned);
 
             // Break early if found none
             if (spawnedCreature == null)
