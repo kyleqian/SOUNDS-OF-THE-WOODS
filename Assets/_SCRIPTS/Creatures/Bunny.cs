@@ -5,6 +5,7 @@ public class Bunny : CreatureBase
     protected override void SpawnVisual()
     {
         //choose random location at X distance from player
+        transform.position=randomGroundPosition();
 
 
         ChangeState(CreatureState.Default);

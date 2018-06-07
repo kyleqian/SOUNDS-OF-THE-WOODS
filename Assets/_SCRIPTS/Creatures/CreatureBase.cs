@@ -43,7 +43,7 @@ public abstract class CreatureBase : MonoBehaviour
         {
             return;
         }
-        
+
         // Fade out/deactivate
         DespawnVisual();
 
@@ -76,6 +76,15 @@ public abstract class CreatureBase : MonoBehaviour
                 shockTimer = 0;
             }
         }
+    }
+
+    protected Vector3 randomGroundPosition()
+    {
+        float x = UnityEngine.Random.Range(-7, 7);
+        float z;
+        if (Mathf.Abs(x) < 5) z = UnityEngine.Random.value > 0.5f ? UnityEngine.Random.Range(-6, -5) : UnityEngine.Random.Range(5, 6);
+        else z = UnityEngine.Random.Range(-6, 6);
+        return new Vector3(x,0,z);
     }
 
     protected virtual void ChangeState(CreatureState state)
