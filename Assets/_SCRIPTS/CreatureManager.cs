@@ -8,7 +8,7 @@ public enum CreatureType
     Squirrel, Deer, Bunny, Raccoon, Crow, Wolf, Shapeshifter, Reverse, Decoy
 }
 
-public class CreatureManager : ManagerBase
+public class CreatureManager : ManagerBase 
 {
     // Because Unity can't serialize Dictionaries...
     // `creatureTypes` is the key
