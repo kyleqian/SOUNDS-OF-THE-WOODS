@@ -12,6 +12,10 @@ public class Flashlight : MonoBehaviour
     [SerializeField] string layerMaskName;
     int layerMask;
 
+    // TODO: DOES THIS WORK?
+    int prevCreatureId;
+    float prevCreatureLookDuration;
+
     void Awake()
     {
         green = new Color(0.51f, 1, 0.25f);
@@ -61,12 +65,36 @@ public class Flashlight : MonoBehaviour
         batteryBar.color = Color.Lerp(red, green, CurrBattery / maxBattery);
     }
 
+    // TODO: Efficient to call this every frame?
     void DetectCreatures()
     {
         RaycastHit hit;
         if (Physics.Raycast(transform.position, transform.forward, out hit, layerMask))
         {
             Debug.DrawRay(transform.position, transform.forward);
+
+            GameObject creature = hit.collider.gameObject;
+            int creatureId = creature.GetInstanceID();
+
+            // How long you've been continuously looking at this creature
+            if (creatureId == prevCreatureId)
+            {
+                prevCreatureLookDuration += Time.deltaTime;
+            }
+            else
+            {
+                prevCreatureLookDuration = 0;
+            }
+
+            // Inform creature how long you've been looking at it
+            creature.GetComponent<CreatureBase>().ISeeYou(prevCreatureLookDuration);
+
+            prevCreatureId = creatureId;
+        }
+        else
+        {
+            prevCreatureId = 0;
+            prevCreatureLookDuration = 0;
         }
     }
 }

@@ -1503,7 +1503,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lightSource: {fileID: 108870837636004642}
   maxBattery: 10000
-  batterySprite: {fileID: 212672992508670982}
+  batteryBar: {fileID: 212672992508670982}
   layerMaskName: Hitbox
 --- !u!114 &114926391890228164
 MonoBehaviour:
