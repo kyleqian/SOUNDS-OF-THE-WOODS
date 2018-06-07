@@ -108,6 +108,8 @@ public class CreatureManager : ManagerBase
             case GamePhase.Afternoon:
                 SpawnCreatures(CreatureType.Squirrel, 10);
                 SpawnCreatures(CreatureType.Deer, 10);
+                SpawnCreatures(CreatureType.Raccoon, 1);
+                SpawnCreatures(CreatureType.Wolf, 1);
                 break;
             case GamePhase.Dusk:
                 SpawnCreatures(CreatureType.Bunny, 1);

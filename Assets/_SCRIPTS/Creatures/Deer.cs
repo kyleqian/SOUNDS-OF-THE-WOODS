@@ -5,19 +5,25 @@ public class Deer : CreatureBase
     protected override void SpawnVisual()
     {
         //choose random location at X distance from player
-
+        Vector3 pos = randomGroundPosition();
+        if (UnityEngine.Random.value > 0.5f)
+        {
+            pos = new Vector3(pos.x * 0.7f, 0, pos.z * 0.7f);
+        }
+        transform.position = pos;
 
         ChangeState(CreatureState.Default);
 
         // Enable GameObject
-        parentObject.SetActive(true);
+        gameObject.SetActive(true);
 
         // Fade in
-        SpriteRenderer s = GetComponent<SpriteRenderer>();
+        SpriteRenderer s = transform.GetChild(0).GetComponent<SpriteRenderer>();
         StartCoroutine(Fade(s, 0, 1, null));
 
     }
- 
+
+
     protected override void DespawnVisual()
     {
         if (currState != CreatureState.Fleeing)
@@ -26,16 +32,17 @@ public class Deer : CreatureBase
         }
 
         // Fade out
-        SpriteRenderer s = GetComponent<SpriteRenderer>();
+        SpriteRenderer s = transform.GetChild(0).GetComponent<SpriteRenderer>();
         StartCoroutine(Fade(s, 1, 0, () =>
         {
             // After fade out, disable GameObject
-            parentObject.SetActive(false);
+            gameObject.SetActive(false);
         }));
     }
 
     void Update()
     {
+        Lookat();
         switch (currState)
         {
             case CreatureState.Default:

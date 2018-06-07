@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 4255353758468552}
   - component: {fileID: 212065526672724398}
   - component: {fileID: 95346493797873248}
-  - component: {fileID: 114309794871435658}
   m_Layer: 0
   m_Name: body
   m_TagString: Untagged
@@ -37,6 +36,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4883519912213394}
+  - component: {fileID: 114536200700858316}
   m_Layer: 0
   m_Name: Squirrel
   m_TagString: Untagged
@@ -115,7 +115,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1315090708925802}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.037, y: 0.25, z: 0}
+  m_LocalPosition: {x: 0, y: 0.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4558537544547854}
@@ -171,7 +171,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1673749904540684}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.105, y: 0, z: 1.4360398}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4255353758468552}
@@ -209,12 +209,12 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114309794871435658
+--- !u!114 &114536200700858316
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1315090708925802}
+  m_GameObject: {fileID: 1673749904540684}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bc37b754b1cef47fcab1d8364876247e, type: 3}

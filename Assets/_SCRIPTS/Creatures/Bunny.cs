@@ -5,16 +5,15 @@ public class Bunny : CreatureBase
     protected override void SpawnVisual()
     {
         //choose random location at X distance from player
-        transform.position=randomGroundPosition();
 
 
         ChangeState(CreatureState.Default);
 
         // Enable GameObject
-        parentObject.SetActive(true);
+        gameObject.SetActive(true);
 
         // Fade in
-        SpriteRenderer s = GetComponent<SpriteRenderer>();
+        SpriteRenderer s = transform.GetChild(0).GetComponent<SpriteRenderer>();
         StartCoroutine(Fade(s, 0, 1, null));
 
     }
@@ -27,11 +26,11 @@ public class Bunny : CreatureBase
         }
 
         // Fade out
-        SpriteRenderer s = GetComponent<SpriteRenderer>();
+        SpriteRenderer s = transform.GetChild(0).GetComponent<SpriteRenderer>();
         StartCoroutine(Fade(s, 1, 0, () =>
         {
             // After fade out, disable GameObject
-            parentObject.SetActive(false);
+            gameObject.SetActive(false);
         }));
     }
 

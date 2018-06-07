@@ -15,13 +15,11 @@ public abstract class CreatureBase : MonoBehaviour
     protected const float SECONDS_TO_UNSHOCK = 1f;
     protected float shockTimer;
     protected CreatureState currState;
-    protected GameObject parentObject;
     protected Animator animator;
 
     protected void Awake()
     {
-        parentObject = transform.parent.gameObject;
-        animator = GetComponent<Animator>();
+        animator = transform.GetChild(0).GetComponent<Animator>();
     }
 
     public virtual void Spawn()
@@ -84,7 +82,11 @@ public abstract class CreatureBase : MonoBehaviour
         float z;
         if (Mathf.Abs(x) < 5) z = UnityEngine.Random.value > 0.5f ? UnityEngine.Random.Range(-6, -5) : UnityEngine.Random.Range(5, 6);
         else z = UnityEngine.Random.Range(-6, 6);
-        return new Vector3(x,0,z);
+        return new Vector3(x, 0, z);
+    }
+
+    protected void Lookat(){
+        transform.LookAt(Vector3.zero);
     }
 
     protected virtual void ChangeState(CreatureState state)
