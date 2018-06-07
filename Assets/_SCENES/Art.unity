@@ -3049,6 +3049,12 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!114 &955780997 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114365119197897246, guid: 3b721fcfc022d4101a4b20c90be59774,
+    type: 2}
+  m_PrefabInternal: {fileID: 910347720}
+  m_Script: {fileID: 11500000, guid: 7fceaeb339b971b429c4cc600acabd13, type: 3}
 --- !u!1 &978687102
 GameObject:
   m_ObjectHideFlags: 0
@@ -4157,6 +4163,16 @@ Prefab:
       propertyPath: creatureCounts.Array.data[1]
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 114192776518737112, guid: eb778728cbe6648008b434524124154e,
+        type: 2}
+      propertyPath: directionalLight
+      value: 
+      objectReference: {fileID: 1248987485}
+    - target: {fileID: 114192776518737112, guid: eb778728cbe6648008b434524124154e,
+        type: 2}
+      propertyPath: bloomEffect
+      value: 
+      objectReference: {fileID: 955780997}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: eb778728cbe6648008b434524124154e, type: 2}
   m_IsPrefabParent: 0
