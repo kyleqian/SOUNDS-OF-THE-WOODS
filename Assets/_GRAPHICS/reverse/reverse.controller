@@ -196,7 +196,7 @@ AnimatorState:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: fleeing
-  m_Speed: 1.2
+  m_Speed: 1.5
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1101819377549071286}
@@ -250,7 +250,7 @@ AnimatorState:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: shocked
-  m_Speed: 2
+  m_Speed: 0
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1101723634644190158}
@@ -280,7 +280,7 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 1102484380054003710}
-    m_Position: {x: 324, y: -48, z: 0}
+    m_Position: {x: 396, y: -528, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102718109425355342}
     m_Position: {x: 444, y: 72, z: 0}
