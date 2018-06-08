@@ -4,14 +4,11 @@ using System;
 
 public class Deer : CreatureBase
 {
-
     float time;
     bool walk;
 
-
     Vector3 getTarget()
     {
-
         float x1, x2, z1, z2;
         if (transform.position.x < 0)
         {
@@ -30,8 +27,8 @@ public class Deer : CreatureBase
             z1 = -2; z2 = 1.6f;
         }
         return new Vector3(transform.position.x + UnityEngine.Random.Range(x1, x2), 0, transform.position.z + UnityEngine.Random.Range(z1, z2));
-
     }
+
     protected override void SpawnVisual()
     {
         time = UnityEngine.Random.Range(3, 7.5f);
@@ -46,16 +43,15 @@ public class Deer : CreatureBase
         }
         transform.position = pos;
 
-         base.SpawnVisual();
+        base.SpawnVisual();
     }
-
-  
 
     protected override void ChangeState(CreatureState state)
     {
         if (currState == CreatureState.Default) animator.SetBool("walk", false);
         base.ChangeState(state);
     }
+
     void Update()
     {
         Lookat();
@@ -95,7 +91,7 @@ public class Deer : CreatureBase
                 }
                 break;
             case CreatureState.Fleeing:
-                Flee();
+                //Flee();
                 break;
         }
     }

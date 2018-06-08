@@ -102,7 +102,7 @@ public class Raccoon : CreatureBase
                 break;
             case CreatureState.Fleeing:
                 // Move/scale
-                Flee();
+         
                 break;
         }
     }

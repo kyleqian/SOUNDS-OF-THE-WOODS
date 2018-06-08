@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
-using System.Linq;
 
 public enum CreatureType
 {
@@ -53,9 +52,10 @@ public class CreatureManager : ManagerBase
     CreatureBase InstantiateCreature(CreatureType type)
     {
         var newCreature = Instantiate(creaturePrefabs[(int)type]);
-        newCreature.name = type.ToString() + creaturePools[type].Count;
         var newCreatureComponent = newCreature.GetComponent<CreatureBase>();
+
         creaturePools[type].Add(newCreatureComponent);
+        newCreature.name = type.ToString()+creaturePools[type].Count;
         newCreature.SetActive(false);
         return newCreatureComponent;
     }
@@ -93,17 +93,23 @@ public class CreatureManager : ManagerBase
         {
             count = creatureCounts[(int)type];
         }
+
+        // TODO: Fix this; right now ignoring count
         List<CreatureBase> spawnedCreatures = new List<CreatureBase>();
         foreach (CreatureBase cb in creaturePools[type])
         {
-            if (cb.Spawned) spawnedCreatures.Add(cb);
+            if (cb.Spawned)
+            {
+                spawnedCreatures.Add(cb);
+            }
         }
+
         foreach (CreatureBase spawnedCreature in spawnedCreatures)
         {
-            if (spawnedCreature == null)
-            {
-                break;
-            }
+            //if (spawnedCreature == null)
+            //{
+            //    break;
+            //}
             spawnedCreature.Despawn();
         }
     }

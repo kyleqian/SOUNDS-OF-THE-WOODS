@@ -18,7 +18,7 @@ public class Wolf : CreatureBase
 
         radius = Vector3.Distance(transform.position, Vector3.zero);
 
-        speed= UnityEngine.Random.Range(0.2f,0.5f);
+        speed = UnityEngine.Random.Range(0.2f, 0.5f);
 
         base.SpawnVisual();
 
@@ -47,7 +47,6 @@ public class Wolf : CreatureBase
                 }
                 break;
             case CreatureState.Fleeing:
-                Flee();
 
                 break;
         }

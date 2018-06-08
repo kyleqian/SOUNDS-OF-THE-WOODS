@@ -64,9 +64,7 @@ public class Bunny : CreatureBase
                 }
                 break;
             case CreatureState.Fleeing:
-                // Move/scale
-                Flee();
-                time = 0;
+            
                 break;
         }
     }
