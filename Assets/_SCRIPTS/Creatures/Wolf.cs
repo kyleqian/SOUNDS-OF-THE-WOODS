@@ -40,8 +40,8 @@ public class Wolf : CreatureBase
             case CreatureState.Shocked:
                 // Revert back to Default if shocked for too long
                 // without fleeing
-                shockTimer += Time.deltaTime;
-                if (shockTimer >= SECONDS_TO_UNSHOCK)
+                unshockTimer += Time.deltaTime;
+                if (unshockTimer >= SECONDS_TO_UNSHOCK)
                 {
                     ChangeState(CreatureState.Default);
                 }

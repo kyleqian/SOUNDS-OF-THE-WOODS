@@ -9,14 +9,14 @@ public enum CreatureState
 
 public abstract class CreatureBase : MonoBehaviour
 {
-    public bool Spawned;//{ get; private set; }
+    public bool Spawned { get; private set; }
     const float SECONDS_TO_SHOCK = 0.5f;
     const float SECONDS_TO_FLEE = 2f;
     protected const float SECONDS_TO_UNSHOCK = 3f; // Has to be greater than SECONDS_TO_FLEE
-    protected float shockTimer;
+    protected float unshockTimer; // How long a creature has been shocked (used to reset creature to default if shocked but not long enough to flee)
     protected CreatureState currState;
     protected Animator animator;
-    protected Vector3 target;
+    protected Vector3 targetPosition;
     public float speed = 0.9f;
 
     protected void Awake()
@@ -26,26 +26,29 @@ public abstract class CreatureBase : MonoBehaviour
 
     public virtual void Spawn()
     {
-        //if (Spawned)
-        //{
-        //    return;
-        //}
+        if (Spawned)
+        {
+            return;
+        }
 
-        // Fade in/activate/set initial position
+        // TODO
         animator.SetFloat("offset", UnityEngine.Random.Range(0, 1.2f));
 
+        ChangeState(CreatureState.Default);
         SpawnVisual();
 
         Spawned = true;
+        gameObject.SetActive(true);
     }
 
     public virtual void Despawn()
     {
-        //if (!Spawned && !gameObject.activeSelf)
-        //{
-        //    return;
-        //}
+        if (!Spawned)
+        {
+            return;
+        }
 
+        ChangeState(CreatureState.Fleeing);
         DespawnVisual(() =>
         {
             Spawned = false;
@@ -55,42 +58,19 @@ public abstract class CreatureBase : MonoBehaviour
 
     protected virtual void SpawnVisual()
     {
-        // Enable GameObject
-        gameObject.SetActive(true);
-
-        ChangeState(CreatureState.Default);
-
         // Fade in
         //SpriteRenderer s = transform.GetChild(0).GetComponent<SpriteRenderer>();
         //StartCoroutine(Fade(s, 0, 1, null));
     }
 
-    protected virtual void DespawnVisual(Action a)
+    protected virtual void DespawnVisual(Action callback)
     {
-        ChangeState(CreatureState.Fleeing);
-        target = FleePosition();
-        //StartCoroutine(DespawnCo(a));
+        StartCoroutine(Flee(callback));
 
-        SpriteRenderer s = transform.GetChild(0).GetComponent<SpriteRenderer>();
+        // Fade out
+        //SpriteRenderer s = transform.GetChild(0).GetComponent<SpriteRenderer>();
         //StartCoroutine(Fade(s, 1, 0, a, 2));
-        StartCoroutine(Flee(a));
     }
-
-    //IEnumerator DespawnCo(Action a)
-    //{
-    //    //if (currState != CreatureState.Fleeing)
-    //    //{
-    //    //    Debug.Log(gameObject.name + " change state!");
-    //    //    ChangeState(CreatureState.Fleeing);
-    //    //    yield break;
-    //    //}
-
-    //    //Debug.Log("finally flee!");
-    //    // TODO: Fix
-    //    SpriteRenderer s = transform.GetChild(0).GetComponent<SpriteRenderer>();
-    //    StartCoroutine(Fade(s, 1, 0, a, 2));
-    //    yield return null;
-    //}
 
     // Called by flashlight with value indicating how long
     // the creature has been continuously looked at
@@ -101,6 +81,7 @@ public abstract class CreatureBase : MonoBehaviour
         {
             if (currState == CreatureState.Shocked)
             {
+                ChangeState(CreatureState.Fleeing);
                 Despawn();
             }
         }
@@ -112,31 +93,28 @@ public abstract class CreatureBase : MonoBehaviour
             }
             else if (currState == CreatureState.Shocked)
             {
-                shockTimer = 0;
+                unshockTimer = 0;
             }
         }
     }
 
     IEnumerator Flee(Action callback)
     {
-        while (transform.position != target)
+        targetPosition = FleePosition();
+
+        while (transform.position != targetPosition)
         {
-            transform.position = Vector3.MoveTowards(transform.position, target, speed * 2 * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * 2 * Time.deltaTime);
             yield return null;
         }
 
         callback();
-
-        //if (transform.position == target && Spawned && !gameObject.activeSelf)
-        //{
-        //    Debug.Log("despawn GOD DAMIMIT!!");
-        //    Despawn();
-        //}
     }
 
     protected Vector3 FleePosition()
     {
         float x1, x2, z1, z2;
+
         if (transform.position.x < 0)
         {
             x1 = -8; x2 = -6;
@@ -145,6 +123,7 @@ public abstract class CreatureBase : MonoBehaviour
         {
             x1 = 8; x2 = 6;
         }
+
         if (transform.position.z < 0)
         {
             z1 = -8; z2 = -6;
@@ -153,6 +132,7 @@ public abstract class CreatureBase : MonoBehaviour
         {
             z1 = 8; z2 = 6;
         }
+
         return new Vector3(UnityEngine.Random.Range(x1, x2), transform.position.y, UnityEngine.Random.Range(z1, z2));
     }
 
@@ -174,8 +154,6 @@ public abstract class CreatureBase : MonoBehaviour
     protected virtual void ChangeState(CreatureState state)
     {
         Debug.LogWarning(gameObject.name + " change state to: " + state);
-
-        // TODO: Do nothing if same state?
         if (state == currState)
         {
             return;

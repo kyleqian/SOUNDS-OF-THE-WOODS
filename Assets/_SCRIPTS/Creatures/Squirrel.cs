@@ -34,7 +34,7 @@ public class Squirrel : CreatureBase
     {
 
         time = UnityEngine.Random.Range(2, 5.5f);
-        target = getTarget();
+        targetPosition = getTarget();
         walk = false;
 
         // Choose random location at X distance from player
@@ -68,7 +68,7 @@ public class Squirrel : CreatureBase
                         animator.SetBool("walk", false);
                     else
                     {
-                        target = getTarget();
+                        targetPosition = getTarget();
                         animator.SetBool("walk", true);
                     }
                     walk = !walk;
@@ -76,8 +76,8 @@ public class Squirrel : CreatureBase
                 }
                 if (walk)
                 {
-                    transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
-                    if (transform.position == target)
+                    transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
+                    if (transform.position == targetPosition)
                     {
                         time = 0;
                     }
@@ -87,8 +87,8 @@ public class Squirrel : CreatureBase
             case CreatureState.Shocked:
                 // Revert back to Default if shocked for too long
                 // without fleeing
-                shockTimer += Time.deltaTime;
-                if (shockTimer >= SECONDS_TO_UNSHOCK)
+                unshockTimer += Time.deltaTime;
+                if (unshockTimer >= SECONDS_TO_UNSHOCK)
                 {
                     ChangeState(CreatureState.Default);
                 }

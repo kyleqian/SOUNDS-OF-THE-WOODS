@@ -40,7 +40,7 @@ public class Bunny : CreatureBase
                         animator.SetBool("walk", false);
                     else
                     {
-                        target = getTarget();
+                        targetPosition = getTarget();
                         animator.SetBool("walk", true);
                     }
 
@@ -49,7 +49,7 @@ public class Bunny : CreatureBase
                 }
                 if (walk)
                 {
-                    transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
+                    transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
 
                 }
                 time -= Time.deltaTime;
@@ -57,8 +57,8 @@ public class Bunny : CreatureBase
             case CreatureState.Shocked:
                 // Revert back to Default if shocked for too long
                 // without fleeing
-                shockTimer += Time.deltaTime;
-                if (shockTimer >= SECONDS_TO_UNSHOCK)
+                unshockTimer += Time.deltaTime;
+                if (unshockTimer >= SECONDS_TO_UNSHOCK)
                 {
                     ChangeState(CreatureState.Default);
                 }

@@ -22,29 +22,14 @@ public class GameManager : ManagerBase
 
 	void Awake()
 	{
-		if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
         Instance = this;
-
-        int numPhases = Enum.GetValues(typeof(GamePhase)).Length;
-        PhaseLengths = new float[numPhases];
-        for (int i = 0; i < numPhases; ++i)
-		{
-			PhaseLengths[i] = UnityEngine.Random.Range(minPhaseLengthInSeconds, maxPhaseLengthInSeconds);
-		}
-
-		// No limit for Start or End
-        PhaseLengths[(int)GamePhase.Start] = Mathf.Infinity;
-        PhaseLengths[(int)GamePhase.End] = Mathf.Infinity;
+        InitializePhaseLengths();
     }
 
     void Start()
     {
-        //// Fire events for loading .Afternoon
-        //PhaseLoaded(CurrPhase);
+        // Fire events for loading Start
+        PhaseLoaded(CurrPhase);
     }
 
     void Update()
@@ -58,12 +43,30 @@ public class GameManager : ManagerBase
         }
     }
 
-    public void PressedStart()
+    void InitializePhaseLengths()
     {
-        PhaseTransition();
+        int numPhases = Enum.GetValues(typeof(GamePhase)).Length;
+        PhaseLengths = new float[numPhases];
+        for (int i = 0; i < numPhases; ++i)
+        {
+            PhaseLengths[i] = UnityEngine.Random.Range(minPhaseLengthInSeconds, maxPhaseLengthInSeconds);
+        }
+
+        // No limit for Start or End
+        PhaseLengths[(int)GamePhase.Start] = Mathf.Infinity;
+        PhaseLengths[(int)GamePhase.End] = Mathf.Infinity;
     }
 
-    public void End(){
+    public void PressedStart()
+    {
+        if (CurrPhase == GamePhase.Start)
+        {
+            PhaseTransition();
+        }
+    }
+
+    public void GameOver()
+    {
         /*
         rising noises
         disable ability to use flashlight
@@ -78,15 +81,17 @@ public class GameManager : ManagerBase
 
     void PhaseTransition()
     {
-		PhaseUnloaded(CurrPhase);
-		PhaseLoaded(++CurrPhase);
-        Debug.Log("Transition to: " + CurrPhase.ToString());
+        Debug.Log("Transition to: " + (CurrPhase + 1).ToString());
+        PhaseUnloaded(CurrPhase);
+        PhaseLoaded(++CurrPhase);
 	}
 
     protected override void OnPhaseLoad(GamePhase phase)
     {
         switch (phase)
         {
+            case GamePhase.Start:
+                break;
             case GamePhase.Afternoon:
                 break;
             case GamePhase.Dusk:
@@ -106,6 +111,8 @@ public class GameManager : ManagerBase
     {
         switch (phase)
         {
+            case GamePhase.Start:
+                break;
             case GamePhase.Afternoon:
                 break;
             case GamePhase.Dusk:

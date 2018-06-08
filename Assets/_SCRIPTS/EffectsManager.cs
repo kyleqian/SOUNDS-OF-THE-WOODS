@@ -138,14 +138,16 @@ public class EffectsManager : ManagerBase
 
     protected override void OnPhaseLoad(GamePhase phase)
     {
+        Lighting nextLighting;
         switch (phase)
         {
-            case GamePhase.Afternoon:
+            case GamePhase.Start:
                 // Initial lighting
-                Lighting lighting = lightingReference[phase];
-                Lighting nextLighting = lightingReference[phase + 1];
-
-                UpdateLightingImmediate(lighting);
+                nextLighting = lightingReference[phase + 1];
+                UpdateLightingImmediate(nextLighting);
+                break;
+            case GamePhase.Afternoon:
+                nextLighting = lightingReference[phase + 1];
                 UpdateLightingOverTime(nextLighting);
                 break;
             case GamePhase.Dusk:
@@ -173,6 +175,8 @@ public class EffectsManager : ManagerBase
     {
         switch (phase)
         {
+            case GamePhase.Start:
+                break;
             case GamePhase.Afternoon:
                 break;
             case GamePhase.Dusk:

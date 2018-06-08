@@ -92,7 +92,6 @@ public class Flashlight : MonoBehaviour
             }
 
             // Inform creature how long you've been looking at it
-            // TODO
             creature.GetComponentInParent<CreatureBase>().ISeeYou(prevCreatureLookDuration);
 
             prevCreatureId = creatureId;

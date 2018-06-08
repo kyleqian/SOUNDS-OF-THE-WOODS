@@ -4,12 +4,13 @@ using System;
 
 public class Deer : CreatureBase
 {
-    float time;
-    bool walk;
+    float idleWalkingTimer;
+    bool idleWalking;
 
-    Vector3 getTarget()
+    Vector3 GetTarget()
     {
         float x1, x2, z1, z2;
+
         if (transform.position.x < 0)
         {
             x1 = -1.6f; x2 = 2;
@@ -18,6 +19,7 @@ public class Deer : CreatureBase
         {
             x1 = -2; x2 = 1.6f;
         }
+
         if (transform.position.z < 0)
         {
             z1 = -1.6f; z2 = 2;
@@ -26,14 +28,14 @@ public class Deer : CreatureBase
         {
             z1 = -2; z2 = 1.6f;
         }
+
         return new Vector3(transform.position.x + UnityEngine.Random.Range(x1, x2), 0, transform.position.z + UnityEngine.Random.Range(z1, z2));
     }
 
     protected override void SpawnVisual()
     {
-        time = UnityEngine.Random.Range(3, 7.5f);
-        walk = false;
-        target = getTarget();
+        idleWalkingTimer = UnityEngine.Random.Range(3, 7.5f);
+        idleWalking = false;
 
         // Choose random location at X distance from player
         Vector3 pos = RandomGroundPosition();
@@ -48,7 +50,11 @@ public class Deer : CreatureBase
 
     protected override void ChangeState(CreatureState state)
     {
-        if (currState == CreatureState.Default) animator.SetBool("walk", false);
+        if (currState == CreatureState.Default)
+        {
+            animator.SetBool("walk", false);   
+        }
+
         base.ChangeState(state);
     }
 
@@ -58,40 +64,40 @@ public class Deer : CreatureBase
         switch (currState)
         {
             case CreatureState.Default:
-                if (time < 0)
+                if (idleWalkingTimer < 0)
                 {
-                    if (walk)
+                    if (idleWalking)
+                    {
                         animator.SetBool("walk", false);
+                    }
                     else
                     {
-                        target = getTarget();
+                        targetPosition = GetTarget();
                         animator.SetBool("walk", true);
                     }
-                    walk = !walk;
-                    time = UnityEngine.Random.Range(2, 7.5f);
+                    idleWalking = !idleWalking;
+                    idleWalkingTimer = UnityEngine.Random.Range(2, 7.5f);
                 }
-                if (walk)
+                if (idleWalking)
                 {
-                    transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
-                    if (transform.position == target)
+                    transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
+                    if (transform.position == targetPosition)
                     {
-                        time = 0;
+                        idleWalkingTimer = 0;
                     }
                 }
-                time -= Time.deltaTime;
+                idleWalkingTimer -= Time.deltaTime;
 
                 break;
             case CreatureState.Shocked:
-                // Revert back to Default if shocked for too long
-                // without fleeing
-                shockTimer += Time.deltaTime;
-                if (shockTimer >= SECONDS_TO_UNSHOCK)
+                // Revert back to Default if shocked for too long without fleeing
+                unshockTimer += Time.deltaTime;
+                if (unshockTimer >= SECONDS_TO_UNSHOCK)
                 {
                     ChangeState(CreatureState.Default);
                 }
                 break;
             case CreatureState.Fleeing:
-                //Flee();
                 break;
         }
     }

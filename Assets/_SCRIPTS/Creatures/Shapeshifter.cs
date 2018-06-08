@@ -10,7 +10,7 @@ public class Shapeshifter : CreatureBase
         // Choose random location at X distance from player
         transform.position = RandomGroundPosition();
 
-         target = Vector3.zero;
+         targetPosition = Vector3.zero;
 
         base.SpawnVisual();
     }
@@ -23,15 +23,15 @@ public class Shapeshifter : CreatureBase
         switch (currState)
         {
             case CreatureState.Default:
-               transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
+               transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
 
 
                 break;
             case CreatureState.Shocked:
                 // Revert back to Default if shocked for too long
                 // without fleeing
-                shockTimer += Time.deltaTime;
-                if (shockTimer >= SECONDS_TO_UNSHOCK)
+                unshockTimer += Time.deltaTime;
+                if (unshockTimer >= SECONDS_TO_UNSHOCK)
                 {
                     ChangeState(CreatureState.Default);
                 }
