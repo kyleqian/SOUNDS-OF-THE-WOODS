@@ -143,7 +143,7 @@ public abstract class CreatureBase : MonoBehaviour
         {
             z1 = 8; z2 = 6;
         }
-        return new Vector3(UnityEngine.Random.Range(x1, x2), 0, UnityEngine.Random.Range(z1, z2));
+        return new Vector3(UnityEngine.Random.Range(x1, x2), transform.position.y, UnityEngine.Random.Range(z1, z2));
     }
 
     protected Vector3 RandomGroundPosition(float x1 = -7, float x2 = 7, float z1 = -6, float z2 = 6)

@@ -9,7 +9,7 @@ public enum CreatureType
     Squirrel, Deer, Bunny, Raccoon, Crow, Wolf, Shapeshifter, Reverse, Decoy
 }
 
-public class CreatureManager : ManagerBase 
+public class CreatureManager : ManagerBase
 {
     // Because Unity can't serialize Dictionaries...
     // `creatureTypes` is the key
@@ -53,7 +53,7 @@ public class CreatureManager : ManagerBase
     CreatureBase InstantiateCreature(CreatureType type)
     {
         var newCreature = Instantiate(creaturePrefabs[(int)type]);
-        newCreature.name=type.ToString()+creaturePools[type].Count;
+        newCreature.name = type.ToString() + creaturePools[type].Count;
         var newCreatureComponent = newCreature.GetComponent<CreatureBase>();
         creaturePools[type].Add(newCreatureComponent);
         newCreature.SetActive(false);
@@ -93,8 +93,9 @@ public class CreatureManager : ManagerBase
         {
             count = creatureCounts[(int)type];
         }
-        List<CreatureBase> spawnedCreatures=new List<CreatureBase>();
-        foreach (CreatureBase cb in creaturePools[type]){
+        List<CreatureBase> spawnedCreatures = new List<CreatureBase>();
+        foreach (CreatureBase cb in creaturePools[type])
+        {
             if (cb.Spawned) spawnedCreatures.Add(cb);
         }
         foreach (CreatureBase spawnedCreature in spawnedCreatures)
@@ -112,9 +113,13 @@ public class CreatureManager : ManagerBase
         switch (phase)
         {
             case GamePhase.Afternoon:
-                SpawnCreatures(CreatureType.Squirrel, 3);
-                SpawnCreatures(CreatureType.Deer, 3);
+                SpawnCreatures(CreatureType.Squirrel, 1);
+                SpawnCreatures(CreatureType.Deer, 1);
                 SpawnCreatures(CreatureType.Raccoon, 1);
+                SpawnCreatures(CreatureType.Shapeshifter, 1);
+                SpawnCreatures(CreatureType.Decoy, 1);
+                SpawnCreatures(CreatureType.Reverse, 1);
+                SpawnCreatures(CreatureType.Crow, 3);
                 SpawnCreatures(CreatureType.Wolf, 1);
                 break;
             case GamePhase.Dusk:

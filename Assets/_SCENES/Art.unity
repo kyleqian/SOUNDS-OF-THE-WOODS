@@ -2930,7 +2930,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4513603691493882, guid: 3b721fcfc022d4101a4b20c90be59774, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0.6279631
       objectReference: {fileID: 0}
     - target: {fileID: 4513603691493882, guid: 3b721fcfc022d4101a4b20c90be59774, type: 2}
       propertyPath: m_LocalRotation.y
@@ -2942,7 +2942,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4513603691493882, guid: 3b721fcfc022d4101a4b20c90be59774, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7782431
       objectReference: {fileID: 0}
     - target: {fileID: 4513603691493882, guid: 3b721fcfc022d4101a4b20c90be59774, type: 2}
       propertyPath: m_RootOrder
@@ -2971,6 +2971,10 @@ Prefab:
     - target: {fileID: 1838250590176588, guid: 3b721fcfc022d4101a4b20c90be59774, type: 2}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4513603691493882, guid: 3b721fcfc022d4101a4b20c90be59774, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -77.8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3b721fcfc022d4101a4b20c90be59774, type: 2}
@@ -4176,12 +4180,12 @@ Prefab:
     - target: {fileID: 114545110815229008, guid: eb778728cbe6648008b434524124154e,
         type: 2}
       propertyPath: minPhaseLengthInSeconds
-      value: 5
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 114545110815229008, guid: eb778728cbe6648008b434524124154e,
         type: 2}
       propertyPath: maxPhaseLengthInSeconds
-      value: 10
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 114730313002474242, guid: eb778728cbe6648008b434524124154e,
         type: 2}

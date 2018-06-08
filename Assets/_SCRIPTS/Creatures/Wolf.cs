@@ -4,6 +4,8 @@ using System;
 
 public class Wolf : CreatureBase
 {
+    float angle;
+    float radius;
     protected override void SpawnVisual()
     {
         // Choose random location at X distance from player
@@ -14,16 +16,25 @@ public class Wolf : CreatureBase
         }
         transform.position = pos;
 
+        radius = Vector3.Distance(transform.position, Vector3.zero);
+
+        speed= UnityEngine.Random.Range(0.2f,0.5f);
+
         base.SpawnVisual();
+
+
     }
 
     void Update()
     {
+
         Lookat();
         switch (currState)
         {
             case CreatureState.Default:
-                // Move around
+                angle -= speed * Time.deltaTime;
+                var offset = new Vector3(Mathf.Sin(angle), 0, Mathf.Cos(angle)) * radius;
+                transform.position = Vector3.zero + offset;
 
                 break;
             case CreatureState.Shocked:
@@ -36,7 +47,7 @@ public class Wolf : CreatureBase
                 }
                 break;
             case CreatureState.Fleeing:
-                // Move/scale
+                Flee();
 
                 break;
         }
