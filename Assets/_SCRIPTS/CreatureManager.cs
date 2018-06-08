@@ -53,9 +53,9 @@ public class CreatureManager : ManagerBase
     {
         var newCreature = Instantiate(creaturePrefabs[(int)type]);
         var newCreatureComponent = newCreature.GetComponent<CreatureBase>();
+        newCreature.name = type.ToString() + creaturePools[type].Count;
 
         creaturePools[type].Add(newCreatureComponent);
-        newCreature.name = type.ToString()+creaturePools[type].Count;
         newCreature.SetActive(false);
         return newCreatureComponent;
     }
@@ -86,6 +86,7 @@ public class CreatureManager : ManagerBase
     }
 
     // TODO: Possibly do a proportion instead of raw count?
+    // TODO: Right now ignores count completed and despawns everything no matter what
     public void DespawnCreatures(CreatureType type, int count)
     {
         // Max count if negative number

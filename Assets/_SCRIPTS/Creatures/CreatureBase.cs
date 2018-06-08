@@ -101,7 +101,7 @@ public abstract class CreatureBase : MonoBehaviour
         {
             if (currState == CreatureState.Shocked)
             {
-                ChangeState(CreatureState.Fleeing);
+                Despawn();
             }
         }
         else if (forThisLong >= SECONDS_TO_SHOCK)
@@ -174,6 +174,12 @@ public abstract class CreatureBase : MonoBehaviour
     protected virtual void ChangeState(CreatureState state)
     {
         Debug.LogWarning(gameObject.name + " change state to: " + state);
+
+        // TODO: Do nothing if same state?
+        if (state == currState)
+        {
+            return;
+        }
 
         currState = state;
         switch (currState)
