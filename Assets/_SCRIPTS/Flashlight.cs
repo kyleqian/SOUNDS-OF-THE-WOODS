@@ -21,6 +21,7 @@ public class Flashlight : MonoBehaviour
         green = new Color(0.51f, 1, 0.25f);
         red = new Color(0.89f, 0, 0.09f);
         layerMask = LayerMask.NameToLayer(layerMaskName);
+        CurrBattery = maxBattery;
     }
 
     void Update()
