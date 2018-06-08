@@ -4156,12 +4156,12 @@ Prefab:
     - target: {fileID: 114730313002474242, guid: eb778728cbe6648008b434524124154e,
         type: 2}
       propertyPath: creatureCounts.Array.data[0]
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114730313002474242, guid: eb778728cbe6648008b434524124154e,
         type: 2}
       propertyPath: creatureCounts.Array.data[1]
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114192776518737112, guid: eb778728cbe6648008b434524124154e,
         type: 2}
@@ -4173,6 +4173,51 @@ Prefab:
       propertyPath: bloomEffect
       value: 
       objectReference: {fileID: 955780997}
+    - target: {fileID: 114545110815229008, guid: eb778728cbe6648008b434524124154e,
+        type: 2}
+      propertyPath: minPhaseLengthInSeconds
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114545110815229008, guid: eb778728cbe6648008b434524124154e,
+        type: 2}
+      propertyPath: maxPhaseLengthInSeconds
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114730313002474242, guid: eb778728cbe6648008b434524124154e,
+        type: 2}
+      propertyPath: creatureCounts.Array.data[2]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114730313002474242, guid: eb778728cbe6648008b434524124154e,
+        type: 2}
+      propertyPath: creatureCounts.Array.data[3]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114730313002474242, guid: eb778728cbe6648008b434524124154e,
+        type: 2}
+      propertyPath: creatureCounts.Array.data[4]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114730313002474242, guid: eb778728cbe6648008b434524124154e,
+        type: 2}
+      propertyPath: creatureCounts.Array.data[5]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114730313002474242, guid: eb778728cbe6648008b434524124154e,
+        type: 2}
+      propertyPath: creatureCounts.Array.data[6]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114730313002474242, guid: eb778728cbe6648008b434524124154e,
+        type: 2}
+      propertyPath: creatureCounts.Array.data[7]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114730313002474242, guid: eb778728cbe6648008b434524124154e,
+        type: 2}
+      propertyPath: creatureCounts.Array.data[8]
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: eb778728cbe6648008b434524124154e, type: 2}
   m_IsPrefabParent: 0

@@ -1,4 +1,7 @@
 ﻿using UnityEngine;
+using System.Collections;
+using System;
+
 
 public class Decoy : CreatureBase
 {
@@ -7,31 +10,9 @@ public class Decoy : CreatureBase
         // Choose random location at X distance from player
         transform.position = RandomGroundPosition();
 
-        ChangeState(CreatureState.Default);
-
-        // Enable GameObject
-        gameObject.SetActive(true);
-
-        // Fade in
-        SpriteRenderer s = transform.GetChild(0).GetComponent<SpriteRenderer>();
-        StartCoroutine(Fade(s, 0, 1, null));
+        base.SpawnVisual();
     }
 
-    protected override void DespawnVisual()
-    {
-        if (currState != CreatureState.Fleeing)
-        {
-            ChangeState(CreatureState.Fleeing);
-        }
-
-        // Fade out
-        SpriteRenderer s = transform.GetChild(0).GetComponent<SpriteRenderer>();
-        StartCoroutine(Fade(s, 1, 0, () =>
-        {
-            // After fade out, disable GameObject
-            gameObject.SetActive(false);
-        }));
-    }
 
     void Update()
     {

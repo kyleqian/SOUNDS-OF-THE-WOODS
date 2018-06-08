@@ -1,4 +1,6 @@
 ﻿using UnityEngine;
+using System.Collections;
+using System;
 
 public class Wolf : CreatureBase
 {
@@ -6,36 +8,13 @@ public class Wolf : CreatureBase
     {
         // Choose random location at X distance from player
         Vector3 pos = RandomGroundPosition();
-        if (Random.value > 0.3f)
+        if (UnityEngine.Random.value > 0.3f)
         {
             pos = new Vector3(pos.x * 1.5f, 0, pos.z * 1.5f);
         }
         transform.position = pos;
 
-        ChangeState(CreatureState.Default);
-
-        // Enable GameObject
-        gameObject.SetActive(true);
-
-        // Fade in
-        SpriteRenderer s = transform.GetChild(0).GetComponent<SpriteRenderer>();
-        StartCoroutine(Fade(s, 0, 1, null));
-    }
-
-    protected override void DespawnVisual()
-    {
-        if (currState != CreatureState.Fleeing)
-        {
-            ChangeState(CreatureState.Fleeing);
-        }
-
-        // Fade out
-        SpriteRenderer s = transform.GetChild(0).GetComponent<SpriteRenderer>();
-        StartCoroutine(Fade(s, 1, 0, () =>
-        {
-            // After fade out, disable GameObject
-            gameObject.SetActive(false);
-        }));
+        base.SpawnVisual();
     }
 
     void Update()

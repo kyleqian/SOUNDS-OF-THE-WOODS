@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
+using System.Linq;
 
 public enum CreatureType
 {
@@ -52,6 +53,7 @@ public class CreatureManager : ManagerBase
     CreatureBase InstantiateCreature(CreatureType type)
     {
         var newCreature = Instantiate(creaturePrefabs[(int)type]);
+        newCreature.name=type.ToString()+creaturePools[type].Count;
         var newCreatureComponent = newCreature.GetComponent<CreatureBase>();
         creaturePools[type].Add(newCreatureComponent);
         newCreature.SetActive(false);
@@ -91,19 +93,16 @@ public class CreatureManager : ManagerBase
         {
             count = creatureCounts[(int)type];
         }
-
-        for (int i = 0; i < count; ++i)
+        List<CreatureBase> spawnedCreatures=new List<CreatureBase>();
+        foreach (CreatureBase cb in creaturePools[type]){
+            if (cb.Spawned) spawnedCreatures.Add(cb);
+        }
+        foreach (CreatureBase spawnedCreature in spawnedCreatures)
         {
-            // Find a spawned creature of that type
-            var spawnedCreature = creaturePools[type].Find(c => c.Spawned);
-
-            // Break early if found none
             if (spawnedCreature == null)
             {
                 break;
             }
-
-            // Despawn it
             spawnedCreature.Despawn();
         }
     }
@@ -113,8 +112,8 @@ public class CreatureManager : ManagerBase
         switch (phase)
         {
             case GamePhase.Afternoon:
-                SpawnCreatures(CreatureType.Squirrel, 10);
-                SpawnCreatures(CreatureType.Deer, 10);
+                SpawnCreatures(CreatureType.Squirrel, 3);
+                SpawnCreatures(CreatureType.Deer, 3);
                 SpawnCreatures(CreatureType.Raccoon, 1);
                 SpawnCreatures(CreatureType.Wolf, 1);
                 break;
