@@ -63,6 +63,19 @@ public class GameManager : ManagerBase
         PhaseTransition();
     }
 
+    public void End(){
+        /*
+        rising noises
+        disable ability to use flashlight
+        sudden death
+        eyes close to black + fade out blur
+        freeze game time
+        wait a bit
+        restart scene
+        -> opening eyes
+         */
+    }
+
     void PhaseTransition()
     {
 		PhaseUnloaded(CurrPhase);
