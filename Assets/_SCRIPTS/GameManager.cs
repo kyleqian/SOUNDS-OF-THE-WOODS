@@ -3,7 +3,7 @@ using UnityEngine;
 
 public enum GamePhase
 {
-    Afternoon, Dusk, Night, Latenight, Dawn, End
+    Start, Afternoon, Dusk, Night, Latenight, Dawn, End
 }
 
 public class GameManager : ManagerBase
@@ -36,14 +36,15 @@ public class GameManager : ManagerBase
 			PhaseLengths[i] = UnityEngine.Random.Range(minPhaseLengthInSeconds, maxPhaseLengthInSeconds);
 		}
 
-		// No limit for .End
+		// No limit for Start or End
+        PhaseLengths[(int)GamePhase.Start] = Mathf.Infinity;
         PhaseLengths[(int)GamePhase.End] = Mathf.Infinity;
     }
 
     void Start()
     {
-        // Fire events for loading .Afternoon
-        PhaseLoaded(CurrPhase);
+        //// Fire events for loading .Afternoon
+        //PhaseLoaded(CurrPhase);
     }
 
     void Update()
@@ -55,6 +56,11 @@ public class GameManager : ManagerBase
             CurrPhaseTime = 0;
             PhaseTransition();
         }
+    }
+
+    public void PressedStart()
+    {
+        PhaseTransition();
     }
 
     void PhaseTransition()
