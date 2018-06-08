@@ -14,11 +14,11 @@ public abstract class CreatureBase : MonoBehaviour
     const float SECONDS_TO_FLEE = 2f;
     protected const float SECONDS_TO_UNSHOCK = 3f; // Has to be greater than SECONDS_TO_FLEE
     protected float shockTimer;
-    [SerializeField]
     protected CreatureState currState;
     protected Animator animator;
     protected Vector3 target;
     public float speed = 0.9f;
+
     protected void Awake()
     {
         animator = transform.GetChild(0).GetComponent<Animator>();
@@ -26,10 +26,10 @@ public abstract class CreatureBase : MonoBehaviour
 
     public virtual void Spawn()
     {
-        if (Spawned)
-        {
-            return;
-        }
+        //if (Spawned)
+        //{
+        //    return;
+        //}
 
         // Fade in/activate/set initial position
         animator.SetFloat("offset", UnityEngine.Random.Range(0, 1.2f));
@@ -41,19 +41,16 @@ public abstract class CreatureBase : MonoBehaviour
 
     public virtual void Despawn()
     {
-        if (!Spawned && !gameObject.activeSelf)
-        {
-            return;
-        }
-        Spawned = false;
+        //if (!Spawned && !gameObject.activeSelf)
+        //{
+        //    return;
+        //}
 
         DespawnVisual(() =>
         {
+            Spawned = false;
             gameObject.SetActive(false);
-
         });
-
-
     }
 
     protected virtual void SpawnVisual()
@@ -64,30 +61,36 @@ public abstract class CreatureBase : MonoBehaviour
         ChangeState(CreatureState.Default);
 
         // Fade in
-        SpriteRenderer s = transform.GetChild(0).GetComponent<SpriteRenderer>();
-        StartCoroutine(Fade(s, 0, 1, null));
+        //SpriteRenderer s = transform.GetChild(0).GetComponent<SpriteRenderer>();
+        //StartCoroutine(Fade(s, 0, 1, null));
     }
+
     protected virtual void DespawnVisual(Action a)
     {
-        StartCoroutine(DespawnCo(a));
-    }
+        ChangeState(CreatureState.Fleeing);
+        target = FleePosition();
+        //StartCoroutine(DespawnCo(a));
 
-    IEnumerator DespawnCo(Action a)
-    {
-        if (currState != CreatureState.Fleeing)
-        {
-            Debug.Log(gameObject.name + " change state!");
-            ChangeState(CreatureState.Fleeing);
-            yield break;
-        }
-
-        Debug.Log("finally flee!");
         SpriteRenderer s = transform.GetChild(0).GetComponent<SpriteRenderer>();
-        StartCoroutine(Fade(s, 1, 0, a, 2));
-        yield return null;
+        //StartCoroutine(Fade(s, 1, 0, a, 2));
+        StartCoroutine(Flee(a));
     }
 
+    //IEnumerator DespawnCo(Action a)
+    //{
+    //    //if (currState != CreatureState.Fleeing)
+    //    //{
+    //    //    Debug.Log(gameObject.name + " change state!");
+    //    //    ChangeState(CreatureState.Fleeing);
+    //    //    yield break;
+    //    //}
 
+    //    //Debug.Log("finally flee!");
+    //    // TODO: Fix
+    //    SpriteRenderer s = transform.GetChild(0).GetComponent<SpriteRenderer>();
+    //    StartCoroutine(Fade(s, 1, 0, a, 2));
+    //    yield return null;
+    //}
 
     // Called by flashlight with value indicating how long
     // the creature has been continuously looked at
@@ -114,14 +117,21 @@ public abstract class CreatureBase : MonoBehaviour
         }
     }
 
-    protected void Flee()
+    IEnumerator Flee(Action callback)
     {
-        transform.position = Vector3.MoveTowards(transform.position, target, speed * 2 * Time.deltaTime);
-        if (transform.position == target && Spawned && !gameObject.activeSelf)
+        while (transform.position != target)
         {
-            Debug.Log("despawn GOD DAMIMIT!!");
-            Despawn();
+            transform.position = Vector3.MoveTowards(transform.position, target, speed * 2 * Time.deltaTime);
+            yield return null;
         }
+
+        callback();
+
+        //if (transform.position == target && Spawned && !gameObject.activeSelf)
+        //{
+        //    Debug.Log("despawn GOD DAMIMIT!!");
+        //    Despawn();
+        //}
     }
 
     protected Vector3 FleePosition()
@@ -175,25 +185,24 @@ public abstract class CreatureBase : MonoBehaviour
                 animator.SetTrigger("shocked");
                 break;
             case CreatureState.Fleeing:
-                target = FleePosition();
                 animator.SetTrigger("flee");
                 break;
         }
     }
 
-    protected IEnumerator Fade(SpriteRenderer s, float alpha1, float alpha2, Action after, float maxTime = 2f)
-    {
-        s.color = new Color(1, 1, 1, alpha1);
+    //protected IEnumerator Fade(SpriteRenderer s, float alpha1, float alpha2, Action after, float maxTime = 2f)
+    //{
+    //    s.color = new Color(1, 1, 1, alpha1);
 
-        for (float i = 0; i < maxTime; i += Time.deltaTime)
-        {
-            s.color = Color.Lerp(new Color(1, 1, 1, alpha1), new Color(1, 1, 1, alpha2), i / maxTime);
-            yield return null;
-        }
+    //    for (float i = 0; i < maxTime; i += Time.deltaTime)
+    //    {
+    //        s.color = Color.Lerp(new Color(1, 1, 1, alpha1), new Color(1, 1, 1, alpha2), i / maxTime);
+    //        yield return null;
+    //    }
 
-        if (after != null)
-        {
-            after();
-        }
-    }
+    //    if (after != null)
+    //    {
+    //        after();
+    //    }
+    //}
 }

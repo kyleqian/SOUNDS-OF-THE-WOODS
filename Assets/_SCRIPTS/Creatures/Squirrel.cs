@@ -95,7 +95,7 @@ public class Squirrel : CreatureBase
                 break;
             case CreatureState.Fleeing:
                 // Move/scale
-                Flee();
+                //Flee();
                 time = 0;
                 break;
         }
