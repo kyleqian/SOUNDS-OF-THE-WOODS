@@ -124,8 +124,8 @@ public class EffectsManager : ManagerBase
             1.2f
         );
         Lighting latenightLighting = new Lighting(
-            new Color32(14, 14, 14, 255),
-            new Color32(14, 14, 14, 255),
+            new Color32(5,5,5, 255),//ambient sky
+            new Color32(6,6,6, 255),//skybox tint
             0.69f,
             new Color32(2, 0, 255, 255),
             0.5f
