@@ -54,7 +54,7 @@ GameObject:
   - component: {fileID: 33853259751277456}
   - component: {fileID: 23660591431016562}
   - component: {fileID: 64257687900397268}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: HitboxOtherside
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,7 +120,7 @@ GameObject:
   - component: {fileID: 33866185672851696}
   - component: {fileID: 23527173283598210}
   - component: {fileID: 64242662858138888}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Hitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}

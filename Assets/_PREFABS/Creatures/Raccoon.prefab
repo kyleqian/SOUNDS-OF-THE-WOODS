@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: 33317492042727300}
   - component: {fileID: 23988398263802314}
   - component: {fileID: 64414765482761152}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Hitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -496,9 +496,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0.4
   snickers:
-  - {fileID: 8300000, guid: c3d760a1430da43898d1d1e06e3f439c, type: 3}
+  - {fileID: 0}
   - {fileID: 8300000, guid: 65083e167e9ac4038b7f39abd1e0a9d2, type: 3}
-  - {fileID: 8300000, guid: 1ac9c307d15254c54bf1ee1cab095f32, type: 3}
+  - {fileID: 0}
 --- !u!212 &212131895081813768
 SpriteRenderer:
   m_ObjectHideFlags: 1

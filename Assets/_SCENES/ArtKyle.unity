@@ -37,8 +37,8 @@ RenderSettings:
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
-  m_Sun: {fileID: 1248987485}
-  m_IndirectSpecularColor: {r: 0.17945826, g: 0.24472168, b: 0.26236582, a: 1}
+  m_Sun: {fileID: 0}
+  m_IndirectSpecularColor: {r: 0.18977818, g: 0.38895103, b: 0.5149002, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -835,7 +835,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8c5296a25e1af40f58166889c1fb53d4, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8c5296a25e1af40f58166889c1fb53d4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1052,7 +1052,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &288805911
 GameObject:
@@ -3020,7 +3020,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4513603691493882, guid: 3b721fcfc022d4101a4b20c90be59774, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 212672992508670982, guid: 3b721fcfc022d4101a4b20c90be59774,
         type: 2}
@@ -3696,11 +3696,6 @@ Transform:
   m_Father: {fileID: 1060970443}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: -242.94499, z: 0}
---- !u!108 &1248987485 stripped
-Light:
-  m_PrefabParentObject: {fileID: 108411579649675500, guid: d503e6ac0ed6d4398a39477cd67a2d3c,
-    type: 2}
-  m_PrefabInternal: {fileID: 1323225844}
 --- !u!1 &1290832180
 GameObject:
   m_ObjectHideFlags: 0
@@ -4235,7 +4230,7 @@ Prefab:
         type: 2}
       propertyPath: directionalLight
       value: 
-      objectReference: {fileID: 1248987485}
+      objectReference: {fileID: 0}
     - target: {fileID: 114545110815229008, guid: eb778728cbe6648008b434524124154e,
         type: 2}
       propertyPath: maxPhaseLengthInSeconds

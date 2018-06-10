@@ -70,7 +70,7 @@ GameObject:
   - component: {fileID: 33979473542321882}
   - component: {fileID: 23520322228174976}
   - component: {fileID: 64164033367837260}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Hitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -647,9 +647,9 @@ MonoBehaviour:
   speed: 0.4
   flee: {fileID: 8300000, guid: 80b06d625095f485d9c43dfa121879ec, type: 3}
   growl:
-  - {fileID: 8300000, guid: 80bdb0b43c9fe4e1fbdf69cc0f16a306, type: 3}
-  - {fileID: 8300000, guid: dec4f85ecd31c4299831f2b538a36373, type: 3}
-  - {fileID: 8300000, guid: b671a7a3a75144fb1aa9e726b16d418f, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   run:
   - {fileID: 8300000, guid: 15a9454aab5a4420ea3f503a9da5642e, type: 3}
   - {fileID: 8300000, guid: 852b3950b6fb74c6ca0c2709f3e32fad, type: 3}
