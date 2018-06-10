@@ -10,6 +10,8 @@ public enum CreatureType
 
 public class CreatureManager : ManagerBase
 {
+    public bool debugMode;
+
     // Because Unity can't serialize Dictionaries...
     // `creatureTypes` is the key
     // `creatureCount` and `creaturePrefabs` are the values
@@ -120,14 +122,16 @@ public class CreatureManager : ManagerBase
         switch (phase)
         {
             case GamePhase.Afternoon:
-                SpawnCreatures(CreatureType.Squirrel, 1);
-                SpawnCreatures(CreatureType.Deer, 1);
-                SpawnCreatures(CreatureType.Raccoon, 1);
+                //SpawnCreatures(CreatureType.Squirrel, 1);
+                //SpawnCreatures(CreatureType.Deer, 1);
+                //SpawnCreatures(CreatureType.Raccoon, 1);
+                //SpawnCreatures(CreatureType.Crow, 1);
+                //SpawnCreatures(CreatureType.Wolf, 1);
+                //SpawnCreatures(CreatureType.Bunny, 1);
+
                 SpawnCreatures(CreatureType.Shapeshifter, 1);
                 SpawnCreatures(CreatureType.Decoy, 1);
                 SpawnCreatures(CreatureType.Reverse, 1);
-                SpawnCreatures(CreatureType.Crow, 3);
-                SpawnCreatures(CreatureType.Wolf, 1);
                 break;
             case GamePhase.Dusk:
                 SpawnCreatures(CreatureType.Bunny, 1);
