@@ -1,24 +1,137 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
+using System.Collections;
+using System;
+using UnityEngine.Audio;
 
+public enum ambienceIndex
+{
+    birds,
+    wind,
+    night,
+    spooky
+}
+public enum songIndex
+{
+    daySong,
+    nightSong,
+    latenightSong
+}
 public class SoundManager : ManagerBase
 {
+
+    public AudioMixerSnapshot songUp, songDown;
+
+    public AudioSource song, ambience;
+    //dynamically added AudioSources
+    public List<AudioSource> dynamicSources;
+    public List<AudioClip> songClips, ambienceClips;
+
     protected override void OnPhaseLoad(GamePhase phase)
     {
         switch (phase)
         {
             case GamePhase.Afternoon:
+                AudioSource a = newDynamicSource();
+                dynamicSources.Add(a);
+                a.clip = ambienceClips[(int)ambienceIndex.birds];
+                a.enabled = true;
                 break;
             case GamePhase.Dusk:
+                //melody grows quieter, pitch lowers
+                changePitch(song, song.pitch, 0.5f, 1);
+                changeVolume(song, song.volume, song.volume - 0.3f, 3, () =>
+                {
+                    dynamicSources[0].enabled = false;
+                    dynamicSources[0].clip = ambienceClips[(int)ambienceIndex.wind];
+                    dynamicSources[0].enabled = true;
+                });
                 break;
             case GamePhase.Night:
+                //melody pitch goes to negative
+                changePitch(song, song.pitch, -0.5f, 1,
+                    () => changePitchWait(song, -0.5f, -0.6f, 1, 5f,
+                        () => changePitchWait(song, -0.6f, -0.75f, 1, 1.6f, () =>
+                        {
+                            changeSong(songIndex.nightSong, 3);
+                        })));
+
                 break;
             case GamePhase.Latenight:
+                //change melody
+                changeSong(songIndex.latenightSong, 2);
+                changeVolume(song,song.volume, song.volume-0.1f, 2);
                 break;
             case GamePhase.Dawn:
+                changeSong(songIndex.daySong, 1.5f);
                 break;
             case GamePhase.End:
                 break;
         }
+    }
+
+    void changeSong(songIndex si, float wait)
+    {
+        StartCoroutine(changeSongTime(si, wait));
+    }
+    IEnumerator changeSongTime(songIndex si, float wait)
+    {
+        songDown.TransitionTo(wait);
+        yield return new WaitForSeconds(wait);
+        song.enabled = false;
+        song.clip = songClips[(int)si];
+        songUp.TransitionTo(wait);
+    }
+
+    AudioSource newDynamicSource()
+    {
+        AudioSource a = ambience.gameObject.AddComponent<AudioSource>();
+        a.loop = true;
+        a.playOnAwake = true;
+        a.enabled = false;
+        return a;
+    }
+
+    void changePitchWait(AudioSource a, float one, float two, float maxTime, float wait, Action action = null)
+    {
+        StartCoroutine(changePitchTimeWait(a, one, two, maxTime, wait, action));
+    }
+    IEnumerator changePitchTimeWait(AudioSource a, float one, float two, float maxTime, float wait, Action action)
+    {
+        yield return new WaitForSeconds(wait);
+        StartCoroutine(changePitchTime(a, one, two, maxTime, action));
+
+    }
+    void changePitch(AudioSource a, float one, float two, float maxTime, Action action = null)
+    {
+        StartCoroutine(changePitchTime(a, one, two, maxTime, action));
+    }
+    IEnumerator changePitchTime(AudioSource a, float one, float two, float maxTime, Action action)
+    {
+        yield return null;
+        for (float i = 0; i < maxTime && isActiveAndEnabled; i += Time.deltaTime)
+        {
+            a.pitch = Mathf.Lerp(one, two, i / maxTime);
+            yield return null;
+        }
+        a.pitch = two;
+        if (action != null) action();
+    }
+
+    void changeVolume(AudioSource a, float one, float two, float maxTime, Action action = null)
+    {
+        StartCoroutine(changeVolumeTime(a, one, two, maxTime, action));
+    }
+    IEnumerator changeVolumeTime(AudioSource a, float one, float two, float maxTime, Action action)
+    {
+        yield return null;
+        for (float i = 0; i < maxTime && isActiveAndEnabled; i += Time.deltaTime)
+        {
+            a.volume = Mathf.Lerp(one, two, i / maxTime);
+            yield return null;
+        }
+        a.volume = two;
+        if (action != null) action();
     }
 
     protected override void OnPhaseUnload(GamePhase phase)

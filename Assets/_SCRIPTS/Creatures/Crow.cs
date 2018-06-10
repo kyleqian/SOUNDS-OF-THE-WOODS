@@ -40,7 +40,7 @@ public class Crow : CreatureBase
                 }
                 break;
             case CreatureState.Fleeing:
-             
+            
                 break;
         }
     }

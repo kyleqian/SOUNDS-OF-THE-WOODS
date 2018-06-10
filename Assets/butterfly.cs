@@ -13,15 +13,19 @@ public class butterfly : MonoBehaviour
     {
         InitializeColors();
         speed = Random.Range(0.05f, 0.3f);
-		GetComponent<Animator>().SetFloat("speed", speed*2+0.6f);
-		transform.localScale=Vector3.one*Random.Range(0.6f,1.2f);
+        GetComponent<Animator>().SetFloat("speed", speed * 2 + 0.6f);
+        transform.localScale = Vector3.one * Random.Range(0.6f, 1.2f);
         target = getTarget();
 
     }
     Vector3 getTarget()
     {
-        return new Vector3(UnityEngine.Random.Range(-3f, 3f), UnityEngine.Random.Range(0.74f, 2), UnityEngine.Random.Range(-3f, 3f));
-
+        float x = UnityEngine.Random.Range(-4f, 4f);
+        float epsilon = 1.5f;
+        float z;
+        if (x < epsilon && x > -epsilon) z = Random.value > 0.5f ? Random.Range(-4f, -2f) : Random.Range(2f, 4f);
+        else z = UnityEngine.Random.Range(-4f, 4f);
+        return new Vector3(x, UnityEngine.Random.Range(0.74f, 2), z);
     }
 
     void InitializeColors()
@@ -50,13 +54,13 @@ public class butterfly : MonoBehaviour
     {
         // if (movingTarget)
         // {
-		// 	transform.LookAt(target,transform.forward);
+        // 	transform.LookAt(target,transform.forward);
         //     return;
         // }
 
         if (transform.position == target)
         {
-			target=getTarget();
+            target = getTarget();
             //StartCoroutine(moveTarget());
             speed = Random.Range(0.1f, 0.3f);
         }
@@ -64,7 +68,7 @@ public class butterfly : MonoBehaviour
         {
             transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
             Quaternion wantedRotation = Quaternion.LookRotation(target - transform.position);
-			transform.rotation = Quaternion.Lerp(transform.rotation, wantedRotation, Time.time * speed * 0.005f);
+            transform.rotation = Quaternion.Lerp(transform.rotation, wantedRotation, Time.time * speed * 0.005f);
         }
     }
 }
