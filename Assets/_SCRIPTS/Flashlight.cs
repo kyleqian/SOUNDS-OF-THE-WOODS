@@ -11,6 +11,7 @@ public class Flashlight : MonoBehaviour
 
     [SerializeField] string layerMaskName;
     int layerMask;
+    const float RAYCAST_DISTANCE = 15f;
 
     // TODO: Does this work as creatures Spawn and Despawn?
     int prevCreatureId;
@@ -20,7 +21,7 @@ public class Flashlight : MonoBehaviour
     {
         green = new Color(0.51f, 1, 0.25f);
         red = new Color(0.89f, 0, 0.09f);
-        layerMask = LayerMask.NameToLayer(layerMaskName);
+        layerMask = 1 << LayerMask.NameToLayer(layerMaskName);
         CurrBattery = maxBattery;
     }
 
@@ -88,10 +89,12 @@ public class Flashlight : MonoBehaviour
             return;
         }
 
-        //Debug.DrawRay(transform.position, transform.forward);
+#if UNITY_EDITOR
+        Debug.DrawRay(transform.position, transform.forward * RAYCAST_DISTANCE, Color.red);
+#endif
 
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.forward, out hit, layerMask))
+        if (Physics.Raycast(transform.position, transform.forward, out hit, RAYCAST_DISTANCE, layerMask))
         {
             GameObject creature = hit.collider.gameObject;
             int creatureId = creature.GetInstanceID();
