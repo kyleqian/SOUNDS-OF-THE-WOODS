@@ -67,6 +67,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bloomEffect: {fileID: 0}
   directionalLight: {fileID: 0}
+  butterfly: {fileID: 1590003000672814, guid: ee4f9c9693589436698b17007230ad77, type: 2}
+  dust: {fileID: 1332846340778984, guid: f9c0628cc79d044c191c2f490b4895c8, type: 2}
+  fireflies: {fileID: 1602671588873616, guid: 9c8c14edffda44445a63258c35d02063, type: 2}
 --- !u!114 &114545110815229008
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -78,8 +81,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b22ef7fc24ce4fd992de70677ae9a8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debugMode: 0
   minPhaseLengthInSeconds: 10
-  maxPhaseLengthInSeconds: 10
+  maxPhaseLengthInSeconds: 20
 --- !u!114 &114730313002474242
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -91,8 +95,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba0b0d6bcdd43453abcf5b2438c52855, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debugMode: 0
   creatureTypes: 000000000100000002000000030000000400000005000000060000000700000008000000
-  creatureCounts: 020000000200000002000000020000000200000002000000010000000100000001000000
+  creatureCounts: 010000000100000000000000000000000000000000000000000000000000000000000000
   creaturePrefabs:
   - {fileID: 1673749904540684, guid: 501a584f322274b4ca9d49de5bb54358, type: 2}
   - {fileID: 1953938111382922, guid: 4a462fbb96e2b4ad4819f8830445962e, type: 2}
