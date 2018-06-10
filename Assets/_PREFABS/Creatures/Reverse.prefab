@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4132038723506994}
   - component: {fileID: 212865589531239960}
   - component: {fileID: 95660367874535120}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37,7 +37,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4262492180846566}
   - component: {fileID: 212300370268576270}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: dleg1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53,7 +53,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4707290820853718}
   - component: {fileID: 212715931566428004}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: dleg1 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -69,7 +69,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4570406057334784}
   - component: {fileID: 212535219198782742}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: dleg1 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85,7 +85,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4210766764307820}
   - component: {fileID: 212100770547153586}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: dleg1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +101,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4477407418728160}
   - component: {fileID: 114466098311402802}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Reverse
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -119,7 +119,7 @@ GameObject:
   - component: {fileID: 33183340140510662}
   - component: {fileID: 23096932486278122}
   - component: {fileID: 64169702349785046}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Hitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -135,7 +135,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4303197133073150}
   - component: {fileID: 212744789239749260}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: dleg1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -151,7 +151,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4232780700471936}
   - component: {fileID: 212339060977008692}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -167,7 +167,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4247523142796872}
   - component: {fileID: 212254825767728280}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: dleg2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
