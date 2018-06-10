@@ -31,6 +31,7 @@ public class Bunny : CreatureBase
 
     void Update()
     {
+        Lookat();
         switch (currState)
         {
             case CreatureState.Default:
