@@ -34,6 +34,17 @@ public class Reverse : CreatureBase
         base.SpawnVisual();
     }
 
+  protected override void ChangeState(CreatureState state)
+    {
+        if (state==CreatureState.Shocked){
+            Horn();
+        }
+        else if (state==CreatureState.Fleeing){
+            Howl();
+        }
+        base.ChangeState(state);
+    }
+
 
     void Update()
     {
@@ -48,6 +59,7 @@ public class Reverse : CreatureBase
             case CreatureState.Shocked:
                 // Revert back to Default if shocked for too long
                 // without fleeing
+
                 unshockTimer += Time.deltaTime;
                 if (unshockTimer >= SECONDS_TO_UNSHOCK)
                 {

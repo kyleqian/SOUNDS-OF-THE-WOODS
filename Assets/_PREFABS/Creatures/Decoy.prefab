@@ -119,6 +119,7 @@ GameObject:
   - component: {fileID: 4247779436690386}
   - component: {fileID: 212018910088179302}
   - component: {fileID: 95040819268693538}
+  - component: {fileID: 114899612572924374}
   m_Layer: 10
   m_Name: body
   m_TagString: Untagged
@@ -396,7 +397,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1035534318135214}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 20.46, y: 21.52, z: -2.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4247779436690386}
@@ -573,6 +574,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114899612572924374
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1543882282787294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d00244f616f62427cb29db0bb4b16f1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cb: {fileID: 114995721961026854}
 --- !u!114 &114995721961026854
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -585,7 +598,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.35
-  squeaks: []
+  squeaks:
+  - {fileID: 8300000, guid: 89204b3013add41a5aaaec31a4c36662, type: 3}
+  - {fileID: 8300000, guid: 1d64df15d7d7c4148b7dc2b6a028d0b7, type: 3}
+  - {fileID: 8300000, guid: 020432da5133d49f7bee93e42e90874f, type: 3}
+  - {fileID: 8300000, guid: d4812790847cb4b8b9d6d25329d16ec3, type: 3}
 --- !u!212 &212014895730679916
 SpriteRenderer:
   m_ObjectHideFlags: 1

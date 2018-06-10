@@ -45,6 +45,15 @@ public class Wolf : CreatureBase
 
     }
 
+
+    protected override void ChangeState(CreatureState state)
+    {
+        if (state==CreatureState.Shocked) Howl();
+        else if (state==CreatureState.Fleeing) Flee();
+
+        base.ChangeState(state);
+    }
+
     
 
     void Update()

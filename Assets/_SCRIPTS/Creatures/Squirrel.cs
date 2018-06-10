@@ -73,6 +73,9 @@ public class Squirrel : CreatureBase
     protected override void ChangeState(CreatureState state)
     {
         if (currState == CreatureState.Default) animator.SetBool("walk", false);
+        if (state==CreatureState.Shocked) Angry();
+        else if (state==CreatureState.Fleeing) Snuffle();
+
         base.ChangeState(state);
     }
 

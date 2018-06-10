@@ -61,7 +61,7 @@ public class Raccoon : CreatureBase
         }
 
         yield return new WaitForSeconds(UnityEngine.Random.Range(0.1f,3.3f));
-
+        Footstep();
         Vector3 target = getTarget();
         maxTime = UnityEngine.Random.Range(0.5f, 2f);
         for (float i = 0; i < maxTime; i+=Time.deltaTime)
