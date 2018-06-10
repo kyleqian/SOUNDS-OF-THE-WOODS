@@ -20,11 +20,8 @@ public class butterfly : MonoBehaviour
     }
     Vector3 getTarget()
     {
-        float x = UnityEngine.Random.Range(-4f, 4f);
-        float epsilon = 1.5f;
-        float z;
-        if (x < epsilon && x > -epsilon) z = Random.value > 0.5f ? Random.Range(-4f, -2f) : Random.Range(2f, 4f);
-        else z = UnityEngine.Random.Range(-4f, 4f);
+        float x = (transform.position.x < 0) ? UnityEngine.Random.Range(-4f, -1.5f) : UnityEngine.Random.Range(1.5f, 4f);
+        float z = (transform.position.z < 0) ? UnityEngine.Random.Range(-4f, -1.5f) : UnityEngine.Random.Range(1.5f, 4f);
         return new Vector3(x, UnityEngine.Random.Range(0.74f, 2), z);
     }
 
