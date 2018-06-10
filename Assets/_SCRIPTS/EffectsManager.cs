@@ -152,6 +152,7 @@ public class EffectsManager : ManagerBase
         {
             StopCoroutine(activeCoroutine);
         }
+        activeCoroutine = null;
     }
 
     void UpdateLightingImmediate(Lighting lighting)
