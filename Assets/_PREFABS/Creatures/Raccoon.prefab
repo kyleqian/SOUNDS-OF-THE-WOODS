@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4663019061475668}
   - component: {fileID: 212846144148341990}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: fl2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,7 +36,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4258504907612754}
   - component: {fileID: 212166289743949166}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: fl2 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52,8 +52,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4943379624833202}
   - component: {fileID: 114615080199694936}
-  - component: {fileID: 82110321035059912}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Raccoon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -69,7 +68,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4790845500239992}
   - component: {fileID: 212131895081813768}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: fl1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85,7 +84,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4078615134408554}
   - component: {fileID: 212148420292947982}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: bl2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +100,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4965274715146708}
   - component: {fileID: 212204516826130302}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: fl1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -119,7 +118,7 @@ GameObject:
   - component: {fileID: 33317492042727300}
   - component: {fileID: 23988398263802314}
   - component: {fileID: 64414765482761152}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Hitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -135,7 +134,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4963346704910426}
   - component: {fileID: 212914152081671568}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: bl1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -151,7 +150,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4949069518698952}
   - component: {fileID: 212839108844857076}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -168,7 +167,7 @@ GameObject:
   - component: {fileID: 4498623827555090}
   - component: {fileID: 212889903120521668}
   - component: {fileID: 95300923370461082}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: body (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

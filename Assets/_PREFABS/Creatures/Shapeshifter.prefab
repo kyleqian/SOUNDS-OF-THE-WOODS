@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4400059628847774}
   - component: {fileID: 212322145244080154}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: dleg1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,7 +36,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4227857963734862}
   - component: {fileID: 212799560982653822}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: dleg4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52,7 +52,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4816738657980048}
   - component: {fileID: 212123677314545522}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: head (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68,7 +68,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4598839014416362}
   - component: {fileID: 212298951732059174}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: neck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84,7 +84,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4057752119642322}
   - component: {fileID: 212523445492558788}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: dleg3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,8 +100,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4049246249073968}
   - component: {fileID: 114843378121483950}
-  - component: {fileID: 82969351550626390}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Shapeshifter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -119,7 +118,7 @@ GameObject:
   - component: {fileID: 33984751495846960}
   - component: {fileID: 23010964719403712}
   - component: {fileID: 64108323921410236}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Hitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -135,7 +134,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4198883300087954}
   - component: {fileID: 212939474008601976}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: dleg1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -151,7 +150,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4148905806612444}
   - component: {fileID: 212433793780689772}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: dleg1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -167,7 +166,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4850338376402082}
   - component: {fileID: 212433274724401462}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: dleg1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -183,7 +182,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4788473802536114}
   - component: {fileID: 212455637712422236}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: dleg1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -200,7 +199,7 @@ GameObject:
   - component: {fileID: 4295676088708904}
   - component: {fileID: 212118595741359476}
   - component: {fileID: 95348841508994282}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -216,7 +215,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4294943046612700}
   - component: {fileID: 212588331029570086}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: dleg2
   m_TagString: Untagged
   m_Icon: {fileID: 0}

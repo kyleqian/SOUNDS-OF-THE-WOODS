@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4334338911220922}
   - component: {fileID: 212896441877538390}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: wing1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,7 +36,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4401890891222010}
   - component: {fileID: 212729621473260164}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: wing2_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54,7 +54,7 @@ GameObject:
   - component: {fileID: 33853259751277456}
   - component: {fileID: 23660591431016562}
   - component: {fileID: 64257687900397268}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: HitboxOtherside
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70,7 +70,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4499912811401438}
   - component: {fileID: 212208340908950344}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: wing1_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,7 +86,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4831222343744030}
   - component: {fileID: 212168929851820964}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: wing1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,8 +102,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4512627409827330}
   - component: {fileID: 114708659972495494}
-  - component: {fileID: 82403112583582732}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Crow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -121,7 +120,7 @@ GameObject:
   - component: {fileID: 33866185672851696}
   - component: {fileID: 23527173283598210}
   - component: {fileID: 64242662858138888}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Hitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -138,7 +137,7 @@ GameObject:
   - component: {fileID: 4706229909312014}
   - component: {fileID: 212608609730333168}
   - component: {fileID: 95327244431746840}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
