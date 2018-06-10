@@ -495,7 +495,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.5
-  gutturalSweeps: []
+  gutturalSweeps:
+  - {fileID: 8300000, guid: 4322e740e540a48c487f1ad20b59af5b, type: 3}
+  - {fileID: 8300000, guid: 55d0169c074824f91953b1eb48234022, type: 3}
+  - {fileID: 8300000, guid: f370c120e99b24be09a8dbaba853cc65, type: 3}
+  - {fileID: 8300000, guid: 94016cc114c65494ba3e0cf928697e91, type: 3}
   horn: {fileID: 8300000, guid: 9be007645bce049b0b0383441abf92dd, type: 3}
   howl: {fileID: 8300000, guid: 3c7673433fb30468eb0911465f38a268, type: 3}
 --- !u!212 &212100770547153586

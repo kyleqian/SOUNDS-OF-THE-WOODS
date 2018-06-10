@@ -167,6 +167,7 @@ GameObject:
   - component: {fileID: 4498623827555090}
   - component: {fileID: 212889903120521668}
   - component: {fileID: 95300923370461082}
+  - component: {fileID: 114219693115027492}
   m_Layer: 10
   m_Name: body (1)
   m_TagString: Untagged
@@ -266,7 +267,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1248653675379164}
   m_LocalRotation: {x: 0, y: 0.51294214, z: 0, w: 0.85842323}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 21.2, y: 23.77, z: -0.59}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4498623827555090}
@@ -483,6 +484,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114219693115027492
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1995927476846708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d00244f616f62427cb29db0bb4b16f1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cb: {fileID: 114615080199694936}
 --- !u!114 &114615080199694936
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -496,9 +509,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0.4
   snickers:
-  - {fileID: 0}
+  - {fileID: 8300000, guid: c3d760a1430da43898d1d1e06e3f439c, type: 3}
   - {fileID: 8300000, guid: 65083e167e9ac4038b7f39abd1e0a9d2, type: 3}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: 1ac9c307d15254c54bf1ee1cab095f32, type: 3}
 --- !u!212 &212131895081813768
 SpriteRenderer:
   m_ObjectHideFlags: 1
