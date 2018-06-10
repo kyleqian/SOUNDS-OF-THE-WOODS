@@ -17,6 +17,7 @@ public class GameManager : ManagerBase
     public float CurrPhaseTime { get; private set; }
     public float[] PhaseLengths { get; private set; }
 
+    [SerializeField] bool debugMode;
     [SerializeField] float minPhaseLengthInSeconds;
     [SerializeField] float maxPhaseLengthInSeconds;
 
@@ -30,6 +31,11 @@ public class GameManager : ManagerBase
     {
         // Fire events for loading Start
         PhaseLoaded(CurrPhase);
+
+        if (debugMode)
+        {
+            InitializeDebugMode();
+        }
     }
 
     void Update()
@@ -41,6 +47,11 @@ public class GameManager : ManagerBase
             CurrPhaseTime = 0;
             PhaseTransition();
         }
+    }
+
+    void InitializeDebugMode()
+    {
+        PhaseLengths[(int)GamePhase.Afternoon] = Mathf.Infinity;
     }
 
     void InitializePhaseLengths()
