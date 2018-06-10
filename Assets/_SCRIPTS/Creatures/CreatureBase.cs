@@ -11,8 +11,8 @@ public abstract class CreatureBase : MonoBehaviour
 {
     public bool Spawned { get; private set; }
     const float SECONDS_TO_SHOCK = 0.5f;
-    const float SECONDS_TO_FLEE = 2f;
-    protected const float SECONDS_TO_UNSHOCK = 3f; // Has to be greater than SECONDS_TO_FLEE
+    const float SECONDS_TO_FLEE = 1.5f;
+    protected const float SECONDS_TO_UNSHOCK = 1.6f; // Has to be greater than SECONDS_TO_FLEE
     protected float unshockTimer; // How long a creature has been shocked (used to reset creature to default if shocked but not long enough to flee)
     protected CreatureState currState;
     protected Animator animator;
@@ -153,7 +153,7 @@ public abstract class CreatureBase : MonoBehaviour
 
     protected virtual void ChangeState(CreatureState state)
     {
-        Debug.LogWarning(gameObject.name + " change state to: " + state);
+        Debug.Log(gameObject.name + " change state to: " + state);
         if (state == currState)
         {
             return;

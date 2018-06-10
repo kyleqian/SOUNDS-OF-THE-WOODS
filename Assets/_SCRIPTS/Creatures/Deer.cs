@@ -52,7 +52,7 @@ public class Deer : CreatureBase
     {
         if (currState == CreatureState.Default)
         {
-            animator.SetBool("walk", false);   
+            animator.SetBool("walk", false);
         }
 
         base.ChangeState(state);

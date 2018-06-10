@@ -160,8 +160,8 @@ public class CreatureManager : ManagerBase
         switch (phase)
         {
             case GamePhase.Afternoon:
-                DespawnCreatures(CreatureType.Squirrel, -1);
-                DespawnCreatures(CreatureType.Deer, -1);
+                //DespawnCreatures(CreatureType.Squirrel, -1);
+                //DespawnCreatures(CreatureType.Deer, -1);
                 break;
             case GamePhase.Dusk:
                 break;

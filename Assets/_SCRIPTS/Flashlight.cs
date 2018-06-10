@@ -38,10 +38,24 @@ public class Flashlight : MonoBehaviour
             return;
         }
 
+#if UNITY_EDITOR
+        float pitchDelta = Input.GetAxis("Vertical") * -2f;
+        float yawDelta = Input.GetAxis("Horizontal") * 2f;
+        Vector3 angles = transform.eulerAngles;
+        angles.x += pitchDelta;
+        angles.y += yawDelta;
+        transform.eulerAngles = angles;
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            lightSource.enabled = !lightSource.enabled;
+        }
+#else
         if (OVRInput.GetDown(OVRInput.Button.One))
         {
             lightSource.enabled = !lightSource.enabled;
         }
+#endif
     }
 
     void DrainBattery()
