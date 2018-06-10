@@ -54,16 +54,30 @@ public class SoundManager : ManagerBase
                         () => changePitchWait(song, -0.6f, -0.75f, 1, 1.6f, () =>
                         {
                             changeSong(songIndex.nightSong, 3);
+                            dynamicSources[0].enabled = false;
+                            dynamicSources[0].clip = ambienceClips[(int)ambienceIndex.night];
+                            dynamicSources[0].enabled = true;
                         })));
 
                 break;
             case GamePhase.Latenight:
                 //change melody
                 changeSong(songIndex.latenightSong, 2);
-                changeVolume(song,song.volume, song.volume-0.1f, 2);
+                changeVolume(song, song.volume, song.volume - 0.1f, 3, () =>
+                {
+                    dynamicSources[0].enabled = false;
+                    dynamicSources[0].clip = ambienceClips[(int)ambienceIndex.spooky];
+                    dynamicSources[0].enabled = true;
+                });
                 break;
             case GamePhase.Dawn:
                 changeSong(songIndex.daySong, 1.5f);
+                changeVolume(dynamicSources[0], dynamicSources[0].volume, 0, 6, () =>
+                {
+                    AudioSource a2=dynamicSources[0];
+                    dynamicSources.RemoveAt(0);
+                    Destroy(a2);
+                });
                 break;
             case GamePhase.End:
                 break;
