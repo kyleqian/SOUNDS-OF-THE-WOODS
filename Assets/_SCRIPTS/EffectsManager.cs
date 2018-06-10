@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.ImageEffects;
 
+
+public enum ParticleType
+{
+    Butterflies, Dust, Fireflies
+}
 public class EffectsManager : ManagerBase
 {
     struct Lighting
@@ -32,6 +37,15 @@ public class EffectsManager : ManagerBase
     Dictionary<GamePhase, Lighting> lightingReference;
     Coroutine activeCoroutine;
 
+    //Particle effects
+    [Header("Particles")]
+    [SerializeField]
+    GameObject butterfly;
+    [SerializeField]
+    GameObject dust, fireflies;
+
+
+
     void Awake()
     {
         InitializeLightingReference();
@@ -40,6 +54,51 @@ public class EffectsManager : ManagerBase
         copySkyboxMaterial = new Material(RenderSettings.skybox);
         RenderSettings.skybox = copySkyboxMaterial;
     }
+
+    void InitializeParticle(ParticleType particle)
+    {
+        GameObject particleObject = null;
+        switch (particle)
+        {
+            case ParticleType.Butterflies:
+                //butterflies are not a Particle System thus need a special case.
+                particleObject = handleButterflies(UnityEngine.Random.Range(4, 6));
+                break;
+            case ParticleType.Dust:
+                particleObject = GameObject.Instantiate(dust, transform, true);
+                break;
+            case ParticleType.Fireflies:
+                particleObject = GameObject.Instantiate(fireflies, transform, true);
+                break;
+        }
+        if (particleObject != null)
+            particleObject.name = particle.ToString();
+
+    }
+
+    GameObject handleButterflies(int butterflyAmount)
+    {
+        GameObject particleObject = new GameObject();
+        particleObject.transform.parent=transform;
+        for (int i = 0; i < butterflyAmount; i++)
+        {
+            GameObject.Instantiate(butterfly,
+                    new Vector3(UnityEngine.Random.Range(-4f, 4f), UnityEngine.Random.Range(0.5f, 2), UnityEngine.Random.Range(-4f, 4f)),
+                    Quaternion.identity,
+                    particleObject.transform);
+        }
+        return particleObject;
+    }
+
+    void RemoveParticle(ParticleType particle)
+    {
+        Transform particleObject = transform.Find(particle.ToString());
+        //check if particle we want to remove exists.
+        if (particleObject == null) return;
+        //Destroy it because we don't expect to need it in the future.
+        Destroy(particleObject.gameObject);
+    }
+
 
     void InitializeLightingReference()
     {
@@ -145,6 +204,8 @@ public class EffectsManager : ManagerBase
                 // Initial lighting
                 nextLighting = lightingReference[phase + 1];
                 UpdateLightingImmediate(nextLighting);
+                InitializeParticle(ParticleType.Dust);
+                InitializeParticle(ParticleType.Butterflies);
                 break;
             case GamePhase.Afternoon:
                 nextLighting = lightingReference[phase + 1];
@@ -153,6 +214,7 @@ public class EffectsManager : ManagerBase
             case GamePhase.Dusk:
                 nextLighting = lightingReference[phase + 1];
                 UpdateLightingOverTime(nextLighting);
+                InitializeParticle(ParticleType.Fireflies);
                 break;
             case GamePhase.Night:
                 nextLighting = lightingReference[phase + 1];
@@ -180,10 +242,13 @@ public class EffectsManager : ManagerBase
             case GamePhase.Afternoon:
                 break;
             case GamePhase.Dusk:
+                RemoveParticle(ParticleType.Butterflies);
                 break;
             case GamePhase.Night:
+                RemoveParticle(ParticleType.Fireflies);
                 break;
             case GamePhase.Latenight:
+                RemoveParticle(ParticleType.Dust);
                 break;
             case GamePhase.Dawn:
                 break;
