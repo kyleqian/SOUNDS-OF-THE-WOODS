@@ -33,6 +33,7 @@ public class EffectsManager : ManagerBase
     [SerializeField] Bloom bloomEffect;
     [SerializeField] Light directionalLight;
 
+    const float LIGHTING_TRANSITION_PROPORTION = 0.3f; // At what point in the phase should lighting be finished transitioning?
     Material copySkyboxMaterial;
     Dictionary<GamePhase, Lighting> lightingReference;
     Coroutine activeCoroutine;
@@ -43,8 +44,6 @@ public class EffectsManager : ManagerBase
     GameObject butterfly;
     [SerializeField]
     GameObject dust, fireflies;
-
-
 
     void Awake()
     {
@@ -98,7 +97,6 @@ public class EffectsManager : ManagerBase
         //Destroy it because we don't expect to need it in the future.
         Destroy(particleObject.gameObject);
     }
-
 
     void InitializeLightingReference()
     {
@@ -172,7 +170,8 @@ public class EffectsManager : ManagerBase
 
     IEnumerator _UpdateLightingOverTime(Lighting lighting)
     {
-        float phaseLength = GameManager.Instance.PhaseLengths[(int)GameManager.Instance.CurrPhase];
+        float adjustedPhaseLength = GameManager.Instance.PhaseLengths[(int)GameManager.Instance.CurrPhase] * LIGHTING_TRANSITION_PROPORTION;
+
         Lighting initialLighting = new Lighting(
             RenderSettings.ambientSkyColor,
             copySkyboxMaterial.GetColor("_Tint"),
@@ -181,9 +180,10 @@ public class EffectsManager : ManagerBase
             directionalLight.intensity
         );
 
-        while (GameManager.Instance.CurrPhaseTime < phaseLength)
+        while (GameManager.Instance.CurrPhaseTime < adjustedPhaseLength)
         {
-            float lerpFactor = GameManager.Instance.CurrPhaseTime / phaseLength;
+            float lerpFactor = GameManager.Instance.CurrPhaseTime / adjustedPhaseLength;
+
             Lighting lerpedLighting = new Lighting(
                 Color32.Lerp(initialLighting.ambientSkyColor, lighting.ambientSkyColor, lerpFactor),
                 Color32.Lerp(initialLighting.skyboxTintColor, lighting.skyboxTintColor, lerpFactor),
@@ -191,6 +191,7 @@ public class EffectsManager : ManagerBase
                 Color32.Lerp(initialLighting.directionalLightColor, lighting.directionalLightColor, lerpFactor),
                 Mathf.Lerp(initialLighting.directionalLightIntensity, lighting.directionalLightIntensity, lerpFactor)
             );
+
             UpdateLightingImmediate(lerpedLighting);
             yield return null;
         }
@@ -198,35 +199,29 @@ public class EffectsManager : ManagerBase
 
     protected override void OnPhaseLoad(GamePhase phase)
     {
-        Lighting nextLighting;
         switch (phase)
         {
             case GamePhase.Start:
-                // Initial lighting
-                nextLighting = lightingReference[phase + 1];
+                // Initial lighting and particles
+                Lighting nextLighting = lightingReference[phase + 1];
                 UpdateLightingImmediate(nextLighting);
                 InitializeParticle(ParticleType.Dust);
                 InitializeParticle(ParticleType.Butterflies);
                 break;
             case GamePhase.Afternoon:
-                nextLighting = lightingReference[phase + 1];
-                UpdateLightingOverTime(nextLighting);
                 break;
             case GamePhase.Dusk:
-                nextLighting = lightingReference[phase + 1];
-                UpdateLightingOverTime(nextLighting);
+                UpdateLightingOverTime(lightingReference[phase]);
                 InitializeParticle(ParticleType.Fireflies);
                 break;
             case GamePhase.Night:
-                nextLighting = lightingReference[phase + 1];
-                UpdateLightingOverTime(nextLighting);
+                UpdateLightingOverTime(lightingReference[phase]);
                 break;
             case GamePhase.Latenight:
-                nextLighting = lightingReference[phase + 1];
-                UpdateLightingOverTime(nextLighting);
+                UpdateLightingOverTime(lightingReference[phase]);
                 break;
             case GamePhase.Dawn:
-                StopActiveCoroutine();
+                UpdateLightingOverTime(lightingReference[phase]);
                 break;
             case GamePhase.End:
                 StopActiveCoroutine();
