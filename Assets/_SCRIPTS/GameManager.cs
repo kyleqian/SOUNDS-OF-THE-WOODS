@@ -44,7 +44,6 @@ public class GameManager : ManagerBase
 		CurrPhaseTime += Time.deltaTime;
 		if (CurrPhaseTime >= PhaseLengths[(int)CurrPhase])
 		{
-            CurrPhaseTime = 0;
             PhaseTransition();
         }
     }
@@ -93,6 +92,7 @@ public class GameManager : ManagerBase
     void PhaseTransition()
     {
         Debug.Log("Transition to: " + (CurrPhase + 1).ToString());
+        CurrPhaseTime = 0;
         PhaseUnloaded(CurrPhase);
         PhaseLoaded(++CurrPhase);
 	}
