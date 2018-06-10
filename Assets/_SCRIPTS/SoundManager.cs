@@ -108,6 +108,8 @@ public class SoundManager : ManagerBase
         AudioSource a = ambience.gameObject.AddComponent<AudioSource>();
         a.loop = true;
         a.playOnAwake = true;
+        a.spread = 180;
+        a.spatialBlend = 1;
         a.enabled = false;
         return a;
     }
