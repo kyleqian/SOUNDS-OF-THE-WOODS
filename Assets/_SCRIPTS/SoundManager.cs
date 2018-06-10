@@ -19,13 +19,19 @@ public enum songIndex
 }
 public class SoundManager : ManagerBase
 {
-
+    public static SoundManager Instance;
     public AudioMixerSnapshot songUp, songDown;
 
     public AudioSource song, ambience;
     //dynamically added AudioSources
     public List<AudioSource> dynamicSources;
     public List<AudioClip> songClips, ambienceClips;
+
+    public AudioClip[] footsteps;
+    void Awake()
+    {
+        Instance = this;
+    }
 
     protected override void OnPhaseLoad(GamePhase phase)
     {

@@ -8,6 +8,7 @@ public class Raccoon : CreatureBase
     float appearingTime;
     //is the racoon popping?
     bool popping;
+    public AudioClip[] snickers;
 
     void initAppearingTime()
     {
@@ -73,6 +74,10 @@ public class Raccoon : CreatureBase
 
         //init time
         initAppearingTime();
+    }
+    public override void Footstep()
+    {
+         audio.PlayOneShot(snickers[UnityEngine.Random.Range(0, snickers.Length)]);
     }
 
     void Update()

@@ -5,6 +5,23 @@ using System;
 
 public class Decoy : CreatureBase
 {
+
+    public AudioClip[] squeaks;
+
+
+    public void Start()
+    {
+        audio.Play();
+    }
+    public override void Footstep()
+    {
+        audio.PlayOneShot(squeaks[UnityEngine.Random.Range(0, squeaks.Length)], 1);
+    }
+    public void StopSong()
+    {
+        audio.enabled = false;
+        audio.enabled = true;
+    }
     protected override void SpawnVisual()
     {
         // Choose random location at X distance from player

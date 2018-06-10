@@ -110,22 +110,22 @@ public class EffectsManager : ManagerBase
             1.5f
         );
         Lighting duskLighting = new Lighting(
-            new Color32(180, 123, 117, 255),
-            new Color32(96, 146, 166, 255),
+            new Color32(128, 88, 84, 255),
+            new Color32(43,75,98, 255),
             0.69f,
             new Color32(255, 161, 0, 255),
             1.5f
         );
         Lighting nightLighting = new Lighting(
-            new Color32(23, 37, 48, 255),
-            new Color32(15, 31, 27, 255),
+            new Color32(15, 25, 30, 255),
+            new Color32(10, 20, 15, 255),
             0.69f,
             new Color32(0, 241, 255, 255),
             1.2f
         );
         Lighting latenightLighting = new Lighting(
-            new Color32(5,5,5, 255),//ambient sky
-            new Color32(6,6,6, 255),//skybox tint
+            new Color32(2,2,2, 255),//ambient sky
+            new Color32(3,3,3, 255),//skybox tint
             0.69f,
             new Color32(2, 0, 255, 255),
             0.5f

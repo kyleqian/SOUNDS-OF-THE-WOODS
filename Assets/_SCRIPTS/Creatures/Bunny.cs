@@ -28,6 +28,12 @@ public class Bunny : CreatureBase
         if (currState == CreatureState.Default) animator.SetBool("walk", false);
         base.ChangeState(state);
     }
+    public override void Footstep()
+    {
+        int length = SoundManager.Instance.footsteps.Length;
+        audio.PlayOneShot(SoundManager.Instance.footsteps[UnityEngine.Random.Range(0, length)]);
+    }
+
 
     void Update()
     {
@@ -66,7 +72,7 @@ public class Bunny : CreatureBase
                 }
                 break;
             case CreatureState.Fleeing:
-            
+
                 break;
         }
     }

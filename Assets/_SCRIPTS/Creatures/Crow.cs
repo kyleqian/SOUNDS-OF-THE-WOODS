@@ -6,6 +6,20 @@ public class Crow : CreatureBase
 {
     float angle;
     float radius;
+
+    public AudioClip[] caws;
+    public AudioClip bugle;
+    
+
+    public override void Footstep()
+    {
+        audio.PlayOneShot(caws[UnityEngine.Random.Range(0, caws.Length)]);
+    }
+
+    public void Bugle(){
+        audio.PlayOneShot(bugle);
+    }
+    
     protected override void SpawnVisual()
     {
         //Randomize position, scale, and speed for variety
@@ -17,6 +31,7 @@ public class Crow : CreatureBase
 
         base.SpawnVisual();
     }
+
 
     void Update()
     {
@@ -41,7 +56,7 @@ public class Crow : CreatureBase
                 }
                 break;
             case CreatureState.Fleeing:
-            
+
                 break;
         }
     }

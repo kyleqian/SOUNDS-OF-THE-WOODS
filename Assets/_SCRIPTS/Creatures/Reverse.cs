@@ -5,15 +5,35 @@ using System;
 
 public class Reverse : CreatureBase
 {
+    public AudioClip[] gutturalSweeps;
+    public AudioClip horn, howl;
+
+    //ANIMATION 
+    public override void Footstep()
+    {
+        audio.PlayOneShot(gutturalSweeps[UnityEngine.Random.Range(0, gutturalSweeps.Length)]);
+    }
+
+    public void Horn()
+    {
+        audio.PlayOneShot(horn);
+    }
+    public void Howl()
+    {
+        audio.PlayOneShot(howl);
+    }
+
+
     protected override void SpawnVisual()
     {
         // Choose random location at X distance from player
         transform.position = RandomGroundPosition();
 
-         targetPosition = Vector3.zero;
+        targetPosition = Vector3.zero;
 
         base.SpawnVisual();
     }
+
 
     void Update()
     {

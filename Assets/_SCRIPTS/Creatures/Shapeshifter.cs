@@ -5,25 +5,36 @@ using System;
 
 public class Shapeshifter : CreatureBase
 {
+    public AudioClip[] branches;
+
+    public AudioClip somethingBadTeleport;
+
+
+    public void BadTeleport(){
+        audio.pitch=UnityEngine.Random.Range(0.9f, 1.05f);
+        audio.PlayOneShot(somethingBadTeleport);
+    }
+    public override void Footstep()
+    {
+        audio.PlayOneShot(branches[UnityEngine.Random.Range(0, branches.Length)]);
+    }
+
     protected override void SpawnVisual()
     {
         // Choose random location at X distance from player
         transform.position = RandomGroundPosition();
 
-         targetPosition = Vector3.zero;
+        targetPosition = Vector3.zero;
 
         base.SpawnVisual();
     }
-
-
-
     void Update()
     {
         Lookat();
         switch (currState)
         {
             case CreatureState.Default:
-               transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
+                transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
 
 
                 break;

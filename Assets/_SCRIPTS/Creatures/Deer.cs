@@ -58,6 +58,13 @@ public class Deer : CreatureBase
         base.ChangeState(state);
     }
 
+        public override void Footstep()
+    {
+        int length = SoundManager.Instance.footsteps.Length;
+        audio.PlayOneShot(SoundManager.Instance.footsteps[UnityEngine.Random.Range(0, length)]);
+    }
+
+
     void Update()
     {
         Lookat();

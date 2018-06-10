@@ -6,6 +6,26 @@ public class Wolf : CreatureBase
 {
     float angle;
     float radius;
+
+    public AudioClip flee;
+    public AudioClip[] growl, run;
+
+    //ANIMATION STUFF
+    public override void Footstep()
+    {
+        int length = run.Length;
+        audio.PlayOneShot(run[UnityEngine.Random.Range(0, length)]);
+    }
+
+    public void Flee(){
+        audio.PlayOneShot(flee);
+    }
+
+    public void Howl(){
+        audio.PlayOneShot(growl[UnityEngine.Random.Range(0,growl.Length)]);
+    }
+
+
     protected override void SpawnVisual()
     {
         // Choose random location at X distance from player
@@ -24,6 +44,8 @@ public class Wolf : CreatureBase
 
 
     }
+
+    
 
     void Update()
     {
@@ -52,4 +74,6 @@ public class Wolf : CreatureBase
                 break;
         }
     }
+
+
 }

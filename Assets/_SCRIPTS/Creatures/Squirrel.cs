@@ -9,6 +9,27 @@ public class Squirrel : CreatureBase
     float time;
     bool walk;
 
+    public AudioClip[] angry;
+    public AudioClip snuffle;
+
+
+    //ANIMATION STUFF
+
+    public override void Footstep()
+    {
+        int length = SoundManager.Instance.footsteps.Length;
+        audio.PlayOneShot(SoundManager.Instance.footsteps[UnityEngine.Random.Range(0, length)]);
+    }
+
+    public void Snuffle(){
+        audio.PlayOneShot(snuffle);
+    }
+    
+    public void Angry(){
+        audio.PlayOneShot(angry[UnityEngine.Random.Range(0,angry.Length)]);
+    }
+
+
     Vector3 getTarget()
     {
         float x1, x2, z1, z2;
@@ -56,6 +77,8 @@ public class Squirrel : CreatureBase
     }
 
 
+
+
     void Update()
     {
         Lookat();
@@ -95,7 +118,7 @@ public class Squirrel : CreatureBase
                 }
                 break;
             case CreatureState.Fleeing:
-              
+
                 break;
         }
     }

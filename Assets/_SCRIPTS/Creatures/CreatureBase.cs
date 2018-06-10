@@ -19,9 +19,12 @@ public abstract class CreatureBase : MonoBehaviour
     protected Vector3 targetPosition;
     public float speed = 0.9f;
 
+    protected AudioSource audio;
+
     protected void Awake()
     {
         animator = transform.GetChild(0).GetComponent<Animator>();
+        audio = GetComponent<AudioSource>();
     }
 
     public virtual void Spawn()
@@ -151,6 +154,7 @@ public abstract class CreatureBase : MonoBehaviour
         transform.rotation = Quaternion.LookRotation(-relativePos, Vector3.up);
     }
 
+    public abstract void Footstep();
     protected virtual void ChangeState(CreatureState state)
     {
         Debug.Log(gameObject.name + " change state to: " + state);
