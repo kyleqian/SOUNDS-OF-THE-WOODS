@@ -10,8 +10,6 @@ public enum CreatureType
 
 public class CreatureManager : ManagerBase
 {
-    public bool debugMode;
-
     // Because Unity can't serialize Dictionaries...
     // `creatureTypes` is the key
     // `creatureCount` and `creaturePrefabs` are the values

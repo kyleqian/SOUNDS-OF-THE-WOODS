@@ -31,7 +31,6 @@ public abstract class CreatureBase : MonoBehaviour
             return;
         }
 
-        // TODO
         animator.SetFloat("offset", UnityEngine.Random.Range(0, 1.2f));
 
         ChangeState(CreatureState.Default);

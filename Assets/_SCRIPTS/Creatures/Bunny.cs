@@ -4,24 +4,23 @@ using System;
 
 public class Bunny : CreatureBase
 {
-
     float time;
     bool walk;
-
 
     Vector3 getTarget()
     {
         return new Vector3(UnityEngine.Random.Range(-2f, 2f), 0, UnityEngine.Random.Range(-2f, 2f));
     }
+
     protected override void SpawnVisual()
     {
-        // Choose random location at X distance from player
+        transform.position = RandomGroundPosition();
+
         time = UnityEngine.Random.Range(0, 5.5f);
         walk = false;
 
         base.SpawnVisual();
     }
-
 
     protected override void ChangeState(CreatureState state)
     {
@@ -66,7 +65,6 @@ public class Bunny : CreatureBase
                 }
                 break;
             case CreatureState.Fleeing:
-            
                 break;
         }
     }

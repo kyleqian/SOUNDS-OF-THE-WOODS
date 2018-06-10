@@ -2,7 +2,6 @@
 using System.Collections;
 using System;
 
-
 public class Decoy : CreatureBase
 {
     protected override void SpawnVisual()
