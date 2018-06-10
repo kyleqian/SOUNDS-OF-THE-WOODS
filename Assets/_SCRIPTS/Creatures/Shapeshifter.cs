@@ -33,6 +33,7 @@ public class Shapeshifter : CreatureBase
                 unshockTimer += Time.deltaTime;
                 if (unshockTimer >= SECONDS_TO_UNSHOCK)
                 {
+                    unshockTimer = 0;
                     ChangeState(CreatureState.Default);
                 }
                 break;

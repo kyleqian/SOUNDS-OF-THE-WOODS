@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class Start : MonoBehaviour
 {
-	bool started;
+    bool started;
 
-	void Update()
+    void Update()
     {
-		if (!started && OVRInput.GetDown(OVRInput.Button.One))
+#if UNITY_EDITOR
+        if (!started && Input.GetKeyDown(KeyCode.Space))
+#else
+        if (!started && OVRInput.GetDown(OVRInput.Button.One))
+#endif
         {
 			started = true;
 			GameManager.Instance.PressedStart();
