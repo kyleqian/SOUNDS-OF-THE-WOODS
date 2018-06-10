@@ -21,6 +21,8 @@ public class GameManager : ManagerBase
     [SerializeField] float minPhaseLengthInSeconds;
     [SerializeField] float maxPhaseLengthInSeconds;
 
+    bool gameOver;
+
 	void Awake()
 	{
         Instance = this;
@@ -77,6 +79,14 @@ public class GameManager : ManagerBase
 
     public void GameOver()
     {
+        if (gameOver)
+        {
+            return;
+        }
+
+        gameOver = true;
+        Debug.LogError("GAME OVER!!!");
+
         /*
         rising noises
         disable ability to use flashlight

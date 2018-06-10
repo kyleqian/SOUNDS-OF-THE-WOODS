@@ -10,6 +10,7 @@ public enum CreatureState
 public abstract class CreatureBase : MonoBehaviour
 {
     public bool Spawned { get; private set; }
+    const float ATTACK_RADIUS = 1f; // How close is Game Over?
     const float SECONDS_TO_SHOCK = 0.5f;
     const float SECONDS_TO_FLEE = 1.5f;
     protected const float SECONDS_TO_UNSHOCK = 1.6f; // Has to be greater than SECONDS_TO_FLEE
@@ -174,6 +175,15 @@ public abstract class CreatureBase : MonoBehaviour
             case CreatureState.Fleeing:
                 animator.SetTrigger("flee");
                 break;
+        }
+    }
+
+    // TODO: LOL hacky inheritance
+    void LateUpdate()
+    {
+        if (Vector3.Distance(transform.position, Camera.main.transform.position) <= ATTACK_RADIUS)
+        {
+            GameManager.Instance.GameOver();
         }
     }
 
