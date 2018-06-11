@@ -99,7 +99,11 @@ public class EffectsManager : ManagerBase
     }
 
     IEnumerator FadeMoon(float a1, float a2){
-
+        float length=Random.Range(0,1);
+        for (int i = 0; i < length; i++)
+        {
+            yield return null;
+        }
     }
 
     void InitializeLightingReference()
