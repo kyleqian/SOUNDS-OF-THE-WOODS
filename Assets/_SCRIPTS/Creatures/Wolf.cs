@@ -7,6 +7,8 @@ public class Wolf : CreatureBase
     float angle;
     float radius;
 
+    float growlTime, maxgrowlTime;
+
     public AudioClip flee;
     public AudioClip[] growl, run;
 
@@ -23,6 +25,10 @@ public class Wolf : CreatureBase
 
     public void Howl(){
         audio.PlayOneShot(growl[UnityEngine.Random.Range(0,growl.Length)]);
+    }
+
+    private void Start() {
+        maxgrowlTime = UnityEngine.Random.Range(1.5f,3);
     }
 
 
@@ -63,6 +69,11 @@ public class Wolf : CreatureBase
         switch (currState)
         {
             case CreatureState.Default:
+                growlTime+=Time.deltaTime;
+                if (growlTime>maxgrowlTime) {
+                    growlTime = 0;
+                    Howl();
+                }
                 angle -= speed * Time.deltaTime;
                 var offset = new Vector3(Mathf.Sin(angle), 0, Mathf.Cos(angle)) * radius;
                 transform.position = Vector3.zero + offset;
