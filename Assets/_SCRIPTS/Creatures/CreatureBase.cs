@@ -10,7 +10,7 @@ public enum CreatureState
 public abstract class CreatureBase : MonoBehaviour
 {
     public bool Spawned { get; private set; }
-    const float ATTACK_RADIUS = 3f; // How close is Game Over?
+    const float ATTACK_RADIUS = 2f; // How close is Game Over?
     const float SECONDS_TO_SHOCK = 0.5f;
     const float SECONDS_TO_FLEE = 1.5f;
     protected const float SECONDS_TO_UNSHOCK = 1.6f; // Has to be greater than SECONDS_TO_FLEE

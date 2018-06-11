@@ -146,6 +146,11 @@ public class GameManager : ManagerBase
         switch (phase)
         {
             case GamePhase.Start:
+                Eye e = Camera.main.gameObject.GetComponent<Eye>();
+                e.EyeClose(0.3f, false, () =>
+                {
+                    e.EyeOpen(0.8f, true, null, 0.1f);
+                });
                 break;
             case GamePhase.Afternoon:
                 break;

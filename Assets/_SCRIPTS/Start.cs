@@ -33,7 +33,8 @@ public class Start : MonoBehaviour
             tmp2.color = tmp.color;
             yield return null;
         }
-        startGame();
+
+        GameManager.Instance.PressedStart();
 
         for (; i < length; i += Time.deltaTime)
         {
@@ -46,15 +47,15 @@ public class Start : MonoBehaviour
 
     }
 
-    void startGame()
-    {
-        Eye e = Camera.main.gameObject.GetComponent<Eye>();
-        e.EyeClose(0.3f, false, () =>
-        {
-            GameManager.Instance.PressedStart();
-            e.EyeOpen(0.8f, true, null, 0.1f);
+    //void StartGame()
+    //{
+    //    Eye e = Camera.main.gameObject.GetComponent<Eye>();
+    //    e.EyeClose(0.3f, false, () =>
+    //    {
+    //        GameManager.Instance.PressedStart();
+    //        e.EyeOpen(0.8f, true, null, 0.1f);
 
-            Destroy(gameObject);
-        });
-    }
+    //        Destroy(gameObject);
+    //    });
+    //}
 }
