@@ -46,7 +46,7 @@ public class SoundManager : ManagerBase
             case GamePhase.Dusk:
                 //melody grows quieter, pitch lowers
                 changePitch(song, song.pitch, 0.5f, 1);
-                changeVolume(song, song.volume, song.volume - 0.3f, 3, () =>
+                changeVolume(song, song.volume, song.volume / 2, 3, () =>
                 {
                     dynamicSources[0].enabled = false;
                     dynamicSources[0].clip = ambienceClips[(int)ambienceIndex.wind];
@@ -111,6 +111,7 @@ public class SoundManager : ManagerBase
         a.spread = 180;
         a.spatialBlend = 1;
         a.enabled = false;
+        a.volume = 0.1f;
         return a;
     }
 
