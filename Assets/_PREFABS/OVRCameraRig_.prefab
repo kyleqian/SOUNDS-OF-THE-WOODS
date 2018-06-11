@@ -172,6 +172,8 @@ GameObject:
   - component: {fileID: 114623558341544728}
   - component: {fileID: 114365119197897246}
   - component: {fileID: 114314084124101916}
+  - component: {fileID: 114094073417392804}
+  - component: {fileID: 114653473168111760}
   m_Layer: 0
   m_Name: CenterEyeAnchor
   m_TagString: MainCamera
@@ -324,7 +326,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1891508691496508
 GameObject:
   m_ObjectHideFlags: 0
@@ -458,7 +460,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1692591351898932}
   m_LocalRotation: {x: 0.6977703, y: 0.00435026, z: -0.005685892, w: 0.7162859}
-  m_LocalPosition: {x: 0, y: -0.0084, z: 0.0406}
+  m_LocalPosition: {x: -0, y: -0.01072, z: 0.04066}
   m_LocalScale: {x: 0.06531601, y: 0.065316014, z: 0.065316014}
   m_Children: []
   m_Father: {fileID: 4658052377325144}
@@ -1018,7 +1020,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: b6f1a9f01a0c14cbaa4edbf011db06b2, type: 3}
+  - {fileID: 2100000, guid: 98e78d3d86ed24be2b80c774b642504c, type: 2}
   - {fileID: 2100002, guid: b6f1a9f01a0c14cbaa4edbf011db06b2, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -1180,6 +1182,22 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &114094073417392804
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1549832362719444}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 479ea9346247a4b39a35869526fde384, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shader: {fileID: 4800000, guid: ee533cfe6f5684231814f71da3dad4e5, type: 3}
+  maskValue: 1
+  maskColor: {r: 0, g: 0, b: 0, a: 1}
+  maskTexture: {fileID: 2800000, guid: 2ff1633f34942446e9ecd9fd05b07ff0, type: 3}
+  maskInvert: 1
 --- !u!114 &114187730763576304
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1490,6 +1508,18 @@ MonoBehaviour:
     type: 3}
   colorCorrectionSelectiveShader: {fileID: 4800000, guid: e515e0f94cefc4c0db54b45cba621544,
     type: 3}
+--- !u!114 &114653473168111760
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1549832362719444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3794f0760c66a48c3837ec9e1553fc1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effect: {fileID: 114094073417392804}
 --- !u!114 &114728425532115932
 MonoBehaviour:
   m_ObjectHideFlags: 1
