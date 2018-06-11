@@ -216,8 +216,6 @@ public class EffectsManager : ManagerBase
         }
     }
 
-
-
     protected override void OnPhaseLoad(GamePhase phase)
     {
         switch (phase)

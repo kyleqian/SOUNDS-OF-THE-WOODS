@@ -1,9 +1,10 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Assertions;
 
 public enum GamePhase
 {
-    Start, Afternoon, Dusk, Night, Latenight, Dawn, End
+    Start, Afternoon, Dusk, Night, Latenight, Latenight2, Latenight3, Dawn, End
 }
 
 public class GameManager : ManagerBase
@@ -15,9 +16,9 @@ public class GameManager : ManagerBase
 
     public GamePhase CurrPhase { get; private set; }
     public float CurrPhaseTime { get; private set; }
-    public float[] PhaseLengths { get; private set; }
-    public bool debugMode;
+    public float[] PhaseLengths;
 
+    public bool debugMode;
     public float minPhaseLengthInSeconds;
     public float maxPhaseLengthInSeconds;
 
@@ -25,6 +26,8 @@ public class GameManager : ManagerBase
 
 	void Awake()
 	{
+        RunAssertions();
+
         Instance = this;
         InitializePhaseLengths();
     }
@@ -50,6 +53,11 @@ public class GameManager : ManagerBase
         }
     }
 
+    void RunAssertions()
+    {
+        Assert.IsTrue(PhaseLengths.Length == Enum.GetValues(typeof(GamePhase)).Length);
+    }
+
     void InitializeDebugMode()
     {
         PhaseLengths[(int)GamePhase.Dawn] = Mathf.Infinity;
@@ -57,11 +65,12 @@ public class GameManager : ManagerBase
 
     void InitializePhaseLengths()
     {
-        int numPhases = Enum.GetValues(typeof(GamePhase)).Length;
-        PhaseLengths = new float[numPhases];
-        for (int i = 0; i < numPhases; ++i)
+        if (debugMode)
         {
-            PhaseLengths[i] = UnityEngine.Random.Range(minPhaseLengthInSeconds, maxPhaseLengthInSeconds);
+            for (int i = 0; i < PhaseLengths.Length; ++i)
+            {
+                PhaseLengths[i] = UnityEngine.Random.Range(minPhaseLengthInSeconds, maxPhaseLengthInSeconds);
+            }
         }
 
         // No limit for Start or End

@@ -183,7 +183,11 @@ public abstract class CreatureBase : MonoBehaviour
     {
         if (Vector3.Distance(transform.position, Camera.main.transform.position) <= ATTACK_RADIUS)
         {
-            GameManager.Instance.GameOver();
+            // TODO: Hacky check if friendly
+            if (gameObject.GetType() != typeof(Deer) && gameObject.GetType() != typeof(Squirrel))
+            {
+                GameManager.Instance.GameOver();
+            }
         }
     }
 

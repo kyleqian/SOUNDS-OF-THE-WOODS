@@ -355,9 +355,14 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 2e44b8a8faf6945d1a8042b25b11de8f, type: 3}
   - {fileID: 8300000, guid: cd8cd15aa96e8493293dc4445b5a5e29, type: 3}
   - {fileID: 8300000, guid: e58c36c9cb4384a5b8aa6e68299643db, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: b3c4fa74e53fb4bfcb284ad88dc15f79, type: 3}
+  - {fileID: 8300000, guid: 847131bbda8734ee3a90fb9ea17747ee, type: 3}
+  - {fileID: 8300000, guid: 954180ec9f9cb4324b4ef93d22bfeb12, type: 3}
+  radio: {fileID: 0}
+  radioBeginning: {fileID: 8300000, guid: ea3a4114378c5478ab6e83436b96c815, type: 3}
+  radioEnd: {fileID: 8300000, guid: 928a07a41f8db42698d0add1cecacf90, type: 3}
+  radioBeginningDelay: 5
+  radioEndDelay: 5
 --- !u!114 &114192776518737112
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -385,6 +390,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b22ef7fc24ce4fd992de70677ae9a8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PhaseLengths:
+  - 0
+  - 60
+  - 60
+  - 60
+  - 60
+  - 60
+  - 60
+  - 60
+  - 0
   debugMode: 0
   minPhaseLengthInSeconds: 10
   maxPhaseLengthInSeconds: 10

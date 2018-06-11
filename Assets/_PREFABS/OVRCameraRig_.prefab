@@ -326,7 +326,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1891508691496508
 GameObject:
   m_ObjectHideFlags: 0
@@ -1194,10 +1194,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shader: {fileID: 4800000, guid: ee533cfe6f5684231814f71da3dad4e5, type: 3}
-  maskValue: 1
+  maskValue: 0.167
   maskColor: {r: 0, g: 0, b: 0, a: 1}
   maskTexture: {fileID: 2800000, guid: 2ff1633f34942446e9ecd9fd05b07ff0, type: 3}
-  maskInvert: 1
+  maskInvert: 0
 --- !u!114 &114187730763576304
 MonoBehaviour:
   m_ObjectHideFlags: 1

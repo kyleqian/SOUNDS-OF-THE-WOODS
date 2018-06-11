@@ -28,6 +28,14 @@ public class SoundManager : ManagerBase
     public List<AudioClip> songClips, ambienceClips;
 
     public AudioClip[] footsteps;
+
+    [Header("Radio")]
+    public AudioSource radio;
+    public AudioClip radioBeginning;
+    public AudioClip radioEnd;
+    public float radioBeginningDelay;
+    public float radioEndDelay;
+
     void Awake()
     {
         Instance = this;
@@ -38,6 +46,9 @@ public class SoundManager : ManagerBase
         switch (phase)
         {
             case GamePhase.Afternoon:
+                // Play radio intro
+                PlayOneShot(radio, radioBeginning, radioBeginningDelay);
+
                 AudioSource a = newDynamicSource();
                 dynamicSources.Add(a);
                 a.clip = ambienceClips[(int)ambienceIndex.birds];
@@ -77,6 +88,9 @@ public class SoundManager : ManagerBase
                 });
                 break;
             case GamePhase.Dawn:
+                // Play radio end
+                PlayOneShot(radio, radioEnd, radioEndDelay);
+
                 changeSong(songIndex.daySong, 1.5f);
                 changeVolume(dynamicSources[0], dynamicSources[0].volume, 0, 6, () =>
                 {
@@ -90,10 +104,22 @@ public class SoundManager : ManagerBase
         }
     }
 
+    void PlayOneShot(AudioSource source, AudioClip clip, float delay)
+    {
+        StartCoroutine(_PlayOneShot(source, clip, delay));
+    }
+
+    IEnumerator _PlayOneShot(AudioSource source, AudioClip clip, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        source.PlayOneShot(clip);        
+    }
+
     void changeSong(songIndex si, float wait)
     {
         StartCoroutine(changeSongTime(si, wait));
     }
+
     IEnumerator changeSongTime(songIndex si, float wait)
     {
         songDown.TransitionTo(wait);
@@ -119,16 +145,19 @@ public class SoundManager : ManagerBase
     {
         StartCoroutine(changePitchTimeWait(a, one, two, maxTime, wait, action));
     }
+
     IEnumerator changePitchTimeWait(AudioSource a, float one, float two, float maxTime, float wait, Action action)
     {
         yield return new WaitForSeconds(wait);
         StartCoroutine(changePitchTime(a, one, two, maxTime, action));
 
     }
+
     void changePitch(AudioSource a, float one, float two, float maxTime, Action action = null)
     {
         StartCoroutine(changePitchTime(a, one, two, maxTime, action));
     }
+
     IEnumerator changePitchTime(AudioSource a, float one, float two, float maxTime, Action action)
     {
         yield return null;
@@ -145,6 +174,7 @@ public class SoundManager : ManagerBase
     {
         StartCoroutine(changeVolumeTime(a, one, two, maxTime, action));
     }
+
     IEnumerator changeVolumeTime(AudioSource a, float one, float two, float maxTime, Action action)
     {
         yield return null;
