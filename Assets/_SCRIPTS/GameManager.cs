@@ -52,7 +52,7 @@ public class GameManager : ManagerBase
 
     void InitializeDebugMode()
     {
-        PhaseLengths[(int)GamePhase.Afternoon] = Mathf.Infinity;
+        PhaseLengths[(int)GamePhase.Dawn] = Mathf.Infinity;
     }
 
     void InitializePhaseLengths()
