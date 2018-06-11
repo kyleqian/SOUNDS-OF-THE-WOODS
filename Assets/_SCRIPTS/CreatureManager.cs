@@ -122,14 +122,6 @@ public class CreatureManager : ManagerBase
             case GamePhase.Afternoon:
                 SpawnCreatures(CreatureType.Squirrel, 1);
                 SpawnCreatures(CreatureType.Deer, 1);
-                SpawnCreatures(CreatureType.Raccoon, 1);
-                SpawnCreatures(CreatureType.Crow, 1);
-                SpawnCreatures(CreatureType.Wolf, 1);
-                SpawnCreatures(CreatureType.Bunny, 1);
-
-                //SpawnCreatures(CreatureType.Shapeshifter, 1);
-                //SpawnCreatures(CreatureType.Decoy, 1);
-                //SpawnCreatures(CreatureType.Reverse, 1);
                 break;
             case GamePhase.Dusk:
                 SpawnCreatures(CreatureType.Bunny, 1);
@@ -140,8 +132,8 @@ public class CreatureManager : ManagerBase
                 SpawnCreatures(CreatureType.Crow, 1);
                 break;
             case GamePhase.Latenight:
-                SpawnCreatures(CreatureType.Shapeshifter, 1);
-                SpawnCreatures(CreatureType.Decoy, 1);
+                //SpawnCreatures(CreatureType.Shapeshifter, 1);
+                //SpawnCreatures(CreatureType.Decoy, 1);
                 SpawnCreatures(CreatureType.Reverse, 1);
                 break;
             case GamePhase.Dawn:
@@ -158,10 +150,10 @@ public class CreatureManager : ManagerBase
         switch (phase)
         {
             case GamePhase.Afternoon:
-                //DespawnCreatures(CreatureType.Squirrel, -1);
-                //DespawnCreatures(CreatureType.Deer, -1);
                 break;
             case GamePhase.Dusk:
+                DespawnCreatures(CreatureType.Squirrel, -1);
+                DespawnCreatures(CreatureType.Deer, -1);
                 break;
             case GamePhase.Night:
                 break;
