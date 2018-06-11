@@ -11,6 +11,22 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1619514199277764}
   m_IsPrefabParent: 1
+--- !u!1 &1254126399687786
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4907820772522892}
+  - component: {fileID: 212908932650985454}
+  m_Layer: 0
+  m_Name: moon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1559633806466800
 GameObject:
   m_ObjectHideFlags: 0
@@ -71,8 +87,22 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4119386258507556}
+  - {fileID: 4907820772522892}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4907820772522892
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1254126399687786}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -19.89, y: -5.19, z: 24.42}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4172101396662708}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &82740007254632148
 AudioSource:
@@ -86,7 +116,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 4aeb850a6dd8f4727b617bda85d2c343, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -145,7 +175,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 0.5
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -182,13 +212,13 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: aa1361477eff14fcbb5295b28c165e10, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 105
   DopplerLevel: 1
   MinDistance: 1.4208007
   MaxDistance: 500
@@ -241,7 +271,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 0.5
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -291,6 +321,13 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 7e48ce4ef995b432691a6d9d1ec25f89, type: 3}
   - {fileID: 8300000, guid: accf28a13744744ffb934fa2e0eabdbf, type: 3}
   - {fileID: 8300000, guid: ca7f592577bad49ad8ca2d7b0dd88cfc, type: 3}
+  footsteps:
+  - {fileID: 8300000, guid: 2e44b8a8faf6945d1a8042b25b11de8f, type: 3}
+  - {fileID: 8300000, guid: cd8cd15aa96e8493293dc4445b5a5e29, type: 3}
+  - {fileID: 8300000, guid: e58c36c9cb4384a5b8aa6e68299643db, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &114192776518737112
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -303,8 +340,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bloomEffect: {fileID: 0}
-  directionalLight: {fileID: 1602671588873616, guid: 9c8c14edffda44445a63258c35d02063,
-    type: 2}
+  directionalLight: {fileID: 0}
   butterfly: {fileID: 1590003000672814, guid: ee4f9c9693589436698b17007230ad77, type: 2}
   dust: {fileID: 1332846340778984, guid: f9c0628cc79d044c191c2f490b4895c8, type: 2}
   fireflies: {fileID: 1602671588873616, guid: 9c8c14edffda44445a63258c35d02063, type: 2}
@@ -333,7 +369,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba0b0d6bcdd43453abcf5b2438c52855, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugMode: 0
   creatureTypes: 000000000100000002000000030000000400000005000000060000000700000008000000
   creatureCounts: 010000000100000000000000000000000000000000000000000000000000000000000000
   creaturePrefabs:
@@ -346,3 +381,48 @@ MonoBehaviour:
   - {fileID: 1538019346500574, guid: b172010d4ebcb4603964e764b118a5e4, type: 2}
   - {fileID: 1575785504054730, guid: 3ae2f15a3c0ae4a4ead7069e14badbf6, type: 2}
   - {fileID: 1035534318135214, guid: 67a5e40098c5343f7aec48857763642e, type: 2}
+--- !u!212 &212908932650985454
+SpriteRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1254126399687786}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 079e1a4edf55b4e49bdfcb43cef45107, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 19.2, y: 8.11}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
