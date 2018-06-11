@@ -116,7 +116,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 4aeb850a6dd8f4727b617bda85d2c343, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.2
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -212,7 +212,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: aa1361477eff14fcbb5295b28c165e10, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.1
+  m_Volume: 0.05
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -357,7 +357,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debugMode: 0
   minPhaseLengthInSeconds: 10
-  maxPhaseLengthInSeconds: 20
+  maxPhaseLengthInSeconds: 10
 --- !u!114 &114730313002474242
 MonoBehaviour:
   m_ObjectHideFlags: 1
