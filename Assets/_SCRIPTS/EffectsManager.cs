@@ -102,19 +102,18 @@ public class EffectsManager : ManagerBase
     {
         Transform moon = transform.Find("moon");
         Vector3 point0 = new Vector3(-20.77f, -4.88f, 24.42f);
-        Vector3 point1 = new Vector3(-3.75f, 17.38f, 24.42f);
+        Vector3 point1 = new Vector3(-3.75f, 30.38f, 24.42f);
         Vector3 point2 = new Vector3(23.367f, -6.53f, 24.42f);
         float length = Random.Range(GameManager.Instance.minPhaseLengthInSeconds / 2, GameManager.Instance.maxPhaseLengthInSeconds / 2);
-        for (float i = (up)?0:length/2; i < length; i += 0.1f)
+        float measureagainst = (up)?length/2:length;
+        float step = 0.05f;
+        for (float i = (up)?0:length/2; i < measureagainst; i += step)
         {
             float t = i / length;
             Vector3 m1 = Vector3.Lerp(point0, point1, t);
             Vector3 m2 = Vector3.Lerp(point1, point2, t);
             moon.position = Vector3.Lerp(m1, m2, t);
-            yield return new WaitForSeconds(0.1f);
-            if (up){
-                if (i == length / 2) yield break;
-            }
+            yield return new WaitForSeconds(step);
         }
     }
 
