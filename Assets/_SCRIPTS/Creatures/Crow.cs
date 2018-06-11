@@ -13,6 +13,7 @@ public class Crow : CreatureBase
 
     public override void Footstep()
     {
+        if (UnityEngine.Random.value>0.6f)
         audio.PlayOneShot(caws[UnityEngine.Random.Range(0, caws.Length)]);
     }
 
