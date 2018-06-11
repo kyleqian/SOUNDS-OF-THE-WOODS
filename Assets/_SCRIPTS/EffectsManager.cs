@@ -78,7 +78,7 @@ public class EffectsManager : ManagerBase
     GameObject handleButterflies(int butterflyAmount)
     {
         GameObject particleObject = new GameObject();
-        particleObject.transform.parent=transform;
+        particleObject.transform.parent = transform;
         for (int i = 0; i < butterflyAmount; i++)
         {
             GameObject.Instantiate(butterfly,
@@ -98,11 +98,23 @@ public class EffectsManager : ManagerBase
         Destroy(particleObject.gameObject);
     }
 
-    IEnumerator FadeMoon(float a1, float a2){
-        float length=Random.Range(0,1);
-        for (int i = 0; i < length; i++)
+    IEnumerator FadeMoon(bool up)
+    {
+        Transform moon = transform.Find("moon");
+        Vector3 point0 = new Vector3(-20.77f, -4.88f, 24.42f);
+        Vector3 point1 = new Vector3(-3.75f, 17.38f, 24.42f);
+        Vector3 point2 = new Vector3(23.367f, -6.53f, 24.42f);
+        float length = Random.Range(GameManager.Instance.minPhaseLengthInSeconds / 2, GameManager.Instance.maxPhaseLengthInSeconds / 2);
+        for (float i = (up)?0:length/2; i < length; i += 0.1f)
         {
-            yield return null;
+            float t = i / length;
+            Vector3 m1 = Vector3.Lerp(point0, point1, t);
+            Vector3 m2 = Vector3.Lerp(point1, point2, t);
+            moon.position = Vector3.Lerp(m1, m2, t);
+            yield return new WaitForSeconds(0.1f);
+            if (up){
+                if (i == length / 2) yield break;
+            }
         }
     }
 
@@ -117,24 +129,24 @@ public class EffectsManager : ManagerBase
         );
         Lighting duskLighting = new Lighting(
             new Color32(128, 88, 84, 255),
-            new Color32(43,75,98, 255),
+            new Color32(43, 75, 98, 255),
             0.69f,
             new Color32(255, 161, 0, 255),
-            1.5f
+            1f
         );
         Lighting nightLighting = new Lighting(
-            new Color32(9,18,20, 255),
+            new Color32(9, 18, 20, 255),
             new Color32(10, 20, 15, 255),
             0.69f,
             new Color32(0, 50, 60, 255),
-            1.2f
+            0.5f
         );
         Lighting latenightLighting = new Lighting(
-            new Color32(1,1,1, 255),//ambient sky
-            new Color32(3,3,3, 255),//skybox tint
+            new Color32(1, 1, 1, 255),//ambient sky
+            new Color32(3, 3, 3, 255),//skybox tint
             0.69f,
             new Color32(2, 0, 2, 255),
-            0.5f
+            0.1f
         );
         Lighting dawnLighting = new Lighting(
             new Color32(187, 198, 255, 255),
@@ -205,7 +217,7 @@ public class EffectsManager : ManagerBase
         }
     }
 
-    
+
 
     protected override void OnPhaseLoad(GamePhase phase)
     {
@@ -249,6 +261,7 @@ public class EffectsManager : ManagerBase
                 break;
             case GamePhase.Dusk:
                 RemoveParticle(ParticleType.Butterflies);
+                StartCoroutine(FadeMoon(true));
                 break;
             case GamePhase.Night:
                 RemoveParticle(ParticleType.Fireflies);
@@ -257,6 +270,7 @@ public class EffectsManager : ManagerBase
                 RemoveParticle(ParticleType.Dust);
                 break;
             case GamePhase.Dawn:
+                StartCoroutine(FadeMoon(false));
                 break;
             case GamePhase.End:
                 break;
