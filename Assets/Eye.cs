@@ -25,9 +25,9 @@ public class Eye : MonoBehaviour
             yield return null;
         }
         effect.maskValue = 0;
-        if (enable) effect.enabled = false;
 
         if (callbackDelay != 0) yield return new WaitForSeconds(callbackDelay);
+        if (enable) effect.enabled = false;
         if (callback != null) callback();
     }
 
@@ -48,9 +48,9 @@ public class Eye : MonoBehaviour
             yield return null;
         }
         effect.maskValue = 1;
-        if (enable) effect.enabled = false;
 
         if (callbackDelay != 0) yield return new WaitForSeconds(callbackDelay);
+        if (enable) effect.enabled = false;
         if (callback != null) callback();
     }
 }

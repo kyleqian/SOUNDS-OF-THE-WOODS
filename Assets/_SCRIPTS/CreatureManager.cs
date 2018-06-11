@@ -138,6 +138,8 @@ public class CreatureManager : ManagerBase
                 SpawnCreatures(CreatureType.Decoy, 1);
                 break;
             case GamePhase.Dawn:
+                SpawnCreatures(CreatureType.Raccoon, 1);
+                SpawnCreatures(CreatureType.Bunny, 1);
                 SpawnCreatures(CreatureType.Squirrel, 2);
                 SpawnCreatures(CreatureType.Deer, 2);
                 break;

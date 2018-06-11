@@ -66,7 +66,7 @@ public class GameManager : ManagerBase
 
     void InitializeDebugMode()
     {
-        PhaseLengths[(int)GamePhase.Dawn] = Mathf.Infinity;
+        //PhaseLengths[(int)GamePhase.Dawn] = Mathf.Infinity;
     }
 
     void InitializePhaseLengths()
@@ -125,10 +125,9 @@ public class GameManager : ManagerBase
     {
         // TODO: Clean this up
         Eye e = Camera.main.gameObject.GetComponent<Eye>();
-        e.effect.enabled = true;
 
         // Why is it eye open?
-        e.EyeOpen(eyeCloseTime, false, () =>
+        e.EyeOpen(eyeCloseTime, true, () =>
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }, delay, afterEyeCloseDelay);

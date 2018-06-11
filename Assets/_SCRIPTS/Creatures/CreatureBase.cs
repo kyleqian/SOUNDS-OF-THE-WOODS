@@ -181,11 +181,11 @@ public abstract class CreatureBase : MonoBehaviour
     // TODO: LOL hacky inheritance
     void LateUpdate()
     {
-        if (GetType() != typeof(Deer) && GetType() != typeof(Squirrel))
-        {
-            Debug.Log(gameObject.GetType());
-            Debug.Log(Vector3.Distance(transform.position, Camera.main.transform.position));
-        }
+        //if (GetType() != typeof(Deer) && GetType() != typeof(Squirrel))
+        //{
+        //    Debug.Log(gameObject.GetType());
+        //    Debug.Log(Vector3.Distance(transform.position, Camera.main.transform.position));
+        //}
 
         if (Vector3.Distance(transform.position, Camera.main.transform.position) <= ATTACK_RADIUS)
         {

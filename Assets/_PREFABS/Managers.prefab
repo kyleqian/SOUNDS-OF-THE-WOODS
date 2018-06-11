@@ -393,12 +393,12 @@ MonoBehaviour:
   PhaseLengths:
   - 0
   - 60
-  - 60
-  - 60
-  - 60
-  - 60
-  - 60
-  - 60
+  - 45
+  - 45
+  - 45
+  - 45
+  - 45
+  - 45
   - 0
   debugMode: 0
   minPhaseLengthInSeconds: 10

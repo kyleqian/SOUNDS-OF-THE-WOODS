@@ -506,6 +506,25 @@ Prefab:
       propertyPath: m_Name
       value: subTitle
       objectReference: {fileID: 0}
+    - target: {fileID: 114336079396631016, guid: 34a43f8ff03154cd0a6d893eabd9f357,
+        type: 2}
+      propertyPath: m_text
+      value: '<size=25%>a game by angela he and kyle qian</size>
+
+        <b>sounds of the woods</b>
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 114336079396631016, guid: 34a43f8ff03154cd0a6d893eabd9f357,
+        type: 2}
+      propertyPath: m_fontSize
+      value: 9.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 114336079396631016, guid: 34a43f8ff03154cd0a6d893eabd9f357,
+        type: 2}
+      propertyPath: m_textInfo.characterCount
+      value: 54
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 34a43f8ff03154cd0a6d893eabd9f357, type: 2}
   m_IsPrefabParent: 0
@@ -2854,11 +2873,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114218584661994830, guid: 3b721fcfc022d4101a4b20c90be59774,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3b721fcfc022d4101a4b20c90be59774, type: 2}
   m_IsPrefabParent: 0
@@ -3873,7 +3887,7 @@ Prefab:
     - target: {fileID: 114545110815229008, guid: eb778728cbe6648008b434524124154e,
         type: 2}
       propertyPath: debugMode
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: eb778728cbe6648008b434524124154e, type: 2}

@@ -49,7 +49,6 @@ public class Start : MonoBehaviour
     void startGame()
     {
         Eye e = Camera.main.gameObject.GetComponent<Eye>();
-        e.effect.enabled = true;
         e.EyeClose(0.3f, false, () =>
         {
             GameManager.Instance.PressedStart();
