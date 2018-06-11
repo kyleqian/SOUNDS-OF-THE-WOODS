@@ -20,7 +20,7 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0, g: 0, b: 0, a: 1}
+  m_AmbientSkyColor: {r: 0.5471698, g: 0.43618724, b: 0.43618724, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 0
@@ -1141,7 +1141,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 445910, guid: c63ea781a273235439e583799176c846, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0.6
+      value: 2.85
       objectReference: {fileID: 0}
     - target: {fileID: 445910, guid: c63ea781a273235439e583799176c846, type: 2}
       propertyPath: m_LocalPosition.y
@@ -1149,7 +1149,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 445910, guid: c63ea781a273235439e583799176c846, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 7.63
+      value: 8.83
       objectReference: {fileID: 0}
     - target: {fileID: 445910, guid: c63ea781a273235439e583799176c846, type: 2}
       propertyPath: m_LocalRotation.x
@@ -1294,7 +1294,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 445910, guid: c63ea781a273235439e583799176c846, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 2.62
+      value: 3.63
       objectReference: {fileID: 0}
     - target: {fileID: 445910, guid: c63ea781a273235439e583799176c846, type: 2}
       propertyPath: m_LocalPosition.y
@@ -1302,7 +1302,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 445910, guid: c63ea781a273235439e583799176c846, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 4.47
+      value: 5.14
       objectReference: {fileID: 0}
     - target: {fileID: 445910, guid: c63ea781a273235439e583799176c846, type: 2}
       propertyPath: m_LocalRotation.x
@@ -2296,17 +2296,17 @@ Prefab:
     - target: {fileID: 108042394942867142, guid: d503e6ac0ed6d4398a39477cd67a2d3c,
         type: 2}
       propertyPath: m_Color.r
-      value: 0.21698111
+      value: 0.3773585
       objectReference: {fileID: 0}
     - target: {fileID: 108042394942867142, guid: d503e6ac0ed6d4398a39477cd67a2d3c,
         type: 2}
       propertyPath: m_Color.g
-      value: 0.21698111
+      value: 0.29369882
       objectReference: {fileID: 0}
     - target: {fileID: 108042394942867142, guid: d503e6ac0ed6d4398a39477cd67a2d3c,
         type: 2}
       propertyPath: m_Color.b
-      value: 0.21698111
+      value: 0.29369882
       objectReference: {fileID: 0}
     - target: {fileID: 1801713637982458, guid: d503e6ac0ed6d4398a39477cd67a2d3c, type: 2}
       propertyPath: m_IsActive
@@ -2872,6 +2872,11 @@ Prefab:
     - target: {fileID: 4513603691493882, guid: 3b721fcfc022d4101a4b20c90be59774, type: 2}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114218584661994830, guid: 3b721fcfc022d4101a4b20c90be59774,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3b721fcfc022d4101a4b20c90be59774, type: 2}

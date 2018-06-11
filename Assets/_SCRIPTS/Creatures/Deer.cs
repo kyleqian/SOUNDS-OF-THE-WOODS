@@ -10,6 +10,7 @@ public class Deer : CreatureBase
     Vector3 GetTarget()
     {
         float x1, x2, z1, z2;
+        Vector3 forward = transform.forward;
 
         if (transform.position.x < 0)
         {
@@ -29,7 +30,7 @@ public class Deer : CreatureBase
             z1 = -2; z2 = 1.6f;
         }
 
-        return new Vector3(transform.position.x + UnityEngine.Random.Range(x1, x2), 0, transform.position.z + UnityEngine.Random.Range(z1, z2));
+        return new Vector3(forward.x + UnityEngine.Random.Range(x1, x2), 0, forward.y + UnityEngine.Random.Range(z1, z2));
     }
 
     protected override void SpawnVisual()
