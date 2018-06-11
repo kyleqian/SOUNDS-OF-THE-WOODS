@@ -7,11 +7,13 @@ public class Eye : MonoBehaviour
 {
 
     public ScreenTransitionImageEffect effect;
-    public void EyeOpen(float time, bool EnableAndDisable, Action callback = null, float delay = 0)
+
+    public void EyeOpen(float time, bool EnableAndDisable, Action callback = null, float delay = 0, float callbackDelay = 0)
     {
-        StartCoroutine(EO(time, EnableAndDisable, callback, delay));
+        StartCoroutine(EO(time, EnableAndDisable, callback, delay, callbackDelay));
     }
-    IEnumerator EO(float time, bool enable, Action callback, float delay)
+
+    IEnumerator EO(float time, bool enable, Action callback, float delay, float callbackDelay)
     {
 		if (delay!=0) yield return new WaitForSeconds(delay);
         if (enable) effect.enabled = true;
@@ -24,14 +26,19 @@ public class Eye : MonoBehaviour
         }
         effect.maskValue = 0;
         if (enable) effect.enabled = false;
+
+        if (callbackDelay != 0) yield return new WaitForSeconds(callbackDelay);
         if (callback != null) callback();
     }
-    public void EyeClose(float time, bool EnableAndDisable, Action callback = null)
+
+    public void EyeClose(float time, bool EnableAndDisable, Action callback = null, float delay = 0, float callbackDelay = 0)
     {
-        StartCoroutine(EC(time, EnableAndDisable, callback));
+        StartCoroutine(EC(time, EnableAndDisable, callback, delay, callbackDelay));
     }
-    IEnumerator EC(float time, bool enable, Action callback)
+
+    IEnumerator EC(float time, bool enable, Action callback, float delay, float callbackDelay)
     {
+        if (delay!=0) yield return new WaitForSeconds(delay);
         if (enable) effect.enabled = true;
         for (float i = 0; i < time; i += Time.deltaTime)
         {
@@ -42,6 +49,8 @@ public class Eye : MonoBehaviour
         }
         effect.maskValue = 1;
         if (enable) effect.enabled = false;
+
+        if (callbackDelay != 0) yield return new WaitForSeconds(callbackDelay);
         if (callback != null) callback();
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.Assertions;
+using UnityEngine.SceneManagement;
 
 public enum GamePhase
 {
@@ -45,6 +46,11 @@ public class GameManager : ManagerBase
 
     void Update()
 	{
+        if (gameOver)
+        {
+            return;
+        }
+
 		// Advance time
 		CurrPhaseTime += Time.deltaTime;
 		if (CurrPhaseTime >= PhaseLengths[(int)CurrPhase])
@@ -86,26 +92,46 @@ public class GameManager : ManagerBase
         }
     }
 
-    public void GameOver()
+    public void GameOver(bool win = false)
     {
+        Debug.LogError("GAME OVER!!!");
         if (gameOver)
         {
             return;
         }
 
         gameOver = true;
-        Debug.LogError("GAME OVER!!!");
+        if (win)
+        {
+            RestartGame(5f, 30f, 5f);
+        }
+        else
+        {
+            RestartGame(5f, 0, 5f);
+                /*
+            rising noises
+            disable ability to use flashlight
+            sudden death
+            eyes close to black + fade out blur
+            freeze game time
+            wait a bit
+            restart scene
+            -> opening eyes
+                */
+        }
+    }
 
-        /*
-        rising noises
-        disable ability to use flashlight
-        sudden death
-        eyes close to black + fade out blur
-        freeze game time
-        wait a bit
-        restart scene
-        -> opening eyes
-         */
+    void RestartGame(float eyeCloseTime, float delay, float afterEyeCloseDelay)
+    {
+        // TODO: Clean this up
+        Eye e = Camera.main.gameObject.GetComponent<Eye>();
+        e.effect.enabled = true;
+
+        // Why is it eye open?
+        e.EyeOpen(eyeCloseTime, false, () =>
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }, delay, afterEyeCloseDelay);
     }
 
     void PhaseTransition()
@@ -133,6 +159,7 @@ public class GameManager : ManagerBase
             case GamePhase.Dawn:
                 break;
             case GamePhase.End:
+                GameOver(true);
                 break;
         }
     }

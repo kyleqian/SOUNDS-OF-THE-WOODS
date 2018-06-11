@@ -10,7 +10,7 @@ public enum CreatureState
 public abstract class CreatureBase : MonoBehaviour
 {
     public bool Spawned { get; private set; }
-    const float ATTACK_RADIUS = 1f; // How close is Game Over?
+    const float ATTACK_RADIUS = 3f; // How close is Game Over?
     const float SECONDS_TO_SHOCK = 0.5f;
     const float SECONDS_TO_FLEE = 1.5f;
     protected const float SECONDS_TO_UNSHOCK = 1.6f; // Has to be greater than SECONDS_TO_FLEE
@@ -181,10 +181,16 @@ public abstract class CreatureBase : MonoBehaviour
     // TODO: LOL hacky inheritance
     void LateUpdate()
     {
+        if (GetType() != typeof(Deer) && GetType() != typeof(Squirrel))
+        {
+            Debug.Log(gameObject.GetType());
+            Debug.Log(Vector3.Distance(transform.position, Camera.main.transform.position));
+        }
+
         if (Vector3.Distance(transform.position, Camera.main.transform.position) <= ATTACK_RADIUS)
         {
             // TODO: Hacky check if friendly
-            if (gameObject.GetType() != typeof(Deer) && gameObject.GetType() != typeof(Squirrel))
+            if (GetType() != typeof(Deer) && GetType() != typeof(Squirrel))
             {
                 GameManager.Instance.GameOver();
             }

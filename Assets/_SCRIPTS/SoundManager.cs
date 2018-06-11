@@ -88,9 +88,6 @@ public class SoundManager : ManagerBase
                 });
                 break;
             case GamePhase.Dawn:
-                // Play radio end
-                PlayOneShot(radio, radioEnd, radioEndDelay);
-
                 changeSong(songIndex.daySong, 1.5f);
                 changeVolume(dynamicSources[0], dynamicSources[0].volume, 0, 6, () =>
                 {
@@ -100,6 +97,8 @@ public class SoundManager : ManagerBase
                 });
                 break;
             case GamePhase.End:
+                // Play radio end
+                PlayOneShot(radio, radioEnd, radioEndDelay);
                 break;
         }
     }
