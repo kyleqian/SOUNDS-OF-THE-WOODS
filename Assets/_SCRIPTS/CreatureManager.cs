@@ -133,9 +133,11 @@ public class CreatureManager : ManagerBase
                 break;
             case GamePhase.Latenight2:
                 SpawnCreatures(CreatureType.Reverse, 1);
+                SpawnCreatures(CreatureType.Wolf, 1);
                 break;
             case GamePhase.Latenight3:
                 SpawnCreatures(CreatureType.Decoy, 1);
+                SpawnCreatures(CreatureType.Wolf, 1);
                 break;
             case GamePhase.Dawn:
                 SpawnCreatures(CreatureType.Raccoon, 1);
