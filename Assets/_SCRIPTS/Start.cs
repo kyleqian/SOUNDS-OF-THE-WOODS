@@ -45,6 +45,7 @@ public class Start : MonoBehaviour
             yield return null;
         }
 
+        Destroy(gameObject);
     }
 
     //void StartGame()
