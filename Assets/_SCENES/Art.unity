@@ -731,6 +731,27 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!1 &190119298 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1549832362719444, guid: 3b721fcfc022d4101a4b20c90be59774,
+    type: 2}
+  m_PrefabInternal: {fileID: 910347720}
+--- !u!114 &190119299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 190119298}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 479ea9346247a4b39a35869526fde384, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shader: {fileID: 4800000, guid: ee533cfe6f5684231814f71da3dad4e5, type: 3}
+  maskValue: 0.764
+  maskColor: {r: 0, g: 0, b: 0, a: 1}
+  maskTexture: {fileID: 2800000, guid: 2ff1633f34942446e9ecd9fd05b07ff0, type: 3}
+  maskInvert: 0
 --- !u!1001 &215436857
 Prefab:
   m_ObjectHideFlags: 0
@@ -4172,12 +4193,12 @@ Prefab:
     - target: {fileID: 82967807110805894, guid: eb778728cbe6648008b434524124154e,
         type: 2}
       propertyPath: m_Volume
-      value: 0.295
+      value: 0.198
       objectReference: {fileID: 0}
     - target: {fileID: 82740007254632148, guid: eb778728cbe6648008b434524124154e,
         type: 2}
       propertyPath: m_Volume
-      value: 0.72
+      value: 0.657
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: eb778728cbe6648008b434524124154e, type: 2}
