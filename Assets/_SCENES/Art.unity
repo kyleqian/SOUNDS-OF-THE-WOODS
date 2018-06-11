@@ -20,7 +20,7 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.7135992, g: 0.7163663, b: 0.7169812, a: 1}
+  m_AmbientSkyColor: {r: 0, g: 0, b: 0, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 0
@@ -851,15 +851,15 @@ Prefab:
       objectReference: {fileID: 2100000, guid: f870a6b816df748d3b95c6b2c84d6f2f, type: 2}
     - target: {fileID: 400000, guid: 8c5296a25e1af40f58166889c1fb53d4, type: 3}
       propertyPath: m_LocalScale.x
-      value: 35.727093
+      value: 24.079659
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8c5296a25e1af40f58166889c1fb53d4, type: 3}
       propertyPath: m_LocalScale.y
-      value: 7.624431
+      value: 5.138781
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8c5296a25e1af40f58166889c1fb53d4, type: 3}
       propertyPath: m_LocalScale.z
-      value: 7.624431
+      value: 5.138781
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8c5296a25e1af40f58166889c1fb53d4, type: 3}
@@ -916,7 +916,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 079e1a4edf55b4e49bdfcb43cef45107, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -931,13 +931,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 226521855}
-  m_LocalRotation: {x: 0, y: -0.62592345, z: -0, w: 0.7798845}
-  m_LocalPosition: {x: 18.25, y: 10.38, z: -4.9}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -19.89, y: -5.19, z: 24.42}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1608457121}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: -77.5, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &258554215
 GameObject:
   m_ObjectHideFlags: 0
@@ -2357,6 +2357,30 @@ Prefab:
     - target: {fileID: 4552077050548742, guid: d503e6ac0ed6d4398a39477cd67a2d3c, type: 2}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 108042394942867142, guid: d503e6ac0ed6d4398a39477cd67a2d3c,
+        type: 2}
+      propertyPath: m_Intensity
+      value: 7.77
+      objectReference: {fileID: 0}
+    - target: {fileID: 108042394942867142, guid: d503e6ac0ed6d4398a39477cd67a2d3c,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 0.21698111
+      objectReference: {fileID: 0}
+    - target: {fileID: 108042394942867142, guid: d503e6ac0ed6d4398a39477cd67a2d3c,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 0.21698111
+      objectReference: {fileID: 0}
+    - target: {fileID: 108042394942867142, guid: d503e6ac0ed6d4398a39477cd67a2d3c,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 0.21698111
+      objectReference: {fileID: 0}
+    - target: {fileID: 1801713637982458, guid: d503e6ac0ed6d4398a39477cd67a2d3c, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d503e6ac0ed6d4398a39477cd67a2d3c, type: 2}
