@@ -18,8 +18,8 @@ public class GameManager : ManagerBase
     public float[] PhaseLengths { get; private set; }
     public bool debugMode;
 
-    [SerializeField] float minPhaseLengthInSeconds;
-    [SerializeField] float maxPhaseLengthInSeconds;
+    public float minPhaseLengthInSeconds;
+    public float maxPhaseLengthInSeconds;
 
     bool gameOver;
 
