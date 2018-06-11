@@ -98,6 +98,10 @@ public class EffectsManager : ManagerBase
         Destroy(particleObject.gameObject);
     }
 
+    IEnumerator FadeMoon(float a1, float a2){
+
+    }
+
     void InitializeLightingReference()
     {
         Lighting afternoonLighting = new Lighting(
@@ -115,17 +119,17 @@ public class EffectsManager : ManagerBase
             1.5f
         );
         Lighting nightLighting = new Lighting(
-            new Color32(15, 25, 30, 255),
+            new Color32(9,18,20, 255),
             new Color32(10, 20, 15, 255),
             0.69f,
-            new Color32(0, 241, 255, 255),
+            new Color32(0, 50, 60, 255),
             1.2f
         );
         Lighting latenightLighting = new Lighting(
-            new Color32(2,2,2, 255),//ambient sky
+            new Color32(1,1,1, 255),//ambient sky
             new Color32(3,3,3, 255),//skybox tint
             0.69f,
-            new Color32(2, 0, 255, 255),
+            new Color32(2, 0, 2, 255),
             0.5f
         );
         Lighting dawnLighting = new Lighting(
@@ -196,6 +200,8 @@ public class EffectsManager : ManagerBase
             yield return null;
         }
     }
+
+    
 
     protected override void OnPhaseLoad(GamePhase phase)
     {
