@@ -7,6 +7,8 @@ public class Wolf : CreatureBase
     float angle;
     float radius;
 
+    float radialSpeed = 0.2f;
+
     float growlTime, maxgrowlTime;
 
     public AudioClip flee;
@@ -28,7 +30,7 @@ public class Wolf : CreatureBase
     }
 
     private void Start() {
-        maxgrowlTime = UnityEngine.Random.Range(1.5f,3);
+        maxgrowlTime = UnityEngine.Random.Range(3f,5f);
     }
 
 
@@ -55,8 +57,11 @@ public class Wolf : CreatureBase
     protected override void ChangeState(CreatureState state)
     {
         if (state==CreatureState.Shocked) Howl();
-        else if (state==CreatureState.Fleeing) Flee();
-
+        else if (state==CreatureState.Fleeing) 
+        {
+            speed *= 1.6f;
+            Flee();
+        }
         base.ChangeState(state);
     }
 
@@ -72,8 +77,12 @@ public class Wolf : CreatureBase
                 growlTime+=Time.deltaTime;
                 if (growlTime>maxgrowlTime) {
                     growlTime = 0;
+                    float origVol=audio.volume;
+                    audio.volume=origVol-0.2f;
                     Howl();
+                    audio.volume=origVol;
                 }
+                radius -= radialSpeed * Time.deltaTime;
                 angle -= speed * Time.deltaTime;
                 var offset = new Vector3(Mathf.Sin(angle), 0, Mathf.Cos(angle)) * radius;
                 transform.position = Vector3.zero + offset;

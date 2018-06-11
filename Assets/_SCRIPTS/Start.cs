@@ -23,18 +23,39 @@ public class Start : MonoBehaviour
     {
         TextMeshPro tmp = GetComponent<TextMeshPro>();
         TextMeshPro tmp2 = transform.Find("subTitle").GetComponent<TextMeshPro>();
-        float length = 2;
-
-        for (float i = 0; i < length; i += Time.deltaTime)
+        float length = 1.3f;
+        float i = 0;
+        for (; i < length - 0.4f; i += Time.deltaTime)
         {
             float t = i / length;
             t = t * t;
             tmp.color = new Color(1, 1, 1, Mathf.Lerp(1, 0, t));
-	    tmp2.color=tmp.color;
+            tmp2.color = tmp.color;
             yield return null;
         }
-        yield return null;
-        GameManager.Instance.PressedStart();
-        Destroy(gameObject);
+        startGame();
+
+        for (; i < length; i += Time.deltaTime)
+        {
+            float t = i / length;
+            t = t * t;
+            tmp.color = new Color(1, 1, 1, Mathf.Lerp(1, 0, t));
+            tmp2.color = tmp.color;
+            yield return null;
+        }
+
+    }
+
+    void startGame()
+    {
+        Eye e = Camera.main.gameObject.GetComponent<Eye>();
+        e.effect.enabled = true;
+        e.EyeClose(0.3f, false, () =>
+        {
+            GameManager.Instance.PressedStart();
+            e.EyeOpen(0.8f, true, null, 0.1f);
+
+            Destroy(gameObject);
+        });
     }
 }

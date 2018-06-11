@@ -9,18 +9,19 @@ public class Crow : CreatureBase
 
     public AudioClip[] caws;
     public AudioClip bugle;
-    
+
 
     public override void Footstep()
     {
-        if (UnityEngine.Random.value>0.6f)
-        audio.PlayOneShot(caws[UnityEngine.Random.Range(0, caws.Length)]);
+        if (UnityEngine.Random.value > 0.6f)
+            audio.PlayOneShot(caws[UnityEngine.Random.Range(0, caws.Length)]);
     }
 
-    public void Bugle(){
+    public void Bugle()
+    {
         audio.PlayOneShot(bugle);
     }
-    
+
     protected override void SpawnVisual()
     {
         //Randomize position, scale, and speed for variety
@@ -31,6 +32,12 @@ public class Crow : CreatureBase
         radius = Vector3.Distance(transform.position, Vector3.zero);
 
         base.SpawnVisual();
+    }
+    protected override void ChangeState(CreatureState state)
+    {
+        if (state == CreatureState.Fleeing) speed *= 3f;
+
+        base.ChangeState(state);
     }
 
 

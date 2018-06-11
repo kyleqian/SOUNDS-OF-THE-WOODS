@@ -65,7 +65,9 @@ Shader "Hidden/ScreenTransitionImageEffect"
 
 				// If the mask value is greater than the alpha value,
 				// we want to draw the mask.
-				float weight = step(_MaskValue, alpha);
+				//float weight = step(_MaskValue, alpha);
+				float range = 0.1 - mask.a * 0.1;
+				float weight = smoothstep(alpha-range,alpha+range, _MaskValue );
 			#if INVERT_MASK
 				weight = 1 - weight;
 			#endif

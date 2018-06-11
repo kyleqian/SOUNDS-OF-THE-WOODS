@@ -54,6 +54,7 @@ public class Deer : CreatureBase
         {
             animator.SetBool("walk", false);
         }
+        if (state == CreatureState.Fleeing) speed *= 1.5f;
 
         base.ChangeState(state);
     }
