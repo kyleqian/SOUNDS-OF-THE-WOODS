@@ -30,7 +30,7 @@ public class Reverse : CreatureBase
         transform.position = RandomGroundPosition();
 
         // TODO: Hacky patch because Reverse doesn't show up
-        transform.Translate(0, -0.28f, 0);
+        transform.Translate(0, -0.35f, 0);
 
         targetPosition = Vector3.zero;
 

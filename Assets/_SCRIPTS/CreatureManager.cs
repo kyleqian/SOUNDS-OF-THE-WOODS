@@ -130,6 +130,7 @@ public class CreatureManager : ManagerBase
                 break;
             case GamePhase.Latenight:
                 SpawnCreatures(CreatureType.Shapeshifter, 1);
+                SpawnCreatures(CreatureType.Wolf, 1);
                 break;
             case GamePhase.Latenight2:
                 SpawnCreatures(CreatureType.Reverse, 1);
