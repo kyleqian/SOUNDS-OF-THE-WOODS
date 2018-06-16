@@ -18,6 +18,7 @@ public class EffectsManager : ManagerBase
         public readonly Color32 directionalLightColor;
         public readonly float directionalLightIntensity;
 
+
         public Lighting(Color32 ambientSkyColor, Color32 skyboxTintColor,
                         float bloomThreshold, Color32 directionalLightColor,
                         float directionalLightIntensity)
@@ -52,6 +53,7 @@ public class EffectsManager : ManagerBase
         // Make in-memory copy of Material so we don't overwrite the original
         copySkyboxMaterial = new Material(RenderSettings.skybox);
         RenderSettings.skybox = copySkyboxMaterial;
+        RenderSettings.ambientIntensity = 1;
     }
 
     void InitializeParticle(ParticleType particle)
@@ -105,13 +107,23 @@ public class EffectsManager : ManagerBase
         Vector3 point1 = new Vector3(-3.75f, 30.38f, 24.42f);
         Vector3 point2 = new Vector3(23.367f, -6.53f, 24.42f);
         float length = Random.Range(GameManager.Instance.minPhaseLengthInSeconds, GameManager.Instance.maxPhaseLengthInSeconds);
-        float measureagainst = (up)?length:length*1.5f;
-        for (float i = (up)?0:length/2; i < measureagainst; i += Time.deltaTime)
+        float measureagainst = (up) ? length : length * 1.5f;
+        for (float i = (up) ? 0 : length / 2; i < measureagainst; i += Time.deltaTime)
         {
             float t = i / length;
             Vector3 m1 = Vector3.Lerp(point0, point1, t);
             Vector3 m2 = Vector3.Lerp(point1, point2, t);
             moon.position = Vector3.Lerp(m1, m2, t);
+            yield return null;
+        }
+    }
+    //fade so ground is less shiny at night
+    IEnumerator FadeGroundIntensity(float start, float finish)
+    {
+        float length = Random.Range(GameManager.Instance.minPhaseLengthInSeconds, GameManager.Instance.maxPhaseLengthInSeconds);
+        for (float i = 0; i < length; i += Time.deltaTime)
+        {
+            RenderSettings.ambientIntensity = Mathf.Lerp(start, finish, i / length);
             yield return null;
         }
     }
@@ -258,6 +270,7 @@ public class EffectsManager : ManagerBase
             case GamePhase.Dusk:
                 RemoveParticle(ParticleType.Butterflies);
                 StartCoroutine(FadeMoon(true));
+                StartCoroutine(FadeGroundIntensity(1, 0));
                 break;
             case GamePhase.Night:
                 RemoveParticle(ParticleType.Fireflies);
@@ -266,6 +279,7 @@ public class EffectsManager : ManagerBase
                 RemoveParticle(ParticleType.Dust);
                 break;
             case GamePhase.Dawn:
+                StartCoroutine(FadeGroundIntensity(0,1));
                 StartCoroutine(FadeMoon(false));
                 break;
             case GamePhase.End:
