@@ -59,7 +59,18 @@ public class EffectsManager : ManagerBase
 
     private void DieEffect()
     {
-
+        Color sky = copySkyboxMaterial.GetColor("_Tint");
+        Color ambient = RenderSettings.ambientSkyColor;
+        StartCoroutine(FadeGroundIntensity(RenderSettings.ambientIntensity, 0, 7));
+        StopActiveCoroutine();
+        Lighting lighting = new Lighting(
+            new Color32(0, 0, 0, 255),
+            new Color(sky.r * 1.5f, sky.g, sky.b, 1),
+            0.14f,
+            directionalLight.color,
+            0f
+        );
+        activeCoroutine = StartCoroutine(_UpdateLightingOverTime(lighting));
     }
 
     void InitializeParticle(ParticleType particle)
@@ -140,7 +151,7 @@ public class EffectsManager : ManagerBase
             new Color32(173, 149, 86, 255),
             0.6f,
             new Color32(255, 229, 85, 255),
-            1.5f
+            0.7f
         );
         Lighting duskLighting = new Lighting(
             new Color32(128, 88, 84, 255),
