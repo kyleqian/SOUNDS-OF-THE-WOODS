@@ -1619,7 +1619,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lightSource: {fileID: 108870837636004642}
   maxBattery: 10000
-  battery: {fileID: 0}
+  battery: {fileID: 23676381458707964}
   layerMaskName: Hitbox
 --- !u!114 &114926391890228164
 MonoBehaviour:
