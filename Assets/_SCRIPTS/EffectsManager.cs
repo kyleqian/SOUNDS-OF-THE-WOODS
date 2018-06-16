@@ -151,7 +151,7 @@ public class EffectsManager : ManagerBase
             new Color32(173, 149, 86, 255),
             0.6f,
             new Color32(255, 229, 85, 255),
-            1.5f
+            0.7f
         );
         Lighting duskLighting = new Lighting(
             new Color32(128, 88, 84, 255),
