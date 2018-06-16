@@ -105,12 +105,12 @@ public class GameManager : ManagerBase
         gameOver = true;
         if (win)
         {
-            RestartGame(5f, 30f, 5f);
+            RestartGame(10f, 26f, 5f);
         }
         else
         {
             DeathByEnemy();
-            RestartGame(2f, 7, 8f);
+            RestartGame(3f, 7, 8f);
             /*
             Implemented:
             rising noises

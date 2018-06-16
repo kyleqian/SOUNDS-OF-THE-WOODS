@@ -830,7 +830,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 032fb4904719c469b8f4f5cd2d72206b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.55
+  speed: 0.4
   flee: {fileID: 8300000, guid: 80b06d625095f485d9c43dfa121879ec, type: 3}
   growl:
   - {fileID: 8300000, guid: 80bdb0b43c9fe4e1fbdf69cc0f16a306, type: 3}

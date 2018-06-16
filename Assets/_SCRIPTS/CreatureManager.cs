@@ -112,7 +112,7 @@ public class CreatureManager : ManagerBase
     //ensure if previous random number is min, then we don't get min again
     int getRandom(int random, int min, int max)
     {
-        return random == min ? UnityEngine.Random.Range(min+1, max) : UnityEngine.Random.Range(min, max);
+        return random == min ? UnityEngine.Random.Range(min + 1, max) : UnityEngine.Random.Range(min, max);
     }
 
     protected override void OnPhaseLoad(GamePhase phase)

@@ -7,7 +7,7 @@ public class Flashlight : MonoBehaviour
     public float CurrBattery { get; private set; }
     [SerializeField] float maxBattery;
     [SerializeField] MeshRenderer battery;
-    Color green, red;
+
 
     [SerializeField] string layerMaskName;
     int layerMask;
@@ -19,8 +19,6 @@ public class Flashlight : MonoBehaviour
 
     void Awake()
     {
-        green = new Color(0.51f, 1, 0.25f);
-        red = new Color(0.89f, 0, 0.09f);
         layerMask = 1 << LayerMask.NameToLayer(layerMaskName);
         CurrBattery = maxBattery;
     }
@@ -77,9 +75,9 @@ public class Flashlight : MonoBehaviour
 
     void SetBatterySprite()
     {
-        battery.transform.position = new Vector3(0, -0.008f, Mathf.Lerp(0.04f, 0.05f, CurrBattery / maxBattery));
+        battery.transform.localPosition = new Vector3(0, -0.008f, Mathf.Lerp(0.04f, 0.05f, CurrBattery / maxBattery));
         battery.transform.localScale = new Vector3(0.006f, 0.005f, Mathf.Lerp(0, 0.02f, CurrBattery / maxBattery));
-        battery.material.color = Color.Lerp(red, green, CurrBattery / maxBattery);
+        battery.material.color = Color.Lerp(Color.red, Color.green, CurrBattery / maxBattery);
         battery.material.SetColor("_EmissionColor", battery.material.color);
     }
 

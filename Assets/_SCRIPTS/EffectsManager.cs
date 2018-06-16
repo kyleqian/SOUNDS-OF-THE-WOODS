@@ -117,16 +117,15 @@ public class EffectsManager : ManagerBase
         Destroy(particleObject.gameObject);
     }
 
-    IEnumerator FadeMoon(bool up, float length)
+    IEnumerator FadeMoon(float length)
     {
         Transform moon = transform.Find("moon");
         Vector3 point0 = new Vector3(-20.77f, -4.88f, 24.42f);
         Vector3 point1 = new Vector3(-3.75f, 30.38f, 24.42f);
         Vector3 point2 = new Vector3(23.367f, -6.53f, 24.42f);
-        float measureagainst = (up) ? length : length * 1.5f;
-        for (float i = (up) ? 0 : measureagainst / 2; i < measureagainst; i += Time.deltaTime)
+        for (float i = 0; i < length; i += Time.deltaTime)
         {
-            float t = i / measureagainst;
+            float t = i / length;
             Vector3 m1 = Vector3.Lerp(point0, point1, t);
             Vector3 m2 = Vector3.Lerp(point1, point2, t);
             moon.position = Vector3.Lerp(m1, m2, t);
@@ -254,8 +253,13 @@ public class EffectsManager : ManagerBase
                 InitializeParticle(ParticleType.Butterflies);
                 break;
             case GamePhase.Afternoon:
+
+
                 break;
             case GamePhase.Dusk:
+                float length = GameManager.Instance.PhaseLengths[(int)phase] + GameManager.Instance.PhaseLengths[(int)GamePhase.Night]
+                + GameManager.Instance.PhaseLengths[(int)GamePhase.Latenight] + GameManager.Instance.PhaseLengths[(int)GamePhase.Dawn];
+                StartCoroutine(FadeMoon(GameManager.Instance.PhaseLengths[(int)phase]));
                 UpdateLightingOverTime(lightingReference[phase]);
                 InitializeParticle(ParticleType.Fireflies);
                 break;
@@ -279,12 +283,13 @@ public class EffectsManager : ManagerBase
         switch (phase)
         {
             case GamePhase.Start:
+
                 break;
             case GamePhase.Afternoon:
                 break;
             case GamePhase.Dusk:
                 RemoveParticle(ParticleType.Butterflies);
-                StartCoroutine(FadeMoon(true, GameManager.Instance.PhaseLengths[(int)phase]));
+
                 StartCoroutine(FadeGroundIntensity(1, 0, GameManager.Instance.minPhaseLengthInSeconds));
                 break;
             case GamePhase.Night:
@@ -295,7 +300,7 @@ public class EffectsManager : ManagerBase
                 break;
             case GamePhase.Dawn:
                 StartCoroutine(FadeGroundIntensity(0, 1, GameManager.Instance.minPhaseLengthInSeconds));
-                StartCoroutine(FadeMoon(false, GameManager.Instance.PhaseLengths[(int)phase]));
+
                 break;
             case GamePhase.End:
                 break;
