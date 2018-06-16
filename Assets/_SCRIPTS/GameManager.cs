@@ -15,6 +15,8 @@ public class GameManager : ManagerBase
     public event Action<GamePhase> PhaseLoaded;
     public event Action<GamePhase> PhaseUnloaded;
 
+    public event Action DeathByEnemy;
+
     public GamePhase CurrPhase { get; private set; }
     public float CurrPhaseTime { get; private set; }
     public float[] PhaseLengths;
@@ -107,10 +109,11 @@ public class GameManager : ManagerBase
         }
         else
         {
-            RestartGame(5f, 0, 5f);
+            DeathByEnemy();
+            RestartGame(2f, 7, 8f);
                 /*
             rising noises
-            disable ability to use flashlight
+  
             sudden death
             eyes close to black + fade out blur
             freeze game time
@@ -147,7 +150,7 @@ public class GameManager : ManagerBase
         {
             case GamePhase.Start:
                 Eye e = Camera.main.gameObject.GetComponent<Eye>();
-                e.EyeClose(0.3f, false, () =>
+                e.EyeOpen(0.3f, false, () =>
                 {
                     e.EyeOpen(0.8f, true, null, 0.1f);
                 });

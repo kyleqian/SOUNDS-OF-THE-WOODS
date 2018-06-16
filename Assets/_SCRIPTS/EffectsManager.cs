@@ -54,6 +54,12 @@ public class EffectsManager : ManagerBase
         copySkyboxMaterial = new Material(RenderSettings.skybox);
         RenderSettings.skybox = copySkyboxMaterial;
         RenderSettings.ambientIntensity = 1;
+        GameManager.Instance.DeathByEnemy += DieEffect;
+    }
+
+    private void DieEffect()
+    {
+
     }
 
     void InitializeParticle(ParticleType particle)
@@ -118,9 +124,8 @@ public class EffectsManager : ManagerBase
         }
     }
     //fade so ground is less shiny at night
-    IEnumerator FadeGroundIntensity(float start, float finish)
+    IEnumerator FadeGroundIntensity(float start, float finish, float length)
     {
-        float length = Random.Range(GameManager.Instance.minPhaseLengthInSeconds, GameManager.Instance.maxPhaseLengthInSeconds);
         for (float i = 0; i < length; i += Time.deltaTime)
         {
             RenderSettings.ambientIntensity = Mathf.Lerp(start, finish, i / length);
@@ -270,7 +275,7 @@ public class EffectsManager : ManagerBase
             case GamePhase.Dusk:
                 RemoveParticle(ParticleType.Butterflies);
                 StartCoroutine(FadeMoon(true));
-                StartCoroutine(FadeGroundIntensity(1, 0));
+                StartCoroutine(FadeGroundIntensity(1, 0, GameManager.Instance.minPhaseLengthInSeconds));
                 break;
             case GamePhase.Night:
                 RemoveParticle(ParticleType.Fireflies);
@@ -279,7 +284,7 @@ public class EffectsManager : ManagerBase
                 RemoveParticle(ParticleType.Dust);
                 break;
             case GamePhase.Dawn:
-                StartCoroutine(FadeGroundIntensity(0,1));
+                StartCoroutine(FadeGroundIntensity(0, 1, GameManager.Instance.minPhaseLengthInSeconds));
                 StartCoroutine(FadeMoon(false));
                 break;
             case GamePhase.End:

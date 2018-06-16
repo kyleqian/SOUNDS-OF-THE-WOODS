@@ -27,6 +27,9 @@ public class SoundManager : ManagerBase
     public List<AudioSource> dynamicSources;
     public List<AudioClip> songClips, ambienceClips;
 
+    [SerializeField]
+    AudioClip about_to_die;
+
     public AudioClip[] footsteps;
 
     [Header("Radio")]
@@ -39,6 +42,12 @@ public class SoundManager : ManagerBase
     void Awake()
     {
         Instance = this;
+        GameManager.Instance.DeathByEnemy += DieSound;
+    }
+
+    private void DieSound()
+    {
+        song.PlayOneShot(about_to_die);
     }
 
     protected override void OnPhaseLoad(GamePhase phase)
@@ -111,7 +120,7 @@ public class SoundManager : ManagerBase
     IEnumerator _PlayOneShot(AudioSource source, AudioClip clip, float delay)
     {
         yield return new WaitForSeconds(delay);
-        source.PlayOneShot(clip);        
+        source.PlayOneShot(clip);
     }
 
     void changeSong(songIndex si, float wait)

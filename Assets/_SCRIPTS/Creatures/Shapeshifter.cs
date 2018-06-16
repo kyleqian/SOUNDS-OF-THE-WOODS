@@ -9,6 +9,8 @@ public class Shapeshifter : CreatureBase
 
     public AudioClip somethingBadTeleport;
 
+    int TimesTeleported;
+
 
     public void BadTeleport(){
         audio.pitch=UnityEngine.Random.Range(0.9f, 1.05f);
@@ -39,8 +41,10 @@ public class Shapeshifter : CreatureBase
 
                 break;
             case CreatureState.Shocked:
-                // Revert back to Default if shocked for too long
-                // without fleeing
+                if (TimesTeleported<2){
+                    transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z-6.5f);
+                }
+                TimesTeleported++;
                 unshockTimer += Time.deltaTime;
                 if (unshockTimer >= SECONDS_TO_UNSHOCK)
                 {
