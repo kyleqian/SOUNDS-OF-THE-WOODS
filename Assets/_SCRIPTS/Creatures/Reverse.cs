@@ -29,9 +29,6 @@ public class Reverse : CreatureBase
         // Choose random location at X distance from player
         transform.position =  RandomGroundPosition(-13.5f, 13.5f, -13.5f, 13.5f );
 
-        // TODO: Hacky patch because Reverse doesn't show up
-        transform.Translate(0, -0.35f, 0);
-
         targetPosition = Vector3.zero;
 
         base.SpawnVisual();
@@ -56,7 +53,6 @@ public class Reverse : CreatureBase
         {
             case CreatureState.Default:
                 transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
-
 
                 break;
             case CreatureState.Shocked:
