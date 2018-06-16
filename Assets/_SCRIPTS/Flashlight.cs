@@ -75,8 +75,8 @@ public class Flashlight : MonoBehaviour
 
     void SetBatterySprite()
     {
-        battery.transform.localPosition = new Vector3(0, -0.008f, Mathf.Lerp(0.04f, 0.05f, CurrBattery / maxBattery));
-        battery.transform.localScale = new Vector3(0.006f, 0.005f, Mathf.Lerp(0, 0.02f, CurrBattery / maxBattery));
+        //battery.transform.localPosition = new Vector3(0, -0.008f, Mathf.Lerp(0.04f, 0.05f, CurrBattery / maxBattery));
+        //battery.transform.localScale = new Vector3(0.006f, 0.005f, Mathf.Lerp(0, 0.02f, CurrBattery / maxBattery));
         battery.material.color = Color.Lerp(Color.red, Color.green, CurrBattery / maxBattery);
         battery.material.SetColor("_EmissionColor", battery.material.color);
     }
