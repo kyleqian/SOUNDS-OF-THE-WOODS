@@ -21,10 +21,10 @@ public class Eye : MonoBehaviour
         {
             float t = i / time;
             t = t * t * (3f - 2f * t);
-            effect.maskValue = Mathf.Lerp(1, 0, t);
+            effect.maskValue = Mathf.Lerp(1, -0.1f, t);
             yield return null;
         }
-        effect.maskValue = 0;
+        effect.maskValue = -0.1f;
 
         if (callbackDelay != 0) yield return new WaitForSeconds(callbackDelay);
         if (enable) effect.enabled = false;
@@ -44,7 +44,7 @@ public class Eye : MonoBehaviour
         {
             float t = i / time;
             t = t * t * (3f - 2f * t);
-            effect.maskValue = Mathf.Lerp(0, 1, t);
+            effect.maskValue = Mathf.Lerp(-0.1f, 1, t);
             yield return null;
         }
         effect.maskValue = 1;
