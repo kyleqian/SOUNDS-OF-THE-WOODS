@@ -6,7 +6,7 @@ public class Flashlight : MonoBehaviour
 
     public float CurrBattery { get; private set; }
     [SerializeField] float maxBattery;
-    [SerializeField] SpriteRenderer batteryBar;
+    [SerializeField] MeshRenderer battery;
     Color green, red;
 
     [SerializeField] string layerMaskName;
@@ -77,8 +77,10 @@ public class Flashlight : MonoBehaviour
 
     void SetBatterySprite()
     {
-        batteryBar.size = new Vector2(0.1f, Mathf.Lerp(0, 0.3f, CurrBattery / maxBattery));
-        batteryBar.color = Color.Lerp(red, green, CurrBattery / maxBattery);
+        battery.transform.position = new Vector3(0, -0.008f, Mathf.Lerp(0.04f, 0.05f, CurrBattery / maxBattery));
+        battery.transform.localScale = new Vector3(0.006f, 0.005f, Mathf.Lerp(0, 0.02f, CurrBattery / maxBattery));
+        battery.material.color = Color.Lerp(red, green, CurrBattery / maxBattery);
+        battery.material.SetColor("_EmissionColor", battery.material.color);
     }
 
     // TODO: Efficient to call this every frame?
