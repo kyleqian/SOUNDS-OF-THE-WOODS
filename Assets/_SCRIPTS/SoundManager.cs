@@ -30,12 +30,15 @@ public class SoundManager : ManagerBase
     [SerializeField]
     AudioClip about_to_die;
 
+
+
     public AudioClip[] footsteps;
 
     [Header("Radio")]
     public AudioSource radio;
     public AudioClip radioBeginning;
     public AudioClip radioEnd;
+    public AudioClip radioDie;
     public float radioBeginningDelay;
     public float radioEndDelay;
 
@@ -47,7 +50,8 @@ public class SoundManager : ManagerBase
 
     private void DieSound()
     {
-        song.PlayOneShot(about_to_die);
+        radio.PlayOneShot(radioDie);
+        PlayOneShot(song, about_to_die, 1);
     }
 
     protected override void OnPhaseLoad(GamePhase phase)

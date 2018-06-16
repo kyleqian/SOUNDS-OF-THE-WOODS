@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1248987485}
-  m_IndirectSpecularColor: {r: 0.62775767, g: 0.944959, b: 0.8416045, a: 1}
+  m_IndirectSpecularColor: {r: 0.62729275, g: 0.9438542, b: 0.840577, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2273,9 +2273,19 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114728425532115932, guid: 3b721fcfc022d4101a4b20c90be59774,
+        type: 2}
+      propertyPath: battery
+      value: 
+      objectReference: {fileID: 614995945}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3b721fcfc022d4101a4b20c90be59774, type: 2}
   m_IsPrefabParent: 0
+--- !u!23 &614995945 stripped
+MeshRenderer:
+  m_PrefabParentObject: {fileID: 23676381458707964, guid: 3b721fcfc022d4101a4b20c90be59774,
+    type: 2}
+  m_PrefabInternal: {fileID: 614995944}
 --- !u!1001 &666223650
 Prefab:
   m_ObjectHideFlags: 0
@@ -3833,6 +3843,11 @@ Prefab:
       propertyPath: directionalLight
       value: 
       objectReference: {fileID: 1248987485}
+    - target: {fileID: 114064755615001564, guid: eb778728cbe6648008b434524124154e,
+        type: 2}
+      propertyPath: radioDie
+      value: 
+      objectReference: {fileID: 8300000, guid: 804bae308e5014f52a28d99de7fcb13b, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: eb778728cbe6648008b434524124154e, type: 2}
   m_IsPrefabParent: 0
