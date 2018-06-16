@@ -13,7 +13,7 @@ public class ScreenTransitionImageEffect : MonoBehaviour
     /// and a material instantiated from the shader
     public Shader shader;
 
-    [Range(0,1.0f)]
+    [Range(-0.1f,1.0f)]
     public float maskValue;
     public Color maskColor = Color.black;
     public Texture2D maskTexture;

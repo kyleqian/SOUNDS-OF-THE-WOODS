@@ -104,16 +104,15 @@ public class EffectsManager : ManagerBase
         Vector3 point0 = new Vector3(-20.77f, -4.88f, 24.42f);
         Vector3 point1 = new Vector3(-3.75f, 30.38f, 24.42f);
         Vector3 point2 = new Vector3(23.367f, -6.53f, 24.42f);
-        float length = Random.Range(GameManager.Instance.minPhaseLengthInSeconds / 2, GameManager.Instance.maxPhaseLengthInSeconds / 2);
-        float measureagainst = (up)?length/2:length;
-        float step = 0.05f;
-        for (float i = (up)?0:length/2; i < measureagainst; i += step)
+        float length = Random.Range(GameManager.Instance.minPhaseLengthInSeconds, GameManager.Instance.maxPhaseLengthInSeconds);
+        float measureagainst = (up)?length:length*1.5f;
+        for (float i = (up)?0:length/2; i < measureagainst; i += Time.deltaTime)
         {
             float t = i / length;
             Vector3 m1 = Vector3.Lerp(point0, point1, t);
             Vector3 m2 = Vector3.Lerp(point1, point2, t);
             moon.position = Vector3.Lerp(m1, m2, t);
-            yield return new WaitForSeconds(step);
+            yield return null;
         }
     }
 
