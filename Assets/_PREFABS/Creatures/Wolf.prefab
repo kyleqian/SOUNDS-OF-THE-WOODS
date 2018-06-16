@@ -622,7 +622,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 1.27
+  m_Pitch: 1.2
   Loop: 0
   Mute: 0
   Spatialize: 1
@@ -837,7 +837,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: dec4f85ecd31c4299831f2b538a36373, type: 3}
   - {fileID: 8300000, guid: b671a7a3a75144fb1aa9e726b16d418f, type: 3}
   run:
-  - {fileID: 0}
+  - {fileID: 8300000, guid: f5ed82400825b483890b637ebf46c51f, type: 3}
   - {fileID: 8300000, guid: 852b3950b6fb74c6ca0c2709f3e32fad, type: 3}
   - {fileID: 8300000, guid: c706ddd971a8c4c57a82b9264dd3fafd, type: 3}
   - {fileID: 8300000, guid: 6d72aa852a8e648dcbdad181becb4bad, type: 3}
