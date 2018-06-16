@@ -101,7 +101,6 @@ public class Wolf : CreatureBase
                 }
                 break;
             case CreatureState.Fleeing:
-                Flee();
                 break;
         }
     }
