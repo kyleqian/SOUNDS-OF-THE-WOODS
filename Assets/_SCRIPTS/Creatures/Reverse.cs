@@ -27,7 +27,7 @@ public class Reverse : CreatureBase
     protected override void SpawnVisual()
     {
         // Choose random location at X distance from player
-        transform.position = RandomGroundPosition();
+        transform.position =  RandomGroundPosition(-13.5f, 13.5f, -13.5f, 13.5f );
 
         // TODO: Hacky patch because Reverse doesn't show up
         transform.Translate(0, -0.35f, 0);
@@ -39,7 +39,7 @@ public class Reverse : CreatureBase
 
   protected override void ChangeState(CreatureState state)
     {
-        if (state==CreatureState.Shocked){
+        if (state==CreatureState.Shocked){ 
             Horn();
         }
         else if (state==CreatureState.Fleeing){

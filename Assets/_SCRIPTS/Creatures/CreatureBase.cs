@@ -139,11 +139,11 @@ public abstract class CreatureBase : MonoBehaviour
         return new Vector3(UnityEngine.Random.Range(x1, x2), transform.position.y, UnityEngine.Random.Range(z1, z2));
     }
 
-    protected Vector3 RandomGroundPosition(float x1 = -7, float x2 = 7, float z1 = -6, float z2 = 6)
+    protected Vector3 RandomGroundPosition(float x1 = -10.5f, float x2 = 10.5f, float z1 = -10.5f, float z2 = 10.5f)
     {
         float x = UnityEngine.Random.Range(x1, x2);
         float z;
-        if (Mathf.Abs(x) < 5) z = UnityEngine.Random.value > 0.5f ? UnityEngine.Random.Range(z1, z1 + 1) : UnityEngine.Random.Range(z2 - 1, z2);
+        if (Mathf.Abs(x) < x2-3) z = UnityEngine.Random.value > 0.5f ? UnityEngine.Random.Range(z1, z1 + 1) : UnityEngine.Random.Range(z2 - 1, z2);
         else z = UnityEngine.Random.Range(z1, z2);
         return new Vector3(x, 0, z);
     }

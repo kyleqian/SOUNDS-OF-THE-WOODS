@@ -18,13 +18,13 @@ public class Decoy : CreatureBase
     }
     public void StopSong()
     {
-        audio.enabled = false;
+        audio.enabled = false; 
         audio.enabled = true;
     }
     protected override void SpawnVisual()
     {
         // Choose random location at X distance from player
-        transform.position = RandomGroundPosition();
+        transform.position = RandomGroundPosition(-13.5f, 13.5f, -13.5f, 13.5f );
 
         targetPosition = Vector3.zero;
 

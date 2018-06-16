@@ -18,11 +18,11 @@ public class Shapeshifter : CreatureBase
     {
         audio.PlayOneShot(branches[UnityEngine.Random.Range(0, branches.Length)]);
     }
-
+ 
     protected override void SpawnVisual()
     {
         // Choose random location at X distance from player
-        transform.position = RandomGroundPosition();
+        transform.position = RandomGroundPosition(-13.5f, 13.5f, -13.5f, 13.5f );
 
         targetPosition = Vector3.zero;
 
