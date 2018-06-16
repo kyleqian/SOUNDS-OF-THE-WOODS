@@ -11,7 +11,7 @@ public enum GamePhase
 public class GameManager : ManagerBase
 {
     public static GameManager Instance;
-    
+
     public event Action<GamePhase> PhaseLoaded;
     public event Action<GamePhase> PhaseUnloaded;
 
@@ -27,8 +27,8 @@ public class GameManager : ManagerBase
 
     bool gameOver;
 
-	void Awake()
-	{
+    void Awake()
+    {
         RunAssertions();
 
         Instance = this;
@@ -47,16 +47,16 @@ public class GameManager : ManagerBase
     }
 
     void Update()
-	{
+    {
         if (gameOver)
         {
             return;
         }
 
-		// Advance time
-		CurrPhaseTime += Time.deltaTime;
-		if (CurrPhaseTime >= PhaseLengths[(int)CurrPhase])
-		{
+        // Advance time
+        CurrPhaseTime += Time.deltaTime;
+        if (CurrPhaseTime >= PhaseLengths[(int)CurrPhase])
+        {
             PhaseTransition();
         }
     }
@@ -111,16 +111,12 @@ public class GameManager : ManagerBase
         {
             DeathByEnemy();
             RestartGame(2f, 7, 8f);
-                /*
+            /*
+            Implemented:
             rising noises
-  
-            sudden death
+            visual effects
             eyes close to black + fade out blur
-            freeze game time
-            wait a bit
-            restart scene
-            -> opening eyes
-                */
+            */
         }
     }
 
@@ -142,7 +138,7 @@ public class GameManager : ManagerBase
         CurrPhaseTime = 0;
         PhaseUnloaded(CurrPhase);
         PhaseLoaded(++CurrPhase);
-	}
+    }
 
     protected override void OnPhaseLoad(GamePhase phase)
     {
