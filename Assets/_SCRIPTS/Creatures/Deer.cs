@@ -10,7 +10,7 @@ public class Deer : CreatureBase
     Vector3 GetTarget()
     {
         float x1, x2, z1, z2;
-       
+
 
         if (transform.position.x < 0)
         {
@@ -29,8 +29,8 @@ public class Deer : CreatureBase
         {
             z1 = -1; z2 = 0f;
         }
-        Vector3 left=  transform.position+Vector3.left;
-        return new Vector3(left.x+ UnityEngine.Random.Range(x1, x2), 0,left.z+ UnityEngine.Random.Range(z1, z2));/// + UnityEngine.Random.Range(x1, x2) .!--.!--  + UnityEngine.Random.Range(z1, z2)
+        Vector3 left = transform.position + Vector3.left;
+        return new Vector3(left.x + UnityEngine.Random.Range(x1, x2), 0, left.z + UnityEngine.Random.Range(z1, z2));/// + UnityEngine.Random.Range(x1, x2) .!--.!--  + UnityEngine.Random.Range(z1, z2)
     }
 
     protected override void SpawnVisual()
@@ -55,12 +55,17 @@ public class Deer : CreatureBase
         {
             animator.SetBool("walk", false);
         }
-        if (state == CreatureState.Fleeing) speed *= 1.5f;
-
+        if (state == CreatureState.Fleeing)
+        {
+            speed *= 1.5f;
+        }
         base.ChangeState(state);
     }
 
-        public override void Footstep()
+
+
+
+    public override void Footstep()
     {
         int length = SoundManager.Instance.footsteps.Length;
         audio.PlayOneShot(SoundManager.Instance.footsteps[UnityEngine.Random.Range(0, length)]);

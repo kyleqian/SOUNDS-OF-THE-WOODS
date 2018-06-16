@@ -21,16 +21,19 @@ public class Wolf : CreatureBase
         audio.PlayOneShot(run[UnityEngine.Random.Range(0, length)]);
     }
 
-    public void Flee(){
+    public void Flee()
+    {
         audio.PlayOneShot(flee);
     }
 
-    public void Howl(){
-        audio.PlayOneShot(growl[UnityEngine.Random.Range(0,growl.Length)]);
+    public void Howl()
+    {
+        audio.PlayOneShot(growl[UnityEngine.Random.Range(0, growl.Length)]);
     }
 
-    private void Start() {
-        maxgrowlTime = UnityEngine.Random.Range(3f,5f);
+    private void Start()
+    {
+        maxgrowlTime = UnityEngine.Random.Range(3f, 5f);
     }
 
 
@@ -56,16 +59,14 @@ public class Wolf : CreatureBase
 
     protected override void ChangeState(CreatureState state)
     {
-        if (state==CreatureState.Shocked) Howl();
-        else if (state==CreatureState.Fleeing) 
+        if (state == CreatureState.Shocked) Howl();
+        else if (state == CreatureState.Fleeing)
         {
             speed *= 1.6f;
-            Flee();
         }
         base.ChangeState(state);
     }
 
-    
 
     void Update()
     {
@@ -74,13 +75,14 @@ public class Wolf : CreatureBase
         switch (currState)
         {
             case CreatureState.Default:
-                growlTime+=Time.deltaTime;
-                if (growlTime>maxgrowlTime) {
+                growlTime += Time.deltaTime;
+                if (growlTime > maxgrowlTime)
+                {
                     growlTime = 0;
-                    float origVol=audio.volume;
-                    audio.volume=origVol-0.2f;
+                    float origVol = audio.volume;
+                    audio.volume = origVol - 0.2f;
                     Howl();
-                    audio.volume=origVol;
+                    audio.volume = origVol;
                 }
                 radius -= radialSpeed * Time.deltaTime;
                 angle -= speed * Time.deltaTime;
@@ -99,7 +101,7 @@ public class Wolf : CreatureBase
                 }
                 break;
             case CreatureState.Fleeing:
-
+                Flee();
                 break;
         }
     }

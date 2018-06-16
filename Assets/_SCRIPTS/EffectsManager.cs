@@ -55,7 +55,7 @@ public class EffectsManager : ManagerBase
         // Make in-memory copy of Material so we don't overwrite the original
         copySkyboxMaterial = new Material(RenderSettings.skybox);
         RenderSettings.skybox = copySkyboxMaterial;
-        RenderSettings.ambientIntensity = 1;
+        ground.color=Color.white;
         GameManager.Instance.DeathByEnemy += DieEffect;
     }
 
