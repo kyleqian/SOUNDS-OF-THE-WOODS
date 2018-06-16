@@ -351,6 +351,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 7e48ce4ef995b432691a6d9d1ec25f89, type: 3}
   - {fileID: 8300000, guid: accf28a13744744ffb934fa2e0eabdbf, type: 3}
   - {fileID: 8300000, guid: ca7f592577bad49ad8ca2d7b0dd88cfc, type: 3}
+  about_to_die: {fileID: 8300000, guid: b410560d6a9174fcf97af814814bfec9, type: 3}
   footsteps:
   - {fileID: 8300000, guid: 2e44b8a8faf6945d1a8042b25b11de8f, type: 3}
   - {fileID: 8300000, guid: cd8cd15aa96e8493293dc4445b5a5e29, type: 3}
@@ -402,7 +403,7 @@ MonoBehaviour:
   - 0
   debugMode: 0
   minPhaseLengthInSeconds: 10
-  maxPhaseLengthInSeconds: 10
+  maxPhaseLengthInSeconds: 15
 --- !u!114 &114730313002474242
 MonoBehaviour:
   m_ObjectHideFlags: 1
