@@ -39,6 +39,7 @@ public class SoundManager : ManagerBase
     public AudioClip radioBeginning;
     public AudioClip radioEnd;
     public AudioClip radioDie;
+    public AudioClip breathe;
     public float radioBeginningDelay;
     public float radioEndDelay;
 
@@ -52,6 +53,7 @@ public class SoundManager : ManagerBase
     {
         radio.PlayOneShot(radioDie);
         PlayOneShot(song, about_to_die, 1);
+        PlayOneShot(song, breathe,11);
     }
 
     protected override void OnPhaseLoad(GamePhase phase)
