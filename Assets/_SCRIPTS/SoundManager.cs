@@ -46,10 +46,14 @@ public class SoundManager : ManagerBase
     void Awake()
     {
         Instance = this;
+    }
+
+    void Start()
+    {
         GameManager.Instance.DeathByEnemy += DieSound;
     }
 
-    private void DieSound()
+    void DieSound()
     {
         radio.PlayOneShot(radioDie);
         PlayOneShot(song, about_to_die, 1);

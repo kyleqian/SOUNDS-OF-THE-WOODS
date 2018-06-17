@@ -56,10 +56,14 @@ public class EffectsManager : ManagerBase
         copySkyboxMaterial = new Material(RenderSettings.skybox);
         RenderSettings.skybox = copySkyboxMaterial;
         ground.color=Color.white;
+    }
+
+    void Start()
+    {
         GameManager.Instance.DeathByEnemy += DieEffect;
     }
 
-    private void DieEffect()
+    void DieEffect()
     {
         Color sky = copySkyboxMaterial.GetColor("_Tint");
         Color ambient = RenderSettings.ambientSkyColor;
