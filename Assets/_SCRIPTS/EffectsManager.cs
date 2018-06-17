@@ -76,7 +76,7 @@ public class EffectsManager : ManagerBase
             directionalLight.color,
             0f
         );
-        activeCoroutine = StartCoroutine(_UpdateLightingOverTime(lighting));
+        UpdateLightingOverTime(lighting);
     }
 
     void InitializeParticle(ParticleType particle)
