@@ -7,7 +7,7 @@ public class Wolf : CreatureBase
     float angle;
     float radius;
 
-    float radialSpeed = 0.2f;
+    float radialSpeed = 0.4f;
 
     float growlTime, maxgrowlTime;
 
