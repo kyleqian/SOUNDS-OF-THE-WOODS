@@ -111,8 +111,11 @@ public class GameManager : ManagerBase
         }
         else
         {
-            GameOverEvent();
             DeathByEnemy();
+            if (GameOverEvent != null)
+            {
+                GameOverEvent();
+            }
             RestartGame(3f, 7, 8f);
         }
     }
