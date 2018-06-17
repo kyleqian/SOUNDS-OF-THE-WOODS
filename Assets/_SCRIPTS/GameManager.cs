@@ -16,6 +16,7 @@ public class GameManager : ManagerBase
     public event Action<GamePhase> PhaseUnloaded;
 
     public event Action DeathByEnemy;
+    public event Action GameOverEvent;
 
     public GamePhase CurrPhase { get; private set; }
     public float CurrPhaseTime { get; private set; }
@@ -103,20 +104,16 @@ public class GameManager : ManagerBase
         }
 
         gameOver = true;
+
         if (win)
         {
             RestartGame(10f, 26f, 5f);
         }
         else
         {
+            GameOverEvent();
             DeathByEnemy();
             RestartGame(3f, 7, 8f);
-            /*
-            Implemented:
-            rising noises
-            visual effects
-            eyes close to black + fade out blur
-            */
         }
     }
 

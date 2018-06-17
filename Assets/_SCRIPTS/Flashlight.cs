@@ -8,7 +8,6 @@ public class Flashlight : MonoBehaviour
     [SerializeField] float maxBattery;
     [SerializeField] MeshRenderer battery;
 
-
     [SerializeField] string layerMaskName;
     int layerMask;
     const float RAYCAST_DISTANCE = 15f;
@@ -21,6 +20,16 @@ public class Flashlight : MonoBehaviour
     {
         layerMask = 1 << LayerMask.NameToLayer(layerMaskName);
         CurrBattery = maxBattery;
+    }
+
+    void Start()
+    {
+        GameManager.Instance.GameOverEvent += GameOverHandler;
+    }
+
+    void GameOverHandler()
+    {
+        gameObject.SetActive(false);
     }
 
     void Update()
@@ -50,7 +59,7 @@ public class Flashlight : MonoBehaviour
             lightSource.enabled = !lightSource.enabled;
         }
 #else
-        if (OVRInput.GetDown(OVRInput.Button.One))
+        if (OVRInput.GetDown(OVRInput.Button.PrimaryTouchpad) || OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger))
         {
             lightSource.enabled = !lightSource.enabled;
         }
