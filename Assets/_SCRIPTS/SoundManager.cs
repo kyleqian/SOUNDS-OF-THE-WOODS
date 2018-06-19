@@ -22,7 +22,7 @@ public class SoundManager : ManagerBase
     public static SoundManager Instance;
     public AudioMixerSnapshot songUp, songDown;
 
-    public AudioSource song, ambience;
+    public AudioSource song, ambience, gameover;
     //dynamically added AudioSources
     public List<AudioSource> dynamicSources;
     public List<AudioClip> songClips, ambienceClips;
@@ -56,8 +56,8 @@ public class SoundManager : ManagerBase
     void DieSound()
     {
         radio.PlayOneShot(radioDie);
-        PlayOneShot(song, about_to_die, 1);
-        PlayOneShot(song, breathe, 11);
+        PlayOneShot(gameover, about_to_die, 1);
+        PlayOneShot(gameover, breathe, 10);
     }
 
     protected override void OnPhaseLoad(GamePhase phase)

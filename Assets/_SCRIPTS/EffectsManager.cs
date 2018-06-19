@@ -67,8 +67,10 @@ public class EffectsManager : ManagerBase
     {
         Color sky = copySkyboxMaterial.GetColor("_Tint");
         Color ambient = RenderSettings.ambientSkyColor;
-        StartCoroutine(FadeGroundIntensity(ground.color, Color.black, 7));
+
         StopActiveCoroutine();
+        StartCoroutine(FadeGroundIntensity(ground.color, Color.black, 7));
+
         Lighting lighting = new Lighting(
             new Color32(0, 0, 0, 255),
             new Color(sky.r * 1.5f, sky.g, sky.b, 1),
@@ -76,6 +78,7 @@ public class EffectsManager : ManagerBase
             directionalLight.color,
             0f
         );
+
         UpdateLightingOverTime(lighting);
     }
 
@@ -138,12 +141,13 @@ public class EffectsManager : ManagerBase
             yield return null;
         }
     }
+
     //fade so ground is less shiny at night
     IEnumerator FadeGroundIntensity(Color one, Color two, float length)
     {
         for (float i = 0; i < length; i += Time.deltaTime)
         {
-            ground.color = Color.Lerp(one, two, length );
+            ground.color = Color.Lerp(one, two, i/length);
             yield return null;
         }
     }

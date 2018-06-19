@@ -7,7 +7,7 @@ public class Wolf : CreatureBase
     float angle;
     float radius;
 
-    float radialSpeed = 0.4f;
+    float radialSpeed = 0.2f;
 
     float growlTime, maxgrowlTime;
 
@@ -62,7 +62,7 @@ public class Wolf : CreatureBase
         if (state == CreatureState.Shocked) Howl();
         else if (state == CreatureState.Fleeing)
         {
-            speed *= 1.6f;
+            speed *= 2f;
         }
         base.ChangeState(state);
     }
