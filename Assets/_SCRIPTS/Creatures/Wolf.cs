@@ -33,6 +33,7 @@ public class Wolf : CreatureBase
 
     private void Start()
     {
+        speed = 1.0f;
         maxgrowlTime = UnityEngine.Random.Range(3f, 5f);
     }
 
@@ -62,7 +63,7 @@ public class Wolf : CreatureBase
         if (state == CreatureState.Shocked) Howl();
         else if (state == CreatureState.Fleeing)
         {
-            speed *= 2f;
+            speed *= 1.6f;
         }
         base.ChangeState(state);
     }

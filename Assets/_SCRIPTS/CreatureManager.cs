@@ -129,7 +129,7 @@ public class CreatureManager : ManagerBase
                 SpawnCreatures(CreatureType.Bunny, random);
                 random = getRandom(random, 0, 3);
                 SpawnCreatures(CreatureType.Raccoon, random);
-                random = getRandom(random, 0, 3);
+                random = getRandom(random, 1, 3);
                 SpawnCreatures(CreatureType.Wolf, random);
                 break;
             case GamePhase.Night:
@@ -151,10 +151,10 @@ public class CreatureManager : ManagerBase
                 SpawnCreatures(CreatureType.Wolf, random);
                 break;
             case GamePhase.Latenight3:
-                if (UnityEngine.Random.value > 0.66f)
+                if (UnityEngine.Random.value > 0.4f)
                 {
                     SpawnCreatures(CreatureType.Shapeshifter, 1);
-                    random = UnityEngine.Random.Range(0, 3);
+                    random = UnityEngine.Random.Range(1, 3);
                     SpawnCreatures(CreatureType.Wolf, random);
                 }
                 else
