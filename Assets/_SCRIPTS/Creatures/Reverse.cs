@@ -6,7 +6,7 @@ using System;
 public class Reverse : CreatureBase
 {
     public AudioClip[] gutturalSweeps;
-    public AudioClip horn, howl;
+    public AudioClip horn, howl, lowGrowl;
 
     //ANIMATION 
     public override void Footstep()
@@ -23,6 +23,10 @@ public class Reverse : CreatureBase
         audio.PlayOneShot(howl);
     }
 
+    void Start()
+    {
+        audio.PlayOneShot(lowGrowl);
+    }
 
     protected override void SpawnVisual()
     {
@@ -30,6 +34,8 @@ public class Reverse : CreatureBase
         transform.position =  RandomGroundPosition(-13.5f, 13.5f, -13.5f, 13.5f );
 
         targetPosition = Vector3.zero;
+
+        audio.PlayOneShot(lowGrowl);
 
         base.SpawnVisual();
     }

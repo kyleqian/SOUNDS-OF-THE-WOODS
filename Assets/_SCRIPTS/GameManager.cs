@@ -107,7 +107,7 @@ public class GameManager : ManagerBase
 
         if (win)
         {
-            RestartGame(10f, 26f, 5f);
+            RestartGame(8f, 26f, 4f);
         }
         else
         {
@@ -116,7 +116,7 @@ public class GameManager : ManagerBase
             {
                 GameOverEvent();
             }
-            RestartGame(3f, 7, 8f);
+            RestartGame(10f, 10f, 4f);
         }
     }
 
