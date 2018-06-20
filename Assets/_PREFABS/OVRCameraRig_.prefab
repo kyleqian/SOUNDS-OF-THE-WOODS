@@ -103,7 +103,6 @@ GameObject:
   - component: {fileID: 4311455120575848}
   - component: {fileID: 33669573181150618}
   - component: {fileID: 23676381458707964}
-  - component: {fileID: 65238455299086978}
   m_Layer: 0
   m_Name: Base
   m_TagString: Untagged
@@ -257,7 +256,6 @@ GameObject:
   - component: {fileID: 4158684167705420}
   - component: {fileID: 33759683614391804}
   - component: {fileID: 23271854635821136}
-  - component: {fileID: 65377994741538924}
   m_Layer: 0
   m_Name: BatteryLight
   m_TagString: Untagged
@@ -362,7 +360,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1891508691496508
 GameObject:
   m_ObjectHideFlags: 0
@@ -1084,7 +1082,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 296de5be1228bf34380061dd6e6b0f49, type: 2}
+  - {fileID: 2100000, guid: c2a54f2b30f2b433ca182f4c790f269d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1287,30 +1285,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1530368788191586}
   m_Mesh: {fileID: 4300000, guid: e0f1914fdbfd3764faeff5474c0cbe1e, type: 3}
---- !u!65 &65238455299086978
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1225613336888576}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!65 &65377994741538924
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1706591575971312}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!81 &81108837851616668
 AudioListener:
   m_ObjectHideFlags: 1

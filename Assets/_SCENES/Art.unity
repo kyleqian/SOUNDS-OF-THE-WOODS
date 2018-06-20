@@ -3875,26 +3875,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4513603691493882, guid: 3b721fcfc022d4101a4b20c90be59774, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1886725390482812, guid: 3b721fcfc022d4101a4b20c90be59774, type: 2}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1225613336888576, guid: 3b721fcfc022d4101a4b20c90be59774, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 23676381458707964, guid: 3b721fcfc022d4101a4b20c90be59774,
-        type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: c2a54f2b30f2b433ca182f4c790f269d, type: 2}
-    m_RemovedComponents:
-    - {fileID: 65238455299086978, guid: 3b721fcfc022d4101a4b20c90be59774, type: 2}
-    - {fileID: 65377994741538924, guid: 3b721fcfc022d4101a4b20c90be59774, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3b721fcfc022d4101a4b20c90be59774, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1502730187
