@@ -36,7 +36,7 @@ public class EffectsManager : ManagerBase
 
     public Material ground;
 
-    const float LIGHTING_TRANSITION_PROPORTION = 0.3f; // At what point in the phase should lighting be finished transitioning?
+    const float LIGHTING_TRANSITION_PROPORTION = 0.6f; // At what point in the phase should lighting be finished transitioning?
     Material copySkyboxMaterial;
     Dictionary<GamePhase, Lighting> lightingReference;
     Coroutine activeCoroutine;
@@ -268,19 +268,24 @@ public class EffectsManager : ManagerBase
                 break;
             case GamePhase.Dusk:
                 float length = GameManager.Instance.PhaseLengths[(int)phase] + GameManager.Instance.PhaseLengths[(int)GamePhase.Night]
-                + GameManager.Instance.PhaseLengths[(int)GamePhase.Latenight] + GameManager.Instance.PhaseLengths[(int)GamePhase.Dawn];
+                    + GameManager.Instance.PhaseLengths[(int)GamePhase.Latenight] + GameManager.Instance.PhaseLengths[(int)GamePhase.Latenight2] + GameManager.Instance.PhaseLengths[(int)GamePhase.Latenight3]
+                    + GameManager.Instance.PhaseLengths[(int)GamePhase.Dawn];
+                
                 StartCoroutine(FadeMoon(length));
                 UpdateLightingOverTime(lightingReference[phase]);
                 InitializeParticle(ParticleType.Fireflies);
                 break;
             case GamePhase.Night:
                 UpdateLightingOverTime(lightingReference[phase]);
+                StartCoroutine(FadeGroundIntensity(Color.white, Color.black, GameManager.Instance.minPhaseLengthInSeconds));
                 break;
             case GamePhase.Latenight:
                 UpdateLightingOverTime(lightingReference[phase]);
                 break;
             case GamePhase.Dawn:
                 UpdateLightingOverTime(lightingReference[phase]);
+                StartCoroutine(FadeGroundIntensity(Color.black, Color.white, GameManager.Instance.minPhaseLengthInSeconds));
+                InitializeParticle(ParticleType.Butterflies);
                 break;
             case GamePhase.End:
                 StopActiveCoroutine();
@@ -299,8 +304,6 @@ public class EffectsManager : ManagerBase
                 break;
             case GamePhase.Dusk:
                 RemoveParticle(ParticleType.Butterflies);
-
-                StartCoroutine(FadeGroundIntensity(Color.white, Color.black, GameManager.Instance.minPhaseLengthInSeconds));
                 break;
             case GamePhase.Night:
                 RemoveParticle(ParticleType.Fireflies);
@@ -309,8 +312,6 @@ public class EffectsManager : ManagerBase
                 RemoveParticle(ParticleType.Dust);
                 break;
             case GamePhase.Dawn:
-                StartCoroutine(FadeGroundIntensity(Color.black, Color.white, GameManager.Instance.minPhaseLengthInSeconds));
-
                 break;
             case GamePhase.End:
                 break;
