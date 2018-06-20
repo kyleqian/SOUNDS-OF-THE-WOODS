@@ -21,7 +21,7 @@ public class Wolf : CreatureBase
         audio.PlayOneShot(run[UnityEngine.Random.Range(0, length)]);
     }
 
-    public void Flee()
+    public void FleeSound()
     {
         audio.PlayOneShot(flee);
     }
@@ -55,17 +55,21 @@ public class Wolf : CreatureBase
 
     protected override void ChangeState(CreatureState state)
     {
-        if (state == CreatureState.Shocked) Howl();
+        if (state == CreatureState.Shocked)
+        {
+            Howl();   
+        }
         else if (state == CreatureState.Fleeing)
         {
+            FleeSound();
             speed *= 1.6f;
         }
+
         base.ChangeState(state);
     }
 
     void Update()
     {
-
         Lookat();
         switch (currState)
         {
