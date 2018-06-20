@@ -391,7 +391,7 @@ Prefab:
     - target: {fileID: 224365506212161218, guid: 34a43f8ff03154cd0a6d893eabd9f357,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 2.64
+      value: 2.68
       objectReference: {fileID: 0}
     - target: {fileID: 224365506212161218, guid: 34a43f8ff03154cd0a6d893eabd9f357,
         type: 2}
@@ -433,11 +433,6 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 33443236878098764, guid: 34a43f8ff03154cd0a6d893eabd9f357,
-        type: 2}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 33318949702338168, guid: 34a43f8ff03154cd0a6d893eabd9f357,
         type: 2}
       propertyPath: m_Mesh
@@ -448,6 +443,11 @@ Prefab:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 33443236878098764, guid: 34a43f8ff03154cd0a6d893eabd9f357,
+        type: 2}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 114336079396631016, guid: 34a43f8ff03154cd0a6d893eabd9f357,
         type: 2}
       propertyPath: m_havePropertiesChanged
@@ -467,45 +467,6 @@ Prefab:
         type: 2}
       propertyPath: m_isInputParsingRequired
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114336079396631016, guid: 34a43f8ff03154cd0a6d893eabd9f357,
-        type: 2}
-      propertyPath: m_text
-      value: '<size=25%>a game by angela he and kyle <cspace=0.5em>qia</cspace>n</size>
-
-        <b>sounds of the woods</b>
-
-'
-      objectReference: {fileID: 0}
-    - target: {fileID: 114336079396631016, guid: 34a43f8ff03154cd0a6d893eabd9f357,
-        type: 2}
-      propertyPath: m_textInfo.characterCount
-      value: 54
-      objectReference: {fileID: 0}
-    - target: {fileID: 114336079396631016, guid: 34a43f8ff03154cd0a6d893eabd9f357,
-        type: 2}
-      propertyPath: m_fontSize
-      value: 9.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 114336079396631016, guid: 34a43f8ff03154cd0a6d893eabd9f357,
-        type: 2}
-      propertyPath: m_firstOverflowCharacterIndex
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114336079396631016, guid: 34a43f8ff03154cd0a6d893eabd9f357,
-        type: 2}
-      propertyPath: m_textInfo.lineCount
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114336079396631016, guid: 34a43f8ff03154cd0a6d893eabd9f357,
-        type: 2}
-      propertyPath: m_textInfo.spaceCount
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 114336079396631016, guid: 34a43f8ff03154cd0a6d893eabd9f357,
-        type: 2}
-      propertyPath: m_textInfo.wordCount
-      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 34a43f8ff03154cd0a6d893eabd9f357, type: 2}
