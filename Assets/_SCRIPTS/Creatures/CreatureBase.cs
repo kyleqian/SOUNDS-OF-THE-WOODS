@@ -155,6 +155,7 @@ public abstract class CreatureBase : MonoBehaviour
     }
 
     public abstract void Footstep();
+
     protected virtual void ChangeState(CreatureState state)
     {
         Debug.Log(gameObject.name + " change state to: " + state);
