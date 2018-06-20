@@ -31,12 +31,10 @@ public class Wolf : CreatureBase
         audio.PlayOneShot(growl[UnityEngine.Random.Range(0, growl.Length)]);
     }
 
-    private void Start()
+    void Start()
     {
-        speed = 1.0f;
         maxgrowlTime = UnityEngine.Random.Range(3f, 5f);
     }
-
 
     protected override void SpawnVisual()
     {
@@ -50,13 +48,10 @@ public class Wolf : CreatureBase
 
         radius = Vector3.Distance(transform.position, Vector3.zero);
 
-        speed = UnityEngine.Random.Range(0.2f, 0.5f);
+        speed = UnityEngine.Random.Range(0.4f, 0.7f);
 
         base.SpawnVisual();
-
-
     }
-
 
     protected override void ChangeState(CreatureState state)
     {
@@ -67,7 +62,6 @@ public class Wolf : CreatureBase
         }
         base.ChangeState(state);
     }
-
 
     void Update()
     {
@@ -105,6 +99,4 @@ public class Wolf : CreatureBase
                 break;
         }
     }
-
-
 }
