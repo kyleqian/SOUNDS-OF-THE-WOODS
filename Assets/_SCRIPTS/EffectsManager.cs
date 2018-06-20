@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.ImageEffects;
 
-
 public enum ParticleType
 {
     Butterflies, Dust, Fireflies
 }
+
 public class EffectsManager : ManagerBase
 {
     struct Lighting
@@ -36,7 +36,7 @@ public class EffectsManager : ManagerBase
 
     public Material ground;
 
-    const float LIGHTING_TRANSITION_PROPORTION = 0.6f; // At what point in the phase should lighting be finished transitioning?
+    const float LIGHTING_TRANSITION_PROPORTION = 0.4f; // At what point in the phase should lighting be finished transitioning?
     Material copySkyboxMaterial;
     Dictionary<GamePhase, Lighting> lightingReference;
     Coroutine activeCoroutine;

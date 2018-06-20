@@ -111,9 +111,9 @@ public class CreatureManager : ManagerBase
     }
 
     //ensure if previous random number is min, then we don't get min again
-    int getRandom(int random, int min, int max)
+    int getRandom(int prev, int min, int max)
     {
-        return random == min ? UnityEngine.Random.Range(min + 1, max) : UnityEngine.Random.Range(min, max);
+        return prev == 0 ? UnityEngine.Random.Range(min + 1, max) : UnityEngine.Random.Range(min, max);
     }
 
     protected override void OnPhaseLoad(GamePhase phase)
@@ -126,7 +126,7 @@ public class CreatureManager : ManagerBase
                 SpawnCreatures(CreatureType.Deer, UnityEngine.Random.Range(1, 4));
                 break;
             case GamePhase.Dusk:
-                random = UnityEngine.Random.Range(0, 3);
+                random = UnityEngine.Random.Range(0, 4);
                 SpawnCreatures(CreatureType.Bunny, random);
                 random = getRandom(random, 0, 3);
                 SpawnCreatures(CreatureType.Raccoon, random);
@@ -134,7 +134,7 @@ public class CreatureManager : ManagerBase
                 SpawnCreatures(CreatureType.Wolf, random);
                 break;
             case GamePhase.Night:
-                random = UnityEngine.Random.Range(0, 3);
+                random = UnityEngine.Random.Range(1, 3);
                 SpawnCreatures(CreatureType.Crow, random);
                 random = getRandom(random, 0, 3);
                 SpawnCreatures(CreatureType.Wolf, random);
@@ -142,16 +142,18 @@ public class CreatureManager : ManagerBase
                 SpawnCreatures(CreatureType.Raccoon, random);
                 break;
             case GamePhase.Latenight:
-                SpawnCreatures(CreatureType.Decoy, 1);
+                SpawnCreatures(CreatureType.Decoy, UnityEngine.Random.Range(1, 3));
                 random = UnityEngine.Random.Range(1, 3);
                 SpawnCreatures(CreatureType.Wolf, random);
                 break;
             case GamePhase.Latenight2:
                 SpawnCreatures(CreatureType.Reverse, 1);
-                random = UnityEngine.Random.Range(0, 3);
+                random = UnityEngine.Random.Range(1, 3);
                 SpawnCreatures(CreatureType.Wolf, random);
+                SpawnCreatures(CreatureType.Bunny, 1);
                 break;
             case GamePhase.Latenight3:
+                SpawnCreatures(CreatureType.Bunny, 1);
                 if (UnityEngine.Random.value > 0.3f)
                 {
                     SpawnCreatures(CreatureType.Shapeshifter, 1);

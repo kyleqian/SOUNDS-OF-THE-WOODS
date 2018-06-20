@@ -30,10 +30,11 @@ public class GameManager : ManagerBase
 
     void Awake()
     {
-        RunAssertions();
-
         Instance = this;
-        InitializePhaseLengths();
+
+        RunAssertions();
+        InitOVRSettings();
+        InitPhaseLengths();
     }
 
     void Start()
@@ -43,7 +44,7 @@ public class GameManager : ManagerBase
 
         if (debugMode)
         {
-            InitializeDebugMode();
+            InitDebugMode();
         }
     }
 
@@ -67,12 +68,17 @@ public class GameManager : ManagerBase
         Assert.IsTrue(PhaseLengths.Length == Enum.GetValues(typeof(GamePhase)).Length);
     }
 
-    void InitializeDebugMode()
+    void InitOVRSettings()
+    {
+        OVRManager.tiledMultiResLevel = OVRManager.TiledMultiResLevel.LMSHigh;
+    }
+
+    void InitDebugMode()
     {
         //PhaseLengths[(int)GamePhase.Dawn] = Mathf.Infinity;
     }
 
-    void InitializePhaseLengths()
+    void InitPhaseLengths()
     {
         if (debugMode)
         {
