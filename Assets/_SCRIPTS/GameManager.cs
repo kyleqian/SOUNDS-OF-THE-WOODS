@@ -125,8 +125,7 @@ public class GameManager : ManagerBase
         // TODO: Clean this up
         Eye e = Camera.main.gameObject.GetComponent<Eye>();
 
-        // Why is it eye open?
-        e.EyeOpen(eyeCloseTime, true, () =>
+        e.EyeClose(eyeCloseTime, true, () =>
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }, delay, afterEyeCloseDelay);

@@ -109,6 +109,7 @@ public class CreatureManager : ManagerBase
             spawnedCreatures[i].Despawn();
         }
     }
+
     //ensure if previous random number is min, then we don't get min again
     int getRandom(int random, int min, int max)
     {

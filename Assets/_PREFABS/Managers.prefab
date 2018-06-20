@@ -492,13 +492,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PhaseLengths:
   - 0
+  - 75
   - 60
-  - 45
-  - 45
-  - 45
-  - 45
-  - 45
-  - 45
+  - 60
+  - 60
+  - 60
+  - 60
+  - 60
   - 0
   debugMode: 0
   minPhaseLengthInSeconds: 10

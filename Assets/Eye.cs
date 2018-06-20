@@ -8,7 +8,7 @@ public class Eye : MonoBehaviour
 
     public ScreenTransitionImageEffect effect;
 
-    public void EyeClosee(float time, bool EnableAndDisable, Action callback = null, float delay = 0, float callbackDelay = 0)
+    public void EyeClose(float time, bool EnableAndDisable, Action callback = null, float delay = 0, float callbackDelay = 0)
     {
         StartCoroutine(EO(time, EnableAndDisable, callback, delay, callbackDelay));
     }
