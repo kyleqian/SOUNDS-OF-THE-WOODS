@@ -2,7 +2,6 @@
 using System.Collections;
 using System;
 
-
 public class Reverse : CreatureBase
 {
     public AudioClip[] gutturalSweeps;
@@ -18,12 +17,8 @@ public class Reverse : CreatureBase
     {
         audio.PlayOneShot(horn);
     }
-    public void Howl()
-    {
-        audio.PlayOneShot(howl);
-    }
 
-    void Start()
+    public void Howl()
     {
         audio.PlayOneShot(lowGrowl);
     }
@@ -31,11 +26,11 @@ public class Reverse : CreatureBase
     protected override void SpawnVisual()
     {
         // Choose random location at X distance from player
-        transform.position =  RandomGroundPosition(-13.5f, 13.5f, -13.5f, 13.5f );
+        transform.position =  RandomGroundPosition(-13.5f, 13.5f, -13.5f, 13.5f);
 
         targetPosition = Vector3.zero;
 
-        audio.PlayOneShot(lowGrowl);
+        audio.PlayOneShot(howl);
 
         base.SpawnVisual();
     }
@@ -50,7 +45,6 @@ public class Reverse : CreatureBase
         }
         base.ChangeState(state);
     }
-
 
     void Update()
     {

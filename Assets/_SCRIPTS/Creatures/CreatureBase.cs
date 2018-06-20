@@ -35,13 +35,12 @@ public abstract class CreatureBase : MonoBehaviour
             return;
         }
 
-        animator.SetFloat("offset", UnityEngine.Random.Range(0, 1.2f));
-
-        ChangeState(CreatureState.Default);
-        SpawnVisual();
-
-        Spawned = true;
         gameObject.SetActive(true);
+
+        animator.SetFloat("offset", UnityEngine.Random.Range(0, 1.2f));
+        ChangeState(CreatureState.Default);
+        Spawned = true;
+        SpawnVisual();
     }
 
     public virtual void Despawn()
