@@ -11,7 +11,7 @@ public class Start : MonoBehaviour
 #if UNITY_EDITOR
         if (!started && Input.GetKeyDown(KeyCode.Space))
 #else
-        if (!started && OVRInput.GetDown(OVRInput.Button.One))
+        if (!started && (OVRInput.GetDown(OVRInput.Button.PrimaryTouchpad) || OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger)))
 #endif
         {
             started = true;
