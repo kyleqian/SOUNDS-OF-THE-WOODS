@@ -506,6 +506,8 @@ MonoBehaviour:
   ovrCameraRig: {fileID: 0}
   trackedRemotePrefab: {fileID: 1921345564133808, guid: a8a591d1577d4408a81accdb8095d4c3,
     type: 2}
+  ovrPlatformMenuPrefab: {fileID: 1283914407331138, guid: 65687c0f7b25841e48952eb76c1f942c,
+    type: 2}
 --- !u!114 &114730313002474242
 MonoBehaviour:
   m_ObjectHideFlags: 1

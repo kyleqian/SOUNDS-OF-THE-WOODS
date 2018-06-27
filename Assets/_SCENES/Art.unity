@@ -757,11 +757,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 114545110815229008, guid: eb778728cbe6648008b434524124154e,
+    - target: {fileID: 114064755615001564, guid: eb778728cbe6648008b434524124154e,
         type: 2}
-      propertyPath: ovrCameraRig
+      propertyPath: radio
       value: 
-      objectReference: {fileID: 1462498491}
+      objectReference: {fileID: 222384855}
     - target: {fileID: 114192776518737112, guid: eb778728cbe6648008b434524124154e,
         type: 2}
       propertyPath: bloomEffect
@@ -772,11 +772,11 @@ Prefab:
       propertyPath: directionalLight
       value: 
       objectReference: {fileID: 1248987485}
-    - target: {fileID: 114064755615001564, guid: eb778728cbe6648008b434524124154e,
+    - target: {fileID: 114545110815229008, guid: eb778728cbe6648008b434524124154e,
         type: 2}
-      propertyPath: radio
+      propertyPath: ovrCameraRig
       value: 
-      objectReference: {fileID: 222384855}
+      objectReference: {fileID: 1462498491}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: eb778728cbe6648008b434524124154e, type: 2}
   m_IsPrefabParent: 0
