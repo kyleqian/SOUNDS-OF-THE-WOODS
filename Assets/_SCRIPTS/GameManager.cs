@@ -26,6 +26,10 @@ public class GameManager : ManagerBase
     public float minPhaseLengthInSeconds;
     public float maxPhaseLengthInSeconds;
 
+    public OVRCameraRig ovrCameraRig;
+    public GameObject trackedRemotePrefab;
+    public GameObject ovrPlatformMenuPrefab;
+
     bool gameOver;
 
     void Awake()
@@ -70,7 +74,23 @@ public class GameManager : ManagerBase
 
     void InitOVRSettings()
     {
+#if UNITY_ANDROID
+        // Enable fixed foveated rendering
         OVRManager.tiledMultiResLevel = OVRManager.TiledMultiResLevel.LMSHigh;
+
+        // Instantiate on correct hand
+        if (OVRInput.IsControllerConnected(OVRInput.Controller.LTrackedRemote))
+        {
+            Instantiate(trackedRemotePrefab, ovrCameraRig.leftHandAnchor.transform);
+        }
+        else if (OVRInput.IsControllerConnected(OVRInput.Controller.RTrackedRemote))
+        {
+            Instantiate(trackedRemotePrefab, ovrCameraRig.rightHandAnchor.transform);
+        }
+
+        // Register back button
+        Instantiate(ovrPlatformMenuPrefab, transform);
+#endif
     }
 
     void InitDebugMode()
