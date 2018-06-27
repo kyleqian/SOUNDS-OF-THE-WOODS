@@ -26,7 +26,8 @@ public class GameManager : ManagerBase
     public float minPhaseLengthInSeconds;
     public float maxPhaseLengthInSeconds;
 
-    public OVRCameraRig ovrCameraRig;
+    public Transform leftHandAnchor;
+    public Transform rightHandAnchor;
     public GameObject trackedRemotePrefab;
     public GameObject ovrPlatformMenuPrefab;
 
@@ -60,12 +61,12 @@ public class GameManager : ManagerBase
         if (isRightHanded && OVRInput.IsControllerConnected(OVRInput.Controller.LTrackedRemote))
         {
             isRightHanded = false;
-            spawnedController.transform.parent = ovrCameraRig.leftHandAnchor;
+            spawnedController.transform.parent = leftHandAnchor;
         }
         else if (!isRightHanded && OVRInput.IsControllerConnected(OVRInput.Controller.RTrackedRemote))
         {
             isRightHanded = true;
-            spawnedController.transform.parent = ovrCameraRig.rightHandAnchor;
+            spawnedController.transform.parent = rightHandAnchor;
         }
 #endif
 
@@ -97,12 +98,12 @@ public class GameManager : ManagerBase
         if (OVRInput.IsControllerConnected(OVRInput.Controller.LTrackedRemote))
         {
             isRightHanded = false;
-            spawnedController = Instantiate(trackedRemotePrefab, ovrCameraRig.leftHandAnchor.transform);
+            spawnedController = Instantiate(trackedRemotePrefab, leftHandAnchor);
         }
         else if (OVRInput.IsControllerConnected(OVRInput.Controller.RTrackedRemote))
         {
             isRightHanded = true;
-            spawnedController = Instantiate(trackedRemotePrefab, ovrCameraRig.rightHandAnchor.transform);
+            spawnedController = Instantiate(trackedRemotePrefab, rightHandAnchor);
         }
 
         // Register back button

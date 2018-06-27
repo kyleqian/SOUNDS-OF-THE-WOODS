@@ -774,9 +774,14 @@ Prefab:
       objectReference: {fileID: 1248987485}
     - target: {fileID: 114545110815229008, guid: eb778728cbe6648008b434524124154e,
         type: 2}
-      propertyPath: ovrCameraRig
+      propertyPath: leftHandAnchor
       value: 
-      objectReference: {fileID: 1462498491}
+      objectReference: {fileID: 819034261}
+    - target: {fileID: 114545110815229008, guid: eb778728cbe6648008b434524124154e,
+        type: 2}
+      propertyPath: rightHandAnchor
+      value: 
+      objectReference: {fileID: 2076015042}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: eb778728cbe6648008b434524124154e, type: 2}
   m_IsPrefabParent: 0
@@ -2482,6 +2487,11 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!4 &819034261 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4090824195901490, guid: 3b721fcfc022d4101a4b20c90be59774,
+    type: 2}
+  m_PrefabInternal: {fileID: 1078805170}
 --- !u!1 &827950151
 GameObject:
   m_ObjectHideFlags: 0
@@ -3833,12 +3843,6 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 445910, guid: c63ea781a273235439e583799176c846, type: 2}
   m_PrefabInternal: {fileID: 1425542371}
---- !u!114 &1462498491 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114218584661994830, guid: 3b721fcfc022d4101a4b20c90be59774,
-    type: 2}
-  m_PrefabInternal: {fileID: 1078805170}
-  m_Script: {fileID: 11500000, guid: df9f338034892c44ebb62d97894772f1, type: 3}
 --- !u!1 &1502730187
 GameObject:
   m_ObjectHideFlags: 0
@@ -5042,6 +5046,11 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 445910, guid: c63ea781a273235439e583799176c846, type: 2}
   m_PrefabInternal: {fileID: 2064810931}
+--- !u!4 &2076015042 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4475946751741002, guid: 3b721fcfc022d4101a4b20c90be59774,
+    type: 2}
+  m_PrefabInternal: {fileID: 1078805170}
 --- !u!1 &2083612750
 GameObject:
   m_ObjectHideFlags: 0
