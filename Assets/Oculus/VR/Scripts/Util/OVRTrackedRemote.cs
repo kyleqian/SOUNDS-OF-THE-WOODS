@@ -54,7 +54,7 @@ public class OVRTrackedRemote : MonoBehaviour
 
 	void Update()
 	{
-		bool controllerConnected = OVRInput.IsControllerConnected(m_controller);
+        bool controllerConnected = OVRInput.IsControllerConnected(OVRInput.Controller.LTrackedRemote) || OVRInput.IsControllerConnected(OVRInput.Controller.RTrackedRemote);
 
 		if ((controllerConnected != m_prevControllerConnected) || !m_prevControllerConnectedCached)
 		{
