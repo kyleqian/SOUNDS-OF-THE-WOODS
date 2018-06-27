@@ -96,6 +96,16 @@ public class GameManager : ManagerBase
 
         // Register back button
         Instantiate(ovrPlatformMenuPrefab, transform);
+
+        // Initialize hand
+        if (OVRInput.IsControllerConnected(OVRInput.Controller.LTrackedRemote))
+        {
+            isRightHanded = false;
+        }
+        else
+        {
+            isRightHanded = true;
+        }
 #endif
     }
 
