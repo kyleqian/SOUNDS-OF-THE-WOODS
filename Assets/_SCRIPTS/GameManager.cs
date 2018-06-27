@@ -28,12 +28,11 @@ public class GameManager : ManagerBase
 
     public Transform leftHandAnchor;
     public Transform rightHandAnchor;
-    public GameObject trackedRemotePrefab;
+    public GameObject trackedRemote;
     public GameObject ovrPlatformMenuPrefab;
 
     bool gameOver;
     bool isRightHanded;
-    GameObject spawnedController;
 
     void Awake()
     {
@@ -58,15 +57,16 @@ public class GameManager : ManagerBase
     void Update()
     {
 #if UNITY_ANDROID
+        // Switch to correct hand
         if (isRightHanded && OVRInput.IsControllerConnected(OVRInput.Controller.LTrackedRemote))
         {
             isRightHanded = false;
-            spawnedController.transform.parent = leftHandAnchor;
+            trackedRemote.transform.parent = leftHandAnchor;
         }
         else if (!isRightHanded && OVRInput.IsControllerConnected(OVRInput.Controller.RTrackedRemote))
         {
             isRightHanded = true;
-            spawnedController.transform.parent = rightHandAnchor;
+            trackedRemote.transform.parent = rightHandAnchor;
         }
 #endif
 
@@ -93,18 +93,6 @@ public class GameManager : ManagerBase
 #if UNITY_ANDROID
         // Enable fixed foveated rendering
         OVRManager.tiledMultiResLevel = OVRManager.TiledMultiResLevel.LMSHigh;
-
-        // Instantiate on correct hand
-        if (OVRInput.IsControllerConnected(OVRInput.Controller.LTrackedRemote))
-        {
-            isRightHanded = false;
-            spawnedController = Instantiate(trackedRemotePrefab, leftHandAnchor);
-        }
-        else if (OVRInput.IsControllerConnected(OVRInput.Controller.RTrackedRemote))
-        {
-            isRightHanded = true;
-            spawnedController = Instantiate(trackedRemotePrefab, rightHandAnchor);
-        }
 
         // Register back button
         Instantiate(ovrPlatformMenuPrefab, transform);

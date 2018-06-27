@@ -782,6 +782,11 @@ Prefab:
       propertyPath: rightHandAnchor
       value: 
       objectReference: {fileID: 2076015042}
+    - target: {fileID: 114545110815229008, guid: eb778728cbe6648008b434524124154e,
+        type: 2}
+      propertyPath: trackedRemote
+      value: 
+      objectReference: {fileID: 1078805171}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: eb778728cbe6648008b434524124154e, type: 2}
   m_IsPrefabParent: 0
@@ -3323,6 +3328,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3b721fcfc022d4101a4b20c90be59774, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1078805171 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1804145407399388, guid: 3b721fcfc022d4101a4b20c90be59774,
+    type: 2}
+  m_PrefabInternal: {fileID: 1078805170}
 --- !u!1 &1114282580
 GameObject:
   m_ObjectHideFlags: 0
