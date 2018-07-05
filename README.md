@@ -1,3 +1,5 @@
+<img src="./banner.png" />
+
 # Sounds of the Woods
 
 _Created by Angela He and Kyle Qian as a part of Stanford's MUSIC257 (Neuroplasticity and Musical Gaming)._
