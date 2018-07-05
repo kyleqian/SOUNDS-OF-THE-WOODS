@@ -94,8 +94,12 @@ public class GameManager : ManagerBase
         // Enable fixed foveated rendering
         OVRManager.tiledMultiResLevel = OVRManager.TiledMultiResLevel.LMSHigh;
 
-        // Register back button
+        // Register back button as Pause
         Instantiate(ovrPlatformMenuPrefab, transform);
+
+        // Unmounted HMD should also Pause
+        OVRManager.HMDUnmounted -= OVRManager.PlatformUIConfirmQuit; // Makes sure no re-add
+        OVRManager.HMDUnmounted += OVRManager.PlatformUIConfirmQuit;
 
         // Initialize hand
         if (OVRInput.IsControllerConnected(OVRInput.Controller.LTrackedRemote))
