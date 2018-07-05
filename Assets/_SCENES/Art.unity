@@ -433,7 +433,7 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 33318949702338168, guid: 34a43f8ff03154cd0a6d893eabd9f357,
+    - target: {fileID: 33443236878098764, guid: 34a43f8ff03154cd0a6d893eabd9f357,
         type: 2}
       propertyPath: m_Mesh
       value: 
@@ -443,7 +443,7 @@ Prefab:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 33443236878098764, guid: 34a43f8ff03154cd0a6d893eabd9f357,
+    - target: {fileID: 33318949702338168, guid: 34a43f8ff03154cd0a6d893eabd9f357,
         type: 2}
       propertyPath: m_Mesh
       value: 
@@ -467,31 +467,6 @@ Prefab:
         type: 2}
       propertyPath: m_isInputParsingRequired
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114336079396631016, guid: 34a43f8ff03154cd0a6d893eabd9f357,
-        type: 2}
-      propertyPath: m_fontSize
-      value: 9.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 114336079396631016, guid: 34a43f8ff03154cd0a6d893eabd9f357,
-        type: 2}
-      propertyPath: m_fontSizeBase
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 224365506212161218, guid: 34a43f8ff03154cd0a6d893eabd9f357,
-        type: 2}
-      propertyPath: m_LocalScale.x
-      value: 0.65
-      objectReference: {fileID: 0}
-    - target: {fileID: 224365506212161218, guid: 34a43f8ff03154cd0a6d893eabd9f357,
-        type: 2}
-      propertyPath: m_LocalScale.y
-      value: 0.65
-      objectReference: {fileID: 0}
-    - target: {fileID: 224365506212161218, guid: 34a43f8ff03154cd0a6d893eabd9f357,
-        type: 2}
-      propertyPath: m_LocalScale.z
-      value: 0.65
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 34a43f8ff03154cd0a6d893eabd9f357, type: 2}
