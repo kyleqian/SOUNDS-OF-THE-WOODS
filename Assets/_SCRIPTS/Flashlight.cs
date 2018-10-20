@@ -25,6 +25,11 @@ public class Flashlight : MonoBehaviour
     void Start()
     {
         GameManager.Instance.GameOverEvent += GameOverHandler;
+
+#if UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN
+        GetComponentInParent<SteamVR_TrackedController>().PadClicked += ToggleLightSource;
+        GetComponentInParent<SteamVR_TrackedController>().TriggerClicked += ToggleLightSource;
+#endif
     }
 
     void GameOverHandler()
@@ -46,7 +51,8 @@ public class Flashlight : MonoBehaviour
             return;
         }
 
-#if UNITY_EDITOR
+#if UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN
+#elif UNITY_EDITOR
         float pitchDelta = Input.GetAxis("Vertical") * -2f;
         float yawDelta = Input.GetAxis("Horizontal") * 2f;
         Vector3 angles = transform.eulerAngles;
@@ -64,6 +70,11 @@ public class Flashlight : MonoBehaviour
             lightSource.enabled = !lightSource.enabled;
         }
 #endif
+    }
+
+    void ToggleLightSource(object sender, ClickedEventArgs e)
+    {
+        lightSource.enabled = !lightSource.enabled;
     }
 
     void DrainBattery()
@@ -106,6 +117,7 @@ public class Flashlight : MonoBehaviour
         if (Physics.Raycast(transform.position, transform.forward, out hit, RAYCAST_DISTANCE, layerMask))
         {
             GameObject creature = hit.collider.gameObject;
+
             int creatureId = creature.GetInstanceID();
 
             // How long you've been continuously looking at this creature

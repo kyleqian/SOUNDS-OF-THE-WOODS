@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class Start : MonoBehaviour
 {
+    [SerializeField] SteamVR_TrackedController SteamVRController;
     bool started;
 
     void Update()
     {
-#if UNITY_EDITOR
+#if UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN
+        if (!started && (SteamVRController.padPressed || SteamVRController.triggerPressed))
+#elif UNITY_EDITOR
         if (!started && Input.GetKeyDown(KeyCode.Space))
 #else
         if (!started && (OVRInput.GetDown(OVRInput.Button.PrimaryTouchpad) || OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger)))

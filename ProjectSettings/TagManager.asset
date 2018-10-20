@@ -13,9 +13,9 @@ TagManager:
   - UI
   - 
   - 
-  - PostProcessing
   - Hitbox
-  - Monster
+  - 
+  - 
   - 
   - 
   - 
@@ -40,10 +40,4 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Creature
-    uniqueID: 704455863
-    locked: 0
-  - name: Reverse
-    uniqueID: 1178330189
     locked: 0
