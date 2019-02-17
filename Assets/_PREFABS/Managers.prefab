@@ -492,7 +492,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PhaseLengths:
   - 0
-  - 75
+  - 60
   - 60
   - 60
   - 60
@@ -508,6 +508,7 @@ MonoBehaviour:
   trackedRemote: {fileID: 0}
   ovrPlatformMenuPrefab: {fileID: 1283914407331138, guid: 65687c0f7b25841e48952eb76c1f942c,
     type: 2}
+  gameOverText: {fileID: 0}
 --- !u!114 &114730313002474242
 MonoBehaviour:
   m_ObjectHideFlags: 1

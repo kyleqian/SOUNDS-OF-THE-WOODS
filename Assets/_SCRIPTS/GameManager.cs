@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.SceneManagement;
@@ -30,6 +32,7 @@ public class GameManager : ManagerBase
     public Transform rightHandAnchor;
     public GameObject trackedRemote;
     public GameObject ovrPlatformMenuPrefab;
+    public TextMeshPro gameOverText;
 
     bool gameOver;
     bool isRightHanded;
@@ -38,6 +41,7 @@ public class GameManager : ManagerBase
     {
         Instance = this;
 
+        gameOverText.gameObject.SetActive(false);
         RunAssertions();
         InitOVRSettings();
         InitPhaseLengths();
@@ -162,7 +166,20 @@ public class GameManager : ManagerBase
             {
                 GameOverEvent();
             }
+            StartCoroutine(FadeInGameOver(5, 10));
             RestartGame(10f, 10f, 4f);
+        }
+    }
+
+    IEnumerator FadeInGameOver(float delayTime, float fadeTime)
+    {
+        yield return new WaitForSeconds(delayTime);
+        gameOverText.alpha = 0;
+        gameOverText.gameObject.SetActive(true);
+        for (float t = 0f; t < 1f; t += Time.deltaTime / fadeTime)
+        {
+            gameOverText.alpha = t;
+            yield return null;
         }
     }
 

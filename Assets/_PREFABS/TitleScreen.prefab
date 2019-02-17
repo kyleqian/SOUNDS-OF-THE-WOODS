@@ -378,7 +378,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: 'click touchpad to start
 
-    <size=75%>(headphones required)</size>'
+    <size=75%>(headphones recommended)</size>'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9f7dda4075f80409b802ab31cab3a2eb, type: 2}
   m_sharedMaterial: {fileID: 21405560567932894, guid: 9f7dda4075f80409b802ab31cab3a2eb,
@@ -447,7 +447,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 114930946308149682}
-    characterCount: 45
+    characterCount: 48
     spriteCount: 0
     spaceCount: 5
     wordCount: 6
